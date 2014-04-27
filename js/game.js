@@ -147,9 +147,8 @@ function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
                 (game.cursor.y > this.y && game.cursor.y < (this.y + game.tileSize.y))) {
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);
-				board.lineWidth = 2;
-				board.striokeStyle = '#fff';
-				board.stroke;
+				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";;
+				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
             }
         },
         bounds: function() {
