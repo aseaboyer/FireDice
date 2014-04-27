@@ -34,15 +34,19 @@ function Update() {
 }
 
 function loadJSON(fileURL) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", fileURL, true);
-	xhr.onload = function() {
-		var parsed = JSON.parse(this.responseText());
-		console.log(xhr);
-		console.log("parsed:");
-		console.log(parsed);
-		return parsed;
+	var my_JSON_object;
+	var http_request = new XMLHttpRequest();
+	http_request.open("GET", fileURL, true);
+	http_request.onreadystatechange = function () {
+		if (http_request.readyState === 4 && http_request.status === 200) {
+			my_JSON_object = JSON.parse('''http_request.responseText''');
+			console.log("my_JSON_object:");
+			console.log(my_JSON_object);
+		}
 	};
+	http_request.send(null);
+	
+	return my_JSON_object;
 }
 
 function Draw() {
