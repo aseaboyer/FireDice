@@ -13,9 +13,7 @@ var game = {
         x: 100,
         y: 100
     },
-    events: {
-        
-    }
+    currentEvent: ''
 };
 var levelData = {
 	trucks: 2,
