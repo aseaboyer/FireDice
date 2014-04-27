@@ -17,20 +17,35 @@ var game = {
         
     }
 };
-/*
-var game;
-$.getJSON("js/game.json", function(data){
-    game = data;
-	console.log(data);
-});
-*/
+var levelData = {
+	trucks: 2,
+	tiles: {
+		1: {
+			'h',
+			'r',
+			'h'
+		},
+		2: {
+			'h',
+			'r',
+			'r'
+		},
+		3: {
+			'h',
+			'r',
+			'h'
+		},
+	}
+};
+console.log(levelData.tiles.1.2);
 
 var tileArray = new Array(
     'h','r','h',
     'h','r','r',
     'h','r','h'
 );
-var trucks = new Array(3);
+
+var trucks = new Array(levelData.trucks);
 
 /* Core */
 function Start() {
