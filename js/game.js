@@ -1,6 +1,6 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-var game = storeJSON("js/game.json");
+var game = loadJSON("js/game.json");
 console.log('loaded game info:');
 console.log(game);
 
@@ -33,14 +33,13 @@ function Update() {
     //console.log(new Date());
 }
 
-function storeJSON(fileURL) {
+function loadJSON(fileURL) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", fileURL, true);
 	xhr.onload = function() {
-		return JSON.parse(this.responseText);
+		var parsed = JSON.parse(this.responseText());
+		return parsed;
 	};
-	console.log("Load JSON FAILED");
-	return "";
 }
 
 function Draw() {
