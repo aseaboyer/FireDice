@@ -23,6 +23,7 @@ var game = {
 var game;
 $.getJSON("js/game.json", function(data){
     game = data;
+	console.log(data);
 });
 
 var tileArray = new Array(
