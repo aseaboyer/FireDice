@@ -1,0 +1,4 @@
+FireDice
+========
+
+Firetruck dice game
