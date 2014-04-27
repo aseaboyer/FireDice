@@ -1,7 +1,7 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 var game = storeJSON("js/game.json");
-console.log('game info:');
+console.log('loaded game info:');
 console.log(game);
 
 var tileArray = new Array(
