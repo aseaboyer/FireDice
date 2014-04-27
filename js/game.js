@@ -13,7 +13,8 @@ var game = {
         x: 100,
         y: 100
     },
-    currentEvent: 'Place Truck'
+    currentEvent: 'Place Truck',
+	holdingTruck: '', // which truck the player is holding, if they are holding one
 };
 var levelData = {
 	trucks: 2,
