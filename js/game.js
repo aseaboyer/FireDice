@@ -35,9 +35,6 @@ function Update() {
 
 function storeJSON(fileURL) {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", URL, true);
-	xhr.onload = function() {};
-	xhr.send();
 	xhr.open("GET", fileURL, true);
 	xhr.onload = function() {
 		return JSON.parse(this.responseText);
