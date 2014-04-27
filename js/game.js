@@ -25,7 +25,7 @@ var levelData = {
 		['h', 'r', 'h']
 	]
 };
-console.log(levelData.tiles[1][1]+" "+levelData.tiles[2][2]);
+console.log(levelData.tiles[1][1]+" "+levelData.tiles[2][2]+" "+levelData.tiles.length);
 
 var tileArray = new Array(
     'h','r','h',
