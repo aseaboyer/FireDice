@@ -38,6 +38,9 @@ function loadJSON(fileURL) {
 	xhr.open("GET", fileURL, true);
 	xhr.onload = function() {
 		var parsed = JSON.parse(this.responseText());
+		console.log(xhr);
+		console.log("parsed:");
+		console.log(parsed);
 		return parsed;
 	};
 }
