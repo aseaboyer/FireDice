@@ -53,7 +53,7 @@ function Start() {
 
 function Update() {
     if(game.currentEvent == "Place Truck") {
-		console.log("Placing Truck");
+	//	console.log("Placing Truck");
 	}
 }
 
@@ -146,7 +146,10 @@ function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
             // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
                 (game.cursor.y > this.y && game.cursor.y < (this.y + game.tileSize.y))) {
-                console.log("Rolled over a tile at: "+this.x+", "+this.y);
+                //console.log("Rolled over a tile at: "+this.x+", "+this.y);
+				board.lineWidth = 2;
+				board.striokeStyle = '#fff';
+				board.stroke;
             }
         },
         bounds: function() {
