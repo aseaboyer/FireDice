@@ -1,7 +1,5 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-//var game = loadJSON("js/game.json");
-/*
 var game = {
     cursor: {
         x: 0,
@@ -19,12 +17,13 @@ var game = {
         
     }
 };
-*/
+/*
 var game;
 $.getJSON("js/game.json", function(data){
     game = data;
 	console.log(data);
 });
+*/
 
 var tileArray = new Array(
     'h','r','h',
