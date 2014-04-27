@@ -122,6 +122,8 @@ function mouseUp(e) {
 function Truck() {
     return {
         residence: null, // which the tile the truck is on.
+		x: 0, // tile in where it resides
+		y: 0
     };
 }
 function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
