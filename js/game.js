@@ -39,7 +39,7 @@ function loadJSON(fileURL) {
 	http_request.open("GET", fileURL, true);
 	http_request.onreadystatechange = function () {
 		if (http_request.readyState === 4 && http_request.status === 200) {
-			my_JSON_object = JSON.parse('''http_request.responseText''');
+			my_JSON_object = JSON.parse(http_request.responseText);
 			console.log("my_JSON_object:");
 			console.log(my_JSON_object);
 		}
