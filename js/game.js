@@ -19,11 +19,11 @@ var game = {
 };
 var levelData = {
 	trucks: 2,
-	tiles: {[
+	tiles: [
 		['h', 'r', 'h'],
 		['h', 'r', 'r'],
 		['h', 'r', 'h']
-	]}
+	]
 };
 console.log(levelData.tiles[1][1]+" "+levelData.tiles[2][2]);
 
