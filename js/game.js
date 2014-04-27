@@ -1,9 +1,23 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-var game = loadJSON("js/game.json");
-console.log('loaded game info:');
-console.log(game);
-
+//var game = loadJSON("js/game.json");
+var game = {
+    cursor: {
+        x: 0,
+        y: 0
+    },
+    window: {
+        x: 300,
+        y: 300
+    },
+    tileSize: {
+        x: 100,
+        y: 100
+    },
+    events: {
+        
+    }
+};
 var tileArray = new Array(
     'h','r','h',
     'h','r','r',
@@ -31,22 +45,6 @@ function Start() {
 
 function Update() {
     //console.log(new Date());
-}
-
-function loadJSON(fileURL) {
-	var my_JSON_object;
-	var http_request = new XMLHttpRequest();
-	http_request.open("GET", fileURL, true);
-	http_request.onreadystatechange = function () {
-		if (http_request.readyState === 4 && http_request.status === 200) {
-			my_JSON_object = JSON.parse(http_request.responseText);
-			console.log("my_JSON_object:");
-			console.log(my_JSON_object);
-		}
-	};
-	http_request.send(null);
-	
-	return my_JSON_object;
 }
 
 function Draw() {
