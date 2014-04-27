@@ -13,7 +13,7 @@ var game = {
         x: 100,
         y: 100
     },
-    currentEvent: ''
+    currentEvent: 'Place Truck'
 };
 var levelData = {
 	trucks: 2,
@@ -52,7 +52,9 @@ function Start() {
 }
 
 function Update() {
-    //console.log(new Date());
+    if(game.currentEvent == "Place Truck") {
+		console.log("Placing Truck");
+	}
 }
 
 function Draw() {
