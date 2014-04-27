@@ -20,9 +20,9 @@ var game = {
     }
 };
 */
-
+var game;
 $.getJSON("js/game.json", function(data){
-    var game = data;
+    game = data;
 });
 
 var tileArray = new Array(
