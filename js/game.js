@@ -19,25 +19,13 @@ var game = {
 };
 var levelData = {
 	trucks: 2,
-	tiles: {
-		1: {
-			1: 'h',
-			2: 'r',
-			3: 'h'
-		},
-		2: {
-			1: 'h',
-			2: 'r',
-			3: 'r'
-		},
-		3: {
-			1: 'h',
-			2: 'r',
-			3: 'h'
-		},
-	}
+	tiles: {[
+		['h', 'r', 'h'],
+		['h', 'r', 'r'],
+		['h', 'r', 'h']
+	]}
 };
-console.log(levelData.tiles.1.2);
+console.log(levelData.tiles[1][1]+" "+levelData.tiles[2][2]);
 
 var tileArray = new Array(
     'h','r','h',
