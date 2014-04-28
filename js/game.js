@@ -131,7 +131,7 @@ function Truck() {
 		y: 0,
 		held: false,
 		place: function(newX,newY) {
-			thix.x = newX;
+			this.x = newX;
 			this.y = newY;
 			this.held = false;
 		},
