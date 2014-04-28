@@ -40,17 +40,18 @@ function Start() {
     for(var x=0; x < trucks.length; x++) {
         trucks[x] = new Truck();
     }
-	trucks[1].x = 200;
-	trucks[1].y = 200;
+	trucks[1].place(200,200);
     console.log(game);
     console.log(trucks);
     console.log(tileArray);
 }
 
 function Update() {
+/*
     if(game.currentEvent == "Place Truck") {
 	//	console.log("Placing Truck");
 	}
+*/
 }
 
 function Draw() {
@@ -128,9 +129,16 @@ function Truck() {
         residence: null, // which the tile the truck is on.
 		x: 0, // tile in where it resides
 		y: 0,
+		held: false,
 		place: function(newX,newY) {
 			thix.x = newX;
 			this.y = newY;
+			this.held = false;
+		},
+		pickup: function() {
+			this.x = newX;
+			this.y = newY;
+			this.held = true;
 		},
 		drawTruck: function(board) {
 			board.fillStyle = "#900";
