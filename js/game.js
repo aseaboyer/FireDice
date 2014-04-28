@@ -58,10 +58,13 @@ function Draw() {
     for(var x=0; x < tileCount; x++) {
         tileArray[x].drawTile(context);
     }
+	
+    var truckCount = trucks.length;
+    for(var x=0; x < truckCount; x++) {// now draw trucks
+        trucks[x].drawTruck(context);
+    }
     
     drawCursor();// now draw the cursor higlight - func
-    
-    // now draw trucks
 }
 
 function clearFrame() {
