@@ -40,7 +40,7 @@ function Start() {
     for(var x=0; x < trucks.length; x++) {
         trucks[x] = new Truck();
     }
-	trucks[0].place(200,200);
+	trucks[0].place(100,100);
     console.log(game);
     console.log(trucks);
     console.log(tileArray);
