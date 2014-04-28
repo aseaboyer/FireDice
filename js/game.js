@@ -40,6 +40,8 @@ function Start() {
     for(var x=0; x < trucks.length; x++) {
         trucks[x] = new Truck();
     }
+	trucks[1].x = 200;
+	trucks[1].y = 200;
     console.log(game);
     console.log(trucks);
     console.log(tileArray);
