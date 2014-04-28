@@ -14,7 +14,7 @@ var game = {
         y: 100
     },
     currentEvent: 'Place Truck',
-	holdingTruck: '', // which truck the player is holding, if they are holding one
+	holdingTruck: null, // which truck the player is holding, if they are holding one
 };
 var levelData = {
 	trucks: 2,
@@ -24,14 +24,7 @@ var levelData = {
 		['h', 'r', 'h']
 	]
 };
-console.log(levelData.tiles[1][1]+" "+levelData.tiles[2][2]+" "+levelData.tiles.length);
-
-var tileArray = new Array(
-    'h','r','h',
-    'h','r','r',
-    'h','r','h'
-);
-
+var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
 
 /* Core */
@@ -97,23 +90,28 @@ setInterval( mainloop, ONE_FRAME_TIME );
 
 // Bind events
 canvas.addEventListener('mousemove', trackMouse, false);
-/*
 canvas.addEventListener('mousedown', mouseDown, false);
 canvas.addEventListener('mouseup', mouseUp, false);
-*/
+
 function trackMouse(e) {
     game.cursor.x = e.clientX;
     game.cursor.y = e.clientY;
 //    console.log(e.clientX+" "+e.clientY);
 }
-/*
 function mouseDown(e) {
-    pen.penDown();
+	if(game.holdingTruck == null) {
+		pickupTruck(game.cursor.x, game.cursor.y);
+	}
 }
 function mouseUp(e) {
-    pen.penUp();
+	if(game.holdingTruck != null) {
+	//	dropTruck(game.cursor.x, game.cursor.y);
+	}
 }
-*/
+
+function pickupTruck() {
+	// check to see if a truck is on this tile, add it to game.holdingTruck if so
+}
 
 // Create a hashtable for turns/actions?
 
@@ -124,7 +122,15 @@ function Truck() {
     return {
         residence: null, // which the tile the truck is on.
 		x: 0, // tile in where it resides
-		y: 0
+		y: 0,
+		place: function(newX,newY) {
+			thix.x = newX;
+			this.y = newY;
+		},
+		drawTruck: function(board) {
+			board.fillStyle = "#900";
+			board.arc( (x + game.tileSize.x), (y + game.tileSize.y), (game.tileSize.x * 0.3), 0, 2 * Math.PI, false);
+		}
     };
 }
 function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
