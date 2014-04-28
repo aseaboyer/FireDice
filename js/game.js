@@ -141,9 +141,11 @@ function Truck() {
 			this.held = true;
 		},
 		drawTruck: function(board) {
-			board.fillStyle = "#900";
-			board.fillRect( (this.x + (game.tileSize.x * 0.25)), (this.y + (game.tileSize.y * 0.25)),
-				(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
+			if(this.residence != null) {
+				board.fillStyle = "#900";
+				board.fillRect( (this.x + (game.tileSize.x * 0.25)), (this.y + (game.tileSize.y * 0.25)),
+					(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
+			}
 		}
     };
 }
