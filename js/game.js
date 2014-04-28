@@ -132,7 +132,7 @@ function Truck() {
 		},
 		drawTruck: function(board) {
 			board.fillStyle = "#900";
-			board.arc( (x + game.tileSize.x), (y + game.tileSize.y), (game.tileSize.x * 0.3), 0, 2 * Math.PI, false);
+			board.arc( (this.x + game.tileSize.x), (this.y + game.tileSize.y), (game.tileSize.x * 0.3), 0, 2 * Math.PI, false);
 		}
     };
 }
