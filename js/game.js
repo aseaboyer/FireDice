@@ -40,7 +40,7 @@ function Start() {
     for(var x=0; x < trucks.length; x++) {
         trucks[x] = new Truck();
     }
-	trucks[1].place(200,200);
+	trucks[0].place(200,200);
     console.log(game);
     console.log(trucks);
     console.log(tileArray);
@@ -142,7 +142,8 @@ function Truck() {
 		},
 		drawTruck: function(board) {
 			board.fillStyle = "#900";
-			board.arc( (this.x + game.tileSize.x), (this.y + game.tileSize.y), (game.tileSize.x * 0.3), 0, 2 * Math.PI, false);
+			board.fillRect( (this.x + game.tileSize.x), (this.y + game.tileSize.y),
+				(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
 		}
     };
 }
