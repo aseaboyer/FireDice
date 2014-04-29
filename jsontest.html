@@ -16,16 +16,6 @@
 	ajax_get_json("js/game.json");
 
 	function ajax_get_json(fileURL){
-		var hr = new XMLHttpRequest();
-		hr.open("GET", fileURL, true);
-		hr.setRequestHeader("Content-type", "application/json", true);
-		hr.onreadystatechange = function() {
-			if(hr.readyState == 4 && hr.status == 200) {
-				var data = JSON.parse(hr.responseText);
-				console.log(data);
-			}
-		}
-		hr.send(null);
 	}
 </script>
 </body>
