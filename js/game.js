@@ -2,7 +2,10 @@ var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 var game = ajax_get_json("js/game.json");
 
+console.log("LOADING LEVEL DATA");
 var levelData = loadLevel("1");
+console.log(levelData);
+
 var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
 
@@ -75,7 +78,7 @@ setInterval( mainloop, ONE_FRAME_TIME );
 
 function loadLevel(levelNum) {
 	var holder = ajax_get_json("levels/level"+levelNum+".json")
-	console.log(holder);
+	return holder;
 }
 
 function ajax_get_json(fileURL) {
