@@ -77,8 +77,9 @@ Start();
 setInterval( mainloop, ONE_FRAME_TIME );
 
 function loadLevel(levelNum) {
-	console.log("Fetching : levels/level"+levelNum+".json")
-	var holder = ajax_get_json("levels/level"+levelNum+".json")
+	var holder = ajax_get_json("levels/level"+levelNum+".json");
+	console.log("Fetching : levels/level"+levelNum+".json");
+	console.log(holder);
 	
 	return holder;
 }
