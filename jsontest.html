@@ -21,8 +21,8 @@
 		hr.setRequestHeader("Content-type", "application/json", true);
 		hr.onreadystatechange = function() {
 			if(hr.readyState == 4 && hr.status == 200) {
-				var data = JSON.parse(hr.responseText);
-				console.log(data);
+			//	var data = JSON.parse(hr.responseText);
+			//	console.log(data);
 			}
 		}
 		hr.send(null);
