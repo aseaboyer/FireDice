@@ -23,7 +23,7 @@
 			console.log(hr.readyState+" :: "+hr.status);
 			if(hr.readyState == 4 && hr.status == 200) {
 			//	var data = JSON.parse(hr.responseText);
-				console.log(hr.responseText);
+				console.log(JSON.parse(hr.responseText));
 			}
 		}
 		hr.send(null);
