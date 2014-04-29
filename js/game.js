@@ -87,7 +87,7 @@ function ajax_get_json(fileURL){
 	hr.onreadystatechange = function() {
 		console.log(hr.readyState+" :: "+hr.status);
 		if(hr.readyState == 4 && hr.status == 200) {
-			return JSON.parse(hr.responseText));
+			return JSON.parse(hr.responseText);
 		}
 	}
 	hr.send(null);
