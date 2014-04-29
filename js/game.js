@@ -1,21 +1,7 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-var game = {
-    cursor: {
-        x: 0,
-        y: 0
-    },
-    window: {
-        x: 300,
-        y: 300
-    },
-    tileSize: {
-        x: 100,
-        y: 100
-    },
-    currentEvent: 'Place Truck',
-	holdingTruck: null, // which truck the player is holding, if they are holding one
-};
+var game = ajax_get_json("js/game.json");
+
 var levelData = {
 	trucks: 2,
 	tiles: [
@@ -93,6 +79,19 @@ var mainloop = function() {
 };
 Start();
 setInterval( mainloop, ONE_FRAME_TIME );
+
+function ajax_get_json(fileURL){
+	var hr = new XMLHttpRequest();
+	hr.open("GET", fileURL, true);
+	hr.setRequestHeader("Content-type", "application/json", true);
+	hr.onreadystatechange = function() {
+		console.log(hr.readyState+" :: "+hr.status);
+		if(hr.readyState == 4 && hr.status == 200) {
+			return JSON.parse(hr.responseText));
+		}
+	}
+	hr.send(null);
+}
 
 // Bind events
 canvas.addEventListener('mousemove', trackMouse, false);
