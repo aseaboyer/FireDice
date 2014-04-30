@@ -3,7 +3,8 @@ var context = canvas.getContext("2d");
 var game = ajax_get_json("js/game.json");
 
 console.log("LOADING LEVEL DATA");
-var levelData = loadLevel("1");
+//var levelData = loadLevel("1");
+var levelData = ajax_get_json("1");
 console.log(levelData);
 
 var tileArray = new Array();
@@ -89,7 +90,7 @@ function ajax_get_json(fileURL) {
 	hr.open("GET", fileURL, true);
 	hr.setRequestHeader("Content-type", "application/json", true);
 	hr.onreadystatechange = function() {
-		console.log(hr.readyState+" :: "+hr.status);
+	//	console.log(hr.readyState+" :: "+hr.status);
 		if(hr.readyState == 4 && hr.status == 200) {
 			return JSON.parse(hr.responseText);
 		}
