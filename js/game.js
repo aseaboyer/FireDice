@@ -5,7 +5,7 @@ var game = ajax_get_json("js/game.json");
 console.log("LOADING LEVEL DATA");
 //var levelData = loadLevel("1");
 var levelData = ajax_get_json("levels/level1.json");
-console.log('test '+levelData);
+console.log('test ');
 
 var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
