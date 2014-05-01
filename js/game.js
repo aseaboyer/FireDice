@@ -1,7 +1,7 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 var game = ajax_get_json("js/game.json");
-console.log(game);
+console.log(game.game);
 
 console.log("LOADING LEVEL DATA");
 //var levelData = loadLevel("1");
@@ -93,10 +93,6 @@ function ajax_get_json(fileURL) {
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
-			console.log("Success!");
-			var returnable = JSON.parse(hr.responseText);
-			console.log(returnable.game);
-			console.log("Success!");
 			return JSON.parse(hr.responseText);
 		}
 	}
