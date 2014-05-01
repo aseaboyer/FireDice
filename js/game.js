@@ -96,6 +96,7 @@ function ajax_get_json(fileURL) {
 			console.log("Success!");
 			console.log(hr.responseText);
 			console.log("Success!");
+			console.log(JSON.parse(hr.responseText));
 			return JSON.parse(hr.responseText);
 		}
 	}
