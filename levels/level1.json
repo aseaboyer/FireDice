@@ -1,5 +1,5 @@
 {	"Level 1": {
 		"trucks": 1,
-		"tiles": ["h", "r", "h"]
+		"tiles": "l"
     }
 }
