@@ -95,7 +95,7 @@ function ajax_get_json(fileURL) {
 		if(hr.readyState == 4 && hr.status == 200) {
 			console.log("Success!");
 			var returnable = JSON.parse(hr.responseText);
-			console.log(returnable);
+			console.log(returnable.game);
 			console.log("Success!");
 			return JSON.parse(hr.responseText);
 		}
