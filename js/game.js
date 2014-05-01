@@ -1,7 +1,7 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 var game = ajax_get_json("js/game.json");
-console.log(game.game);
+console.log(game);
 
 console.log("LOADING LEVEL DATA");
 //var levelData = loadLevel("1");
@@ -88,15 +88,17 @@ function loadLevel(levelNum) {
 
 function ajax_get_json(fileURL) {
 	var hr = new XMLHttpRequest();
+	var jsonReturn = '';
 	hr.open("GET", fileURL, true);
 	hr.setRequestHeader("Content-type", "application/json", true);
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
-			return JSON.parse(hr.responseText);
+			jsonReturn = JSON.parse(hr.responseText);
 		}
 	}
 	hr.send(null);
+	return jsonReturn;
 }
 
 // Bind events
