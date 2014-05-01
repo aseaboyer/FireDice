@@ -1,5 +1,4 @@
-{	"Level 1": {
-		"trucks": 1,
-		"tiles": "l"
+{	"level1": {
+		"trucks": 1
     }
 }
