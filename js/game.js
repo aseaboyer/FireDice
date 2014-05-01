@@ -93,6 +93,9 @@ function ajax_get_json(fileURL) {
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
+			console.log("Success!");
+			console.log(hr);
+			console.log("Success!");
 			return JSON.parse(hr.responseText);
 		}
 	}
