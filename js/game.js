@@ -5,7 +5,7 @@ console.log(game);
 
 console.log("LOADING LEVEL DATA");
 //var levelData = loadLevel("1");
-var levelData = ajax_get_json("levels/level1.json");
+var levelData = ajax_get_json("1");
 console.log(levelData);
 
 var tileArray = new Array();
@@ -91,7 +91,7 @@ function ajax_get_json(fileURL) {
 	hr.open("GET", fileURL, true);
 	hr.setRequestHeader("Content-type", "application/json", true);
 	hr.onreadystatechange = function() {
-	//	console.log(hr.readyState+" :: "+hr.status);
+		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
 			return JSON.parse(hr.responseText);
 		}
