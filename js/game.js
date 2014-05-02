@@ -22,68 +22,67 @@ var game = {
 var tileArray,
 	trucks;
 
-var levelData = {	"Level1": {
-		"trucks": 1,
-		"tiles": [
-			[
-				{
-					"type": "h",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "r",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "h",
-					"spriteX": 0,
-					"spriteY": 0
-				}
-			],
-			[
-				{
-					"type": "h",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "r",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "r",
-					"spriteX": 0,
-					"spriteY": 0
-				}
-			],
-			[
-				{
-					"type": "h",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "r",
-					"spriteX": 0,
-					"spriteY": 0
-				},
-				{
-					"type": "h",
-					"spriteX": 0,
-					"spriteY": 0
-				}
-			]
+var levelData = {
+	"trucks": 1,
+	"tiles": [
+		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 0
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 0
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 0
+			},
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 0
+			}
 		]
-    }
+	]
 };
 
 /* Core */
 function Start() {
 	var i = 0;
-	console.log(levelData);
+	console.log(levelData.level1.tiles);
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			var newTile = Tile((x*game.tileSize.x),(y*game.tileSize.y), levelData.tiles[x][y]);
