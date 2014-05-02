@@ -31,7 +31,7 @@ function Init() { // Init starts the async loads.
 	window.setTimeout(Start(),10000);
 }
 function Start() {
-	if(levelData == '') {
+	if(levelData == '' || !levelData) {
 		console.log("Waiting for assets to load.");
 		console.log(levelData);
 		window.setTimeout(Start(),10000);
