@@ -14,8 +14,6 @@ var game = {
 			"x": 100,
 			"y": 100
 		},
-		"phase": "Init",
-		"phases": ["Init","Loading","Start"]
     }
 };
 
