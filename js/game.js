@@ -23,6 +23,64 @@ var tileArray,
 	trucks,
 	levelData = '';
 
+levelData = {	"Level1": {
+		"trucks": 1,
+		"tiles": [
+			[
+				{
+					"type" = "h",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "r",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "h",
+					"spriteX" = 0,
+					"spriteY" = 0
+				}
+			],
+			[
+				{
+					"type" = "h",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "r",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "r",
+					"spriteX" = 0,
+					"spriteY" = 0
+				}
+			],
+			[
+				{
+					"type" = "h",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "r",
+					"spriteX" = 0,
+					"spriteY" = 0
+				},
+				{
+					"type" = "h",
+					"spriteX" = 0,
+					"spriteY" = 0
+				}
+			]
+		]
+    }
+};
+
 /* Core */
 function Init() { // Init starts the async loads.
 	levelData = loadLevel("1");
