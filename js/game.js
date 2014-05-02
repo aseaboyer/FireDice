@@ -10,8 +10,8 @@ var game = {
 		"y": 300
 	},
 	"tileSize": {
-		"x": 100,
-		"y": 100
+		"x": 64,
+		"y": 64
 	},
 	"tileImgURL": "/img/tile_spritesheet.png",
 };
@@ -73,6 +73,7 @@ var levelData = {
 };
 var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
+var spriteTileImg;
 
 // WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
 
@@ -95,6 +96,8 @@ function Start() {
 		trucks[x] = new Truck();
 	}
 	trucks[0].place(100,100);
+	
+	spriteTileImg = loadImage(game.tileImgURL);
 	
 	console.log(game);
 	console.log(trucks);
