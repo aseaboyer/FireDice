@@ -20,10 +20,9 @@ var game = {
 // WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
 
 var tileArray,
-	trucks,
-	levelData = '';
+	trucks;
 
-levelData = {	"Level1": {
+var levelData = {	"Level1": {
 		"trucks": 1,
 		"tiles": [
 			[
@@ -84,7 +83,7 @@ levelData = {	"Level1": {
 /* Core */
 function Start() {
 	var i = 0;
-	
+	console.log(levelData);
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			var newTile = Tile((x*game.tileSize.x),(y*game.tileSize.y), levelData.tiles[x][y]);
