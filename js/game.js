@@ -26,11 +26,12 @@ var tileArray,
 
 /* Core */
 function Init() { // Init starts the async loads.
-	if(levelData!='') {
-		Start();
-	} else {
+	if(levelData=='') {
 		console.log("Waiting for assets to load.");
-		window.setTimeout(Init(),1000);
+		console.log(levelData);
+		window.setTimeout(Init(),10000);
+	} else {
+		Start();
 	}
 }
 function Start() {
