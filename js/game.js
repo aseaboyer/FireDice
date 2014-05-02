@@ -20,9 +20,9 @@ var game = {
     }
 };
 
-var tileArray = '';
-var trucks = '';
-var levelData = ajax_get_json("1");
+var tileArray,
+	trucks,
+	levelData = '';
 
 /* Core */
 function Init() { // Init starts the async loads.
@@ -34,6 +34,7 @@ function Init() { // Init starts the async loads.
 	}
 }
 function Start() {
+	levelData = ajax_get_json("1");
     var i = 0;
     for(var x=0; x < levelData.tiles.length; x++) {
         for(var y=0; y < levelData.tiles[x].length; y++) {
