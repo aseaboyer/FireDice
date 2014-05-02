@@ -83,7 +83,7 @@ var levelData = {	"Level1": {
 /* Core */
 function Start() {
 	var i = 0;
-	console.log(levelData.tiles);
+	console.log(levelData);
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			var newTile = Tile((x*game.tileSize.x),(y*game.tileSize.y), levelData.tiles[x][y]);
