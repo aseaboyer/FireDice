@@ -111,15 +111,15 @@ function loadLevel(levelNum) {
 
 function ajax_get_json(fileURL) {
 	var hr = new XMLHttpRequest();
-	hr.open("GET", fileURL, true);
+	hr.open("GET", fileURL, false);
 	hr.setRequestHeader("Content-type", "application/json", true);
+	hr.send(null);
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
 			return JSON.parse(hr.responseText); // what if this triggered the main frame on completion? frustrating
 		}
 	}
-	hr.send(null);
 }
 
 // Bind events
