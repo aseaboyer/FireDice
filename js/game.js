@@ -73,7 +73,7 @@ var levelData = {
 };
 var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
-var spriteTileImg;
+var spriteTileImg = new Image();
 
 // WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
 
@@ -97,7 +97,7 @@ function Start() {
 	}
 	trucks[0].place(100,100);
 	
-//	spriteTileImg = loadImage(game.tileImgURL);
+	spriteTileImg.src = game.tileImgURL;
 	
 	console.log(game);
 	console.log(trucks);
@@ -252,6 +252,9 @@ function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);
 				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";;
 				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
+				
+				board.drawImage(spriteTileImg, game.tileSize.x, game.tileSize.y); //draw that image sprite
+				// later crop this correctly
             }
         },
         bounds: function() {
