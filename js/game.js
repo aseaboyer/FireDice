@@ -26,7 +26,8 @@ var tileArray,
 
 /* Core */
 function Init() { // Init starts the async loads.
-	if(levelData=='') {
+	levelData = ajax_get_json("1");
+	if(levelData == '') {
 		console.log("Waiting for assets to load.");
 		console.log(levelData);
 		window.setTimeout(Init(),10000);
@@ -35,7 +36,6 @@ function Init() { // Init starts the async loads.
 	}
 }
 function Start() {
-	levelData = ajax_get_json("1");
     var i = 0;
     for(var x=0; x < levelData.tiles.length; x++) {
         for(var y=0; y < levelData.tiles[x].length; y++) {
