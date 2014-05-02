@@ -1,17 +1,38 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-var game = ajax_get_json("js/game.json");
-console.log(game);
+var game = {	
+	"game": {
+		"cursor": {
+			"x": 0,
+			"y": 0
+		},
+		"window": {
+			"x": 300,
+			"y": 300
+		},
+		"tileSize": {
+			"x": 100,
+			"y": 100
+		},
+		"events": {
+			
+		}
+    }
+};
 
-console.log("LOADING LEVEL DATA");
-//var levelData = loadLevel("1");
+var tileArray = '';
+var trucks = '';
 var levelData = ajax_get_json("1");
-console.log(levelData);
-
-var tileArray = new Array();
-var trucks = new Array(levelData.trucks);
 
 /* Core */
+function Init() { // Init starts the async loads.
+	if(levelData!='') {
+		Start();
+	} else {
+		console.log("Waiting for assets to load.");
+		window.setTimeout(Init(),1000);
+	}
+}
 function Start() {
     var i = 0;
     for(var x=0; x < levelData.tiles.length; x++) {
@@ -21,6 +42,7 @@ function Start() {
             i++;
         }
     }
+	trucks = new Array(levelData.trucks);
     for(var x=0; x < trucks.length; x++) {
         trucks[x] = new Truck();
     }
@@ -28,6 +50,8 @@ function Start() {
     console.log(game);
     console.log(trucks);
     console.log(tileArray);
+	
+	setInterval( mainloop, ONE_FRAME_TIME );
 }
 
 function Update() {
@@ -75,30 +99,23 @@ var mainloop = function() {
     Update(); // the logic
     Draw(); // the output
 };
-Start();
-setInterval( mainloop, ONE_FRAME_TIME );
+Init();
 
 function loadLevel(levelNum) {
-	var holder = ajax_get_json("levels/level"+levelNum+".json");
-	console.log("Fetching : levels/level"+levelNum+".json");
-	console.log(holder);
-	
-	return holder;
+	return ajax_get_json("levels/level"+levelNum+".json");
 }
 
 function ajax_get_json(fileURL) {
 	var hr = new XMLHttpRequest();
-	var jsonReturn = '';
 	hr.open("GET", fileURL, true);
 	hr.setRequestHeader("Content-type", "application/json", true);
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
-			jsonReturn = JSON.parse(hr.responseText);
+			return JSON.parse(hr.responseText);
 		}
 	}
 	hr.send(null);
-	return jsonReturn;
 }
 
 // Bind events
