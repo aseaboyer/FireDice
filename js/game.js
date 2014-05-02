@@ -12,7 +12,8 @@ var game = {
 	"tileSize": {
 		"x": 100,
 		"y": 100
-	}
+	},
+	"tileImgURL": "/img/tile_spritesheet.png",
 };
 var levelData = {
 	"trucks": 1,
