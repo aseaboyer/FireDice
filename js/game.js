@@ -1,20 +1,18 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-var game = {	
-	"game": {
-		"cursor": {
-			"x": 0,
-			"y": 0
-		},
-		"window": {
-			"x": 300,
-			"y": 300
-		},
-		"tileSize": {
-			"x": 100,
-			"y": 100
-		},
-    }
+var game = {
+	"cursor": {
+		"x": 0,
+		"y": 0
+	},
+	"window": {
+		"x": 300,
+		"y": 300
+	},
+	"tileSize": {
+		"x": 100,
+		"y": 100
+	}
 };
 
 // WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
@@ -86,10 +84,6 @@ function Start() {
 	console.log(game);
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
-			console.log("----------------------");
-			console.log((x));
-			console.log((y * game.tileSize.y));
-			console.log(levelData.tiles[x][y]);
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y), levelData.tiles[x][y]);
 			tileArray[i] = newTile;
 			i++;
