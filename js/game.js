@@ -82,36 +82,28 @@ levelData = {	"Level1": {
 };
 
 /* Core */
-function Init() { // Init starts the async loads.
-	levelData = loadLevel("1");
-	window.setTimeout(Start(),10000);
-}
 function Start() {
-	if(levelData == '' || !levelData) {
-		console.log("Waiting for assets to load.");
-		console.log(levelData);
-		window.setTimeout(Start(),10000);
-	} else {
-		console.log(levelData);
-		var i = 0;
-		for(var x=0; x < levelData.tiles.length; x++) {
-			for(var y=0; y < levelData.tiles[x].length; y++) {
-				var newTile = Tile((x*game.tileSize.x),(y*game.tileSize.y), levelData.tiles[x][y]);
-				tileArray[i] = newTile;
-				i++;
-			}
+	var i = 0;
+	
+	for(var x=0; x < levelData.tiles.length; x++) {
+		for(var y=0; y < levelData.tiles[x].length; y++) {
+			var newTile = Tile((x*game.tileSize.x),(y*game.tileSize.y), levelData.tiles[x][y]);
+			tileArray[i] = newTile;
+			i++;
 		}
-		trucks = new Array(levelData.trucks);
-		for(var x=0; x < trucks.length; x++) {
-			trucks[x] = new Truck();
-		}
-		trucks[0].place(100,100);
-		console.log(game);
-		console.log(trucks);
-		console.log(tileArray);
-		
-		setInterval( mainloop, ONE_FRAME_TIME );
 	}
+	
+	trucks = new Array(levelData.trucks);
+	for(var x=0; x < trucks.length; x++) {
+		trucks[x] = new Truck();
+	}
+	trucks[0].place(100,100);
+	
+	console.log(game);
+	console.log(trucks);
+	console.log(tileArray);
+	
+	setInterval( mainloop, ONE_FRAME_TIME );
 }
 
 function Update() {
@@ -159,7 +151,7 @@ var mainloop = function() {
     Update(); // the logic
     Draw(); // the output
 };
-Init();
+Start();
 
 function loadLevel(levelNum) {
 	return ajax_get_json("levels/level"+levelNum+".json");
