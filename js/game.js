@@ -28,53 +28,53 @@ levelData = {	"Level1": {
 		"tiles": [
 			[
 				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "h",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "r",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "h",
+					"spriteX": 0,
+					"spriteY": 0
 				}
 			],
 			[
 				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "h",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "r",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "r",
+					"spriteX": 0,
+					"spriteY": 0
 				}
 			],
 			[
 				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "h",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "r",
+					"spriteX": 0,
+					"spriteY": 0
 				},
 				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
+					"type": "h",
+					"spriteX": 0,
+					"spriteY": 0
 				}
 			]
 		]
