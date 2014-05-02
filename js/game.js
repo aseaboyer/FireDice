@@ -87,7 +87,7 @@ function Start() {
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			console.log("----------------------");
-			console.log((x * game.tileSize.x));
+			console.log((x));
 			console.log((y * game.tileSize.y));
 			console.log(levelData.tiles[x][y]);
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y), levelData.tiles[x][y]);
