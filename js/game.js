@@ -17,8 +17,8 @@ var game = {
 
 // WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
 
-var tileArray,
-	trucks;
+var tileArray = new array();
+var trucks = new array();
 
 var levelData = {
 	"trucks": 1,
