@@ -14,8 +14,8 @@ var game = {
 			"x": 100,
 			"y": 100
 		},
-		"phases": "Init",
-		"phases": ["Init"]
+		"phase": "Init",
+		"phases": ["Init","Loading","Start"]
     }
 };
 
@@ -27,7 +27,7 @@ var tileArray,
 
 /* Core */
 function Init() { // Init starts the async loads.
-	levelData = ajax_get_json("1");
+	levelData = loadLevel("1");
 	window.setTimeout(Start(),10000);
 }
 function Start() {
