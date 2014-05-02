@@ -14,12 +14,6 @@ var game = {
 		"y": 100
 	}
 };
-
-// WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
-
-var tileArray = new array();
-var trucks = new array();
-
 var levelData = {
 	"trucks": 1,
 	"tiles": [
@@ -76,6 +70,11 @@ var levelData = {
 		]
 	]
 };
+var tileArray = new Array();
+var trucks = new Array(levelData.trucks);
+
+// WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
+
 
 /* Core */
 function Start() {
