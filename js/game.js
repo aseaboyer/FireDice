@@ -116,7 +116,7 @@ function ajax_get_json(fileURL) {
 	hr.onreadystatechange = function() {
 		console.log(hr);
 		if(hr.readyState == 4 && hr.status == 200) {
-			return JSON.parse(hr.responseText);
+			return JSON.parse(hr.responseText); // what if this triggered the main frame on completion? frustrating
 		}
 	}
 	hr.send(null);
