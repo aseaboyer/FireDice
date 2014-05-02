@@ -14,9 +14,8 @@ var game = {
 			"x": 100,
 			"y": 100
 		},
-		"events": {
-			
-		}
+		"phases": "Init",
+		"phases": ["Init"]
     }
 };
 
@@ -37,7 +36,7 @@ function Start() {
 		console.log(levelData);
 		window.setTimeout(Start(),10000);
 	} else {
-	
+		console.log(levelData);
 		var i = 0;
 		for(var x=0; x < levelData.tiles.length; x++) {
 			for(var y=0; y < levelData.tiles[x].length; y++) {
