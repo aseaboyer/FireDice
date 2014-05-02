@@ -13,7 +13,7 @@ var game = {
 		"x": 64,
 		"y": 64
 	},
-	"tileImgURL": "/img/tile_spritesheet.png",
+	"tileImgURL": "img/tile_spritesheet.png",
 };
 var levelData = {
 	"trucks": 1,
