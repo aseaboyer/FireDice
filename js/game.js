@@ -97,7 +97,7 @@ function Start() {
 	}
 	trucks[0].place(100,100);
 	
-	spriteTileImg = loadImage(game.tileImgURL);
+//	spriteTileImg = loadImage(game.tileImgURL);
 	
 	console.log(game);
 	console.log(trucks);
