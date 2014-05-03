@@ -29,16 +29,19 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			},
 			{
 				"type": "r",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			},
 			{
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			}
 		],
 		[
@@ -46,16 +49,19 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 0),
 				"spriteY": (64 * 1),
+				"truckStart": true,
 			},
 			{
 				"type": "r",
 				"spriteX": (64 * 4),
 				"spriteY": (64 * 0),
+				"truckStart": false,
 			},
 			{
 				"type": "r",
 				"spriteX": (64 * 0),
 				"spriteY": (64 * 1),
+				"truckStart": true,
 			}
 		],
 		[
@@ -63,16 +69,19 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			},
 			{
 				"type": "r",
 				"spriteX": (64 * 0),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			},
 			{
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"truckStart": false,
 			}
 		]
 	]
@@ -93,7 +102,8 @@ function Start() {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
 				levelData.tiles[y][x].type,
-				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY);
+				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY,
+				levelData.tiles[y][x].truckStart);
 			tileArray[i] = newTile;
 			i++;
 		}
@@ -103,7 +113,7 @@ function Start() {
 	for(var x=0; x < trucks.length; x++) {
 		trucks[x] = new Truck();
 	}
-	trucks[0].place(100,100);
+	trucks[0].place((64*1),(64*1));
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
@@ -237,7 +247,7 @@ function Truck() {
 		}
     };
 }
-function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own their x/y location
+function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles should own their x/y location
     return {
         x: tileX,
         y: tileY,
@@ -248,6 +258,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
         spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
+		truckCanStart: truckStart, // If a new truck can be placed on this tile
         //tileColor: "#090",
     
         drawTile: function(board) {
