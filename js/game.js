@@ -14,7 +14,11 @@ var game = {
 		"x": 64,
 		"y": 64
 	},
-	"tileImgURL": "img/tile_spritesheet.png",
+	"tileSpritesheet": {
+		"url": "img/tile_spritesheet.png",
+		"x": 576,
+		"y": 576
+	},
 	"trucksAvailable": 0,
 };
 var levelData = {
@@ -87,7 +91,9 @@ function Start() {
 	console.log(game);
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
-			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y), levelData.tiles[x][y].type);
+			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
+				levelData.tiles[x][y].type,
+				levelData.tiles[x][y].spriteX, levelData.tiles[x][y].spriteY);
 			tileArray[i] = newTile;
 			i++;
 		}
@@ -99,7 +105,7 @@ function Start() {
 	}
 	trucks[0].place(100,100);
 	
-	spriteTileImg.src = game.tileImgURL;
+	spriteTileImg.src = game.tileSpritesheet.url;
 	
 	console.log(game);
 	console.log(trucks);
@@ -231,11 +237,15 @@ function Truck() {
 		}
     };
 }
-function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
+function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own their x/y location
     return {
         x: tileX,
         y: tileY,
         type: tileType,
+        spriteDX: spriteX,
+        spriteDY: spriteY,
+        spriteDW: (spriteX * game.tileSize.x),
+        spriteDH: (spriteY * game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
         //tileColor: "#090",
@@ -248,8 +258,14 @@ function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
             }
             board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);*/
 			//draw that image sprite
-			board.drawImage(spriteTileImg, (game.tileSize.x * 0), (game.tileSize.y * 0),
-				game.tileSize.x, game.tileSize.y);
+		/*	board.drawImage(spriteTileImg, 
+				(game.tileSize.x * 0), (game.tileSize.y * 0),
+				game.tileSize.x, game.tileSize.ytileSpritesheet);*/
+			board.drawImage(sprites,
+				game.tileSpritesheet.x, game.tileSpritesheet.y,
+				ship_w, ship_h,
+				spriteDX, spriteDY,
+				spriteDW, spriteDH);
             
             // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
