@@ -261,7 +261,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 		/*	board.drawImage(spriteTileImg, 
 				(game.tileSize.x * 0), (game.tileSize.y * 0),
 				game.tileSize.x, game.tileSize.ytileSpritesheet);*/
-			board.drawImage(sprites,
+			board.drawImage(spriteTileImg,
 				game.tileSpritesheet.x, game.tileSpritesheet.y,
 				ship_w, ship_h,
 				spriteDX, spriteDY,
