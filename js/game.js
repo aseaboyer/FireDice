@@ -259,7 +259,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
             board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
-				game.tileSpritesheet.x, game.tileSpritesheet.y,
+				this.x, this.y,
 				game.tileSpritesheet.x, game.tileSpritesheet.y,
 				this.spriteDX, this.spriteDY,
 				this.spriteDW, this.spriteDH);
