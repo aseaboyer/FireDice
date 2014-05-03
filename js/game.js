@@ -3,7 +3,8 @@ var context = canvas.getContext("2d");
 var game = {
 	"cursor": {
 		"x": 0,
-		"y": 0
+		"y": 0,
+		"holdingTruck": false
 	},
 	"window": {
 		"x": 192,
@@ -14,6 +15,7 @@ var game = {
 		"y": 64
 	},
 	"tileImgURL": "img/tile_spritesheet.png",
+	"trucksAvailable": 0,
 };
 var levelData = {
 	"trucks": 1,
@@ -21,52 +23,52 @@ var levelData = {
 		[
 			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 7),
+				"spriteY": (64 * 4),
 			},
 			{
 				"type": "r",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 7),
+				"spriteY": (64 * 3),
 			},
 			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 7),
+				"spriteY": (64 * 3),
 			}
 		],
 		[
 			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 1),
 			},
 			{
 				"type": "r",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 5),
+				"spriteY": (64 * 0),
 			},
 			{
 				"type": "r",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 1),
 			}
 		],
 		[
 			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 7),
+				"spriteY": (64 * 3),
 			},
 			{
 				"type": "r",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 3),
 			},
 			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 0
+				"spriteX": (64 * 7),
+				"spriteY": (64 * 3),
 			}
 		]
 	]
@@ -239,21 +241,23 @@ function Tile(tileX, tileY, tileType) { // Tiles should own their x/y location
         //tileColor: "#090",
     
         drawTile: function(board) {
-            if(this.type == 'h') {
+        /*    if(this.type == 'h') {
                 board.fillStyle = "#090";
             } else if(this.type == 'r') {
                 board.fillStyle = "#909";
             }
-            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
+            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);*/
+			//draw that image sprite
+			board.drawImage(spriteTileImg, (game.tileSize.x * 0), (game.tileSize.y * 0),
+				game.tileSize.x, game.tileSize.y);
             
             // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
                 (game.cursor.y > this.y && game.cursor.y < (this.y + game.tileSize.y))) {
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);
-				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";;
+				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";
 				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 				
-				board.drawImage(spriteTileImg, game.tileSize.x, game.tileSize.y); //draw that image sprite
 				// later crop this correctly
             }
         },
