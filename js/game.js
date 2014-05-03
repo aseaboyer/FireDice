@@ -124,12 +124,12 @@ function Update() {
 
 function Draw() {
     clearFrame();
-    /*
+	
 	var tileCount = tileArray.length;
 	for(var x=0; x < tileCount; x++) {
 		tileArray[x].drawTile(context);
 	}
-	*/tileArray[0].drawTile(context);
+	
     var truckCount = trucks.length;
     for(var x=0; x < truckCount; x++) {// now draw trucks
 		trucks[x].drawTruck(context);
