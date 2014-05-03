@@ -261,7 +261,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			board.drawImage(spriteTileImg,
 				0, 0, // top corner loc of sub
 				64, 64, // w/ of sub
-				192,192, // top corner of canvas
+				10,10, // top corner of canvas
 				576,576); // width of canvas
 			/*board.drawImage(spriteTileImg,
 				this.x, this.y,
