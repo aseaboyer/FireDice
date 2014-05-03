@@ -260,9 +260,14 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				this.x, this.y,
-				game.tileSpritesheet.x, game.tileSpritesheet.y/*,
+				game.tileSpritesheet.x, game.tileSpritesheet.y,
+				64,64,
+				64,64);
+			/*board.drawImage(spriteTileImg,
+				this.x, this.y,
+				game.tileSpritesheet.x, game.tileSpritesheet.y,
 				this.spriteDX, this.spriteDY,
-				this.spriteDW, this.spriteDH*/);
+				this.spriteDW, this.spriteDH);*/
             /*console.log(spriteTileImg,
 				this.x+", "+this.y+", "+
 				game.tileSpritesheet.x+", "+game.tileSpritesheet.y+", "+
