@@ -27,52 +27,52 @@ var levelData = {
 		[
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 4),
+				"spriteX": 448,
+				"spriteY": 256,
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 3),
+				"spriteX": 448,
+				"spriteY": 192,
 			},
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 3),
+				"spriteX": 448,
+				"spriteY": 192,
 			}
 		],
 		[
 			{
 				"type": "h",
-				"spriteX": (64 * 0),
-				"spriteY": (64 * 1),
+				"spriteX": 0,
+				"spriteY": 64,
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 5),
-				"spriteY": (64 * 0),
+				"spriteX": 320,
+				"spriteY": 0,
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 0),
-				"spriteY": (64 * 1),
+				"spriteX": 0,
+				"spriteY": 64,
 			}
 		],
 		[
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 3),
+				"spriteX": 448,
+				"spriteY": 192,
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 0),
-				"spriteY": (64 * 3),
+				"spriteX": 0,
+				"spriteY": 192,
 			},
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 3),
+				"spriteX": 448,
+				"spriteY": 192,
 			}
 		]
 	]
