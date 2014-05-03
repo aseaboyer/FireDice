@@ -251,12 +251,12 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
         //tileColor: "#090",
     
         drawTile: function(board) {
-        /*    if(this.type == 'h') {
+            if(this.type == 'h') {
                 board.fillStyle = "#090";
             } else if(this.type == 'r') {
                 board.fillStyle = "#909";
             }
-            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);*/
+            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				game.tileSpritesheet.x, game.tileSpritesheet.y,
