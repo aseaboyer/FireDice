@@ -259,7 +259,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
             board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
-				spriteDX, spriteDY, // top corner loc of sub - this is the sub offset locs
+				this.spriteDX, this.spriteDY, // top corner loc of sub - this is the sub offset locs
 				game.tileSize.x, game.tileSize.y, // w/ of sub - needs to be full image size
 				this.x, this.y, // top corner on canvas
 				game.tileSize.x,game.tileSize.y); // width of canvas - the size of the sprite on the canvas
