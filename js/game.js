@@ -260,9 +260,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				this.x, this.y,
-				game.tileSpritesheet.x, game.tileSpritesheet.y,
-				this.spriteDX, this.spriteDY,
-				this.spriteDW, this.spriteDH);
+				game.tileSpritesheet.x, game.tileSpritesheet.y);
             
             // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
