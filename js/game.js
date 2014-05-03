@@ -27,17 +27,17 @@ var levelData = {
 		[
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
-				"spriteY": (64 * 4),
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 7),
+				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
 			},
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
+				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
 			}
 		],
@@ -92,8 +92,8 @@ function Start() {
 	for(var x=0; x < levelData.tiles.length; x++) {
 		for(var y=0; y < levelData.tiles[x].length; y++) {
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
-				levelData.tiles[x][y].type,
-				levelData.tiles[x][y].spriteX, levelData.tiles[x][y].spriteY);
+				levelData.tiles[y][x].type,
+				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY);
 			tileArray[i] = newTile;
 			i++;
 		}
