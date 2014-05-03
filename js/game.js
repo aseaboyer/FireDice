@@ -258,12 +258,9 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
             }
             board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);*/
 			//draw that image sprite
-		/*	board.drawImage(spriteTileImg, 
-				(game.tileSize.x * 0), (game.tileSize.y * 0),
-				game.tileSize.x, game.tileSize.ytileSpritesheet);*/
 			board.drawImage(spriteTileImg,
 				game.tileSpritesheet.x, game.tileSpritesheet.y,
-				ship_w, ship_h,
+				game.tileSpritesheet.x, game.tileSpritesheet.y,
 				spriteDX, spriteDY,
 				spriteDW, spriteDH);
             
@@ -273,8 +270,6 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);
 				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";
 				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
-				
-				// later crop this correctly
             }
         },
         bounds: function() {
