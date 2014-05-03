@@ -260,7 +260,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				64, 64, // top corner loc of sub - this is the sub offset locs
-				576, 576, // w/ of sub - needs to be full image size
+				64, 64, // w/ of sub - needs to be full image size
 				10,10, // top corner on canvas
 				576,576); // width of canvas - the size of the sprite on the canvas
 			/*board.drawImage(spriteTileImg,
