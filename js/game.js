@@ -262,7 +262,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 				0, 0,
 				576, 576,
 				0,0,
-				128,128);
+				576,576);
 			/*board.drawImage(spriteTileImg,
 				this.x, this.y,
 				game.tileSpritesheet.x, game.tileSpritesheet.y,
