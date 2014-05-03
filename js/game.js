@@ -260,7 +260,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				0, 0,
-				576, 576,
+				64, 64,
 				0,0,
 				576,576);
 			/*board.drawImage(spriteTileImg,
