@@ -244,8 +244,8 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
         type: tileType,
         spriteDX: spriteX,
         spriteDY: spriteY,
-        spriteDW: (spriteX * game.tileSize.x),
-        spriteDH: (spriteY * game.tileSize.y),
+        spriteDW: (spriteX + game.tileSize.x),
+        spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
         //tileColor: "#090",
@@ -260,7 +260,9 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY) { // Tiles should own th
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				this.x, this.y,
-				game.tileSpritesheet.x, game.tileSpritesheet.y);
+				game.tileSpritesheet.x, game.tileSpritesheet.y,
+				this.spriteDX, this.spriteDY,
+				this.spriteDW, this.spriteDH);
             
             // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
