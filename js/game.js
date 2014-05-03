@@ -49,7 +49,7 @@ var levelData = {
 			},
 			{
 				"type": "r",
-				"spriteX": (64 * 5),
+				"spriteX": (64 * 4),
 				"spriteY": (64 * 0),
 			},
 			{
@@ -61,7 +61,7 @@ var levelData = {
 		[
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
+				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
 			},
 			{
@@ -71,7 +71,7 @@ var levelData = {
 			},
 			{
 				"type": "h",
-				"spriteX": (64 * 7),
+				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
 			}
 		]
