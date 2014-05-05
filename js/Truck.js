@@ -1,8 +1,9 @@
-function Truck() {
+function Truck(trayVals) {
     return {
         inPlay: false, // if the truck is on a tile
 		x: 0, // tile in where it resides
 		y: 0,
+		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
 		place: function(newX,newY) {
 			this.x = newX;
@@ -24,6 +25,9 @@ function Truck() {
 			} else {
 				// figure out how we are going to tray it
 			}
-		}
+		},
+		drawTruckTray: function(board) {
+		
+		},
     };
 }

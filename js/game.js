@@ -4,22 +4,31 @@ var game = {
 	"cursor": {
 		"x": 0,
 		"y": 0,
-		"holdingTruck": false
+		"holdingTruck": true,
 	},
 	"window": {
 		"x": 192,
-		"y": 192
+		"y": 192,
 	},
 	"tileSize": {
 		"x": 64,
-		"y": 64
+		"y": 64,
 	},
 	"tileSpritesheet": {
 		"url": "img/tile_spritesheet.png",
 		"x": 576,
-		"y": 576
+		"y": 576,
 	},
 	"trucksAvailable": 0,
+	"trucksTray": {
+		"trayPosition": {
+			"x": 212,
+			"y": 20,
+			"width": 10,
+			"height": 10,
+			"offset": 20,
+		},
+	},
 };
 var levelData = {
 	"trucks": 1,
@@ -111,7 +120,7 @@ function Start() {
 	
 	trucks = new Array(levelData.trucks);
 	for(var x=0; x < trucks.length; x++) {
-		trucks[x] = new Truck();
+		trucks[x] = new Truck( truckNum, game.trucksTray.trayPosition );
 	}
 	trucks[0].place((64*1),(64*1));
 	
@@ -156,12 +165,18 @@ function clearFrame() {
 }
 
 function drawCursor() {
-//    var xStart = getCursorTile(game.cursor.x, game.tileSize.x);
-//    var yStart = getCursorTile(game.cursor.y, game.tileSize.y);
+	if(game.cursor.holdingTruck) { // draw a truck on the cursor
+		board.fillStyle = "#900";
+		board.fillRect( game.cursor.x, game.cursor.y,
+			(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
+	}
+	
+//    var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x);
+//    var yStart = getRoundedToTileSize(game.cursor.y, game.tileSize.y);
 }
 
-function getCursorTile( val, tileSize ) {
-    return Math.round((val/tileSize)*tileSize);
+function getRoundedToTileSize( val, tileSize ) { // don't really use this any longer?
+    return Math.round((val/tileSize)*tileSize); // should return the x and y of the tile
 }
 
 var ONE_FRAME_TIME = 1000 / 60 ;
@@ -199,18 +214,22 @@ function trackMouse(e) {
 //    console.log(e.clientX+" "+e.clientY);
 }
 function mouseDown(e) {
-	if(game.holdingTruck == null) {
-		pickupTruck(game.cursor.x, game.cursor.y);
+	if(game.cursor.holdingTruck == false) {
+		// check to see if a truck is on this tile
+		// if so: pickupTruck(game.cursor.x, game.cursor.y);
+		// mark valid tiles to place truck?
 	}
 }
 function mouseUp(e) {
-	if(game.holdingTruck != null) {
+	if(game.cursor.holdingTruck) {
 	//	dropTruck(game.cursor.x, game.cursor.y);
 	}
 }
 
 function pickupTruck() {
-	// check to see if a truck is on this tile, add it to game.holdingTruck if so
+	// check to see if a truck is on this tile. If so:
+		// add it to game.cursor.holdingTruck if so
+		// tell the truck
 }
 
 // Create a hashtable for turns/actions?
