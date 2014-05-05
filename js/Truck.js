@@ -19,15 +19,17 @@ function Truck(trayVals) {
 		},
 		drawTruck: function(board) {
 			if(this.inPlay == true) {
-				board.fillStyle = "#900";
-				board.fillRect( (this.x + (game.tileSize.x * 0.25)), (this.y + (game.tileSize.y * 0.25)),
+				board.fillStyle = "#900"; // different if the truck is on stage
+				board.fillRect( (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)),
 					(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
 			} else {
 				// figure out how we are going to tray it
 			}
 		},
 		drawTruckTray: function(board) {
-		
+			board.fillStyle = "#900"; // different if 
+				board.fillRect( this.trayVal.x, this.trayVal.y,
+					this.trayVal.width, this.trayVal.height);
 		},
     };
 }

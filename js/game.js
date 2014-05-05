@@ -169,8 +169,8 @@ function clearFrame(board) {
 function drawCursor(board) {
 	if(game.cursor.holdingTruck) { // draw a truck on the cursor
 		board.fillStyle = "#900";
-		board.fillRect( (game.cursor.x - (game.tileSize.x * .5)), (game.cursor.y - (game.tileSize.y * .5)),
-			(game.tileSize.x * .2), (game.tileSize.y * .2) );
+		board.fillRect( (game.cursor.x - (game.tileSize.x * .4)), (game.cursor.y - (game.tileSize.y * .4)),
+			(game.tileSize.x * .4), (game.tileSize.y * .4) );
 	}
 	
 //    var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x);
