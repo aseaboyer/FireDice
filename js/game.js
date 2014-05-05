@@ -28,8 +28,8 @@ var game = {
 		"trayPosition": {
 			"x": 212,
 			"y": 20,
-			"width": 10,
-			"height": 10,
+			"width": 20,
+			"height": 20,
 			"offset": 20,
 		},
 	},
