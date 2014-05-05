@@ -120,7 +120,7 @@ function Start() {
 	
 	trucks = new Array(levelData.trucks);
 	for(var x=0; x < trucks.length; x++) {
-		trucks[x] = new Truck( truckNum, game.trucksTray.trayPosition );
+		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
 	trucks[0].place((64*1),(64*1));
 	
