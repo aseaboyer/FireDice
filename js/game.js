@@ -12,7 +12,7 @@ var game = {
 	},
 	"canvasSize": {
 		"x": 192,
-		"y": 300,
+		"y": 400,
 	},
 	"tileSize": {
 		"x": 64,
@@ -163,10 +163,7 @@ function Draw() {
 }
 
 function clearFrame() {
-    context.save(); // Store the current transformation matrix
-    context.setTransform(1, 0, 0, 1, 0, 0); // Use the identity matrix while clearing the canvas
     context.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
-    context.restore(); // Restore the transform
 }
 
 function drawCursor(board) {
