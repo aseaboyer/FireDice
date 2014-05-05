@@ -170,7 +170,7 @@ function drawCursor(board) {
 	if(game.cursor.holdingTruck) { // draw a truck on the cursor
 		board.fillStyle = "#900";
 		board.fillRect( (game.cursor.x - (game.tileSize.x * .5)), (game.cursor.y - (game.tileSize.y * .5)),
-			(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
+			(game.tileSize.x * .2), (game.tileSize.y * .2) );
 	}
 	
 //    var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x);
