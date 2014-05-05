@@ -1,4 +1,4 @@
-function Truck(trayVals) {
+function Truck(trayVal) {
     return {
         inPlay: false, // if the truck is on a tile
 		x: 0, // tile in where it resides
@@ -19,15 +19,17 @@ function Truck(trayVals) {
 		},
 		drawTruck: function(board) {
 			if(this.inPlay == true) {
-				board.fillStyle = "#900";
-				board.fillRect( (this.x + (game.tileSize.x * 0.25)), (this.y + (game.tileSize.y * 0.25)),
-					(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
+				board.fillStyle = "#900"; // different if the truck is on stage
+				board.fillRect( trayVal.x, trayVal.x,
+					trayVal.width, trayVal.height);
 			} else {
 				// figure out how we are going to tray it
 			}
 		},
 		drawTruckTray: function(board) {
-		
+			board.fillStyle = "#900"; // different if 
+			board.fillRect( (this.x + (game.tileSize.x * 0.25)), (this.y + (game.tileSize.y * 0.25)),
+					(game.tileSize.x * 0.5), (game.tileSize.y * 0.5) );
 		},
     };
 }
