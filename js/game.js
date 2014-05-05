@@ -159,7 +159,9 @@ function Draw() {
 		trucks[x].drawTruck(context);
     }
     
-    drawCursor(context);// now draw the cursor higlight - func
+	if(game.cursor.x != 0 && game.cursor.y != 0) {
+		drawCursor(context);
+	}
 }
 
 function clearFrame(board) {
@@ -168,13 +170,13 @@ function clearFrame(board) {
 
 function drawCursor(board) {
 	if(game.cursor.holdingTruck) { // draw a truck on the cursor
+	//	var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x); // Use these vals for snapping cursor!
+	//	var yStart = getRoundedToTileSize(game.cursor.y, game.tileSize.y);
+	
 		board.fillStyle = "#900";
 		board.fillRect( (game.cursor.x - (game.tileSize.x * .2)), (game.cursor.y - (game.tileSize.y * .2)),
 			(game.tileSize.x * .4), (game.tileSize.y * .4) );
 	}
-	
-//    var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x);
-//    var yStart = getRoundedToTileSize(game.cursor.y, game.tileSize.y);
 }
 
 function getRoundedToTileSize( val, tileSize ) { // don't really use this any longer?
