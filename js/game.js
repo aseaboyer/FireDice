@@ -147,7 +147,8 @@ function Update() {
 }
 
 function Draw() {
-    clearFrame();
+    //clearFrame(context);
+	context.clearRect(0,0,400,400);
 	
 	var tileCount = tileArray.length;
 	for(var x=0; x < tileCount; x++) {
@@ -162,8 +163,8 @@ function Draw() {
     drawCursor(context);// now draw the cursor higlight - func
 }
 
-function clearFrame() {
-    context.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
+function clearFrame(board) {
+    board.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
 }
 
 function drawCursor(board) {
