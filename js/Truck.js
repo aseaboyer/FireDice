@@ -1,4 +1,4 @@
-function Truck(trayVal) {
+function Truck(trayVals) {
     return {
         inPlay: false, // if the truck is on a tile
 		x: 0, // tile in where it resides
