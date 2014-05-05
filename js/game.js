@@ -11,8 +11,8 @@ var game = {
 		"y": 192,
 	},
 	"canvasSize": {
-		"x": 192,
-		"y": 400,
+		"x": 400,
+		"y": 192,
 	},
 	"tileSize": {
 		"x": 64,
@@ -163,8 +163,7 @@ function Draw() {
 }
 
 function clearFrame(board) {
-    board.clearRect(0, 0, 400, 400);
-	//context.clearRect(0,0,400,400);
+    board.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
 }
 
 function drawCursor(board) {
