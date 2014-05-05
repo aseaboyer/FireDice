@@ -6,9 +6,13 @@ var game = {
 		"y": 0,
 		"holdingTruck": true,
 	},
-	"window": {
+	"boardSize": {
 		"x": 192,
 		"y": 192,
+	},
+	"canvasSize": {
+		"x": 192,
+		"y": 300,
 	},
 	"tileSize": {
 		"x": 64,
@@ -105,10 +109,11 @@ var spriteTileImg = new Image();
 /* Core */
 function Start() {
 	var i = 0;
-	console.log(levelData.tiles);
-	console.log(game);
-	for(var x=0; x < levelData.tiles.length; x++) {
-		for(var y=0; y < levelData.tiles[x].length; y++) {
+	
+	var tileCols = levelData.tiles.length;
+	var tileRows = levelData.tiles[x].length;
+	for(var x=0; x < tileCols; x++) {
+		for(var y=0; y < tileRows; y++) {
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
 				levelData.tiles[y][x].type,
 				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY,
@@ -160,7 +165,7 @@ function Draw() {
 function clearFrame() {
     context.save(); // Store the current transformation matrix
     context.setTransform(1, 0, 0, 1, 0, 0); // Use the identity matrix while clearing the canvas
-    context.clearRect(0, 0, game.window.x, game.window.y);
+    context.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
     context.restore(); // Restore the transform
 }
 
