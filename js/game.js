@@ -111,8 +111,8 @@ function Start() {
 	var i = 0;
 	
 	var tileCols = levelData.tiles.length;
-	var tileRows = levelData.tiles[x].length;
 	for(var x=0; x < tileCols; x++) {
+		var tileRows = levelData.tiles[x].length;
 		for(var y=0; y < tileRows; y++) {
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
 				levelData.tiles[y][x].type,
