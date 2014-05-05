@@ -20,7 +20,8 @@ function Truck(trayVals) {
 		drawTruck: function(board) {
 			if(this.inPlay == true) {
 				board.fillStyle = "#900"; // different if the truck is on stage
-				board.fillRect( trayVal.x, trayVal.x,
+				console.log(trayVal);
+				board.fillRect( trayVal.x, trayVal.y,
 					trayVal.width, trayVal.height);
 			} else {
 				// figure out how we are going to tray it
