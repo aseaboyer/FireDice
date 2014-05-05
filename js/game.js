@@ -154,7 +154,7 @@ function Draw() {
 		trucks[x].drawTruck(context);
     }
     
-    drawCursor();// now draw the cursor higlight - func
+    drawCursor(context);// now draw the cursor higlight - func
 }
 
 function clearFrame() {
@@ -164,7 +164,7 @@ function clearFrame() {
     context.restore(); // Restore the transform
 }
 
-function drawCursor() {
+function drawCursor(board) {
 	if(game.cursor.holdingTruck) { // draw a truck on the cursor
 		board.fillStyle = "#900";
 		board.fillRect( game.cursor.x, game.cursor.y,
