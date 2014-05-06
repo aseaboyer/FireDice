@@ -211,6 +211,9 @@ function ajax_get_json(fileURL) {
 canvas.addEventListener('mousemove', trackMouse, false);
 canvas.addEventListener('mousedown', mouseDown, false);
 canvas.addEventListener('mouseup', mouseUp, false);
+canvas.addEventListener('touchmove', trackMouse, false);
+canvas.addEventListener('touchstart', mouseDown, false);
+canvas.addEventListener('touchend', mouseUp, false);
 
 function trackMouse(e) {
     game.cursor.x = e.clientX;
