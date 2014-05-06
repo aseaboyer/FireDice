@@ -185,7 +185,7 @@ function getRoundedToTileSize( val, tileSize ) { // don't really use this any lo
 }
 
 function getTileNumber( vals, tileSize ) { // don't really use this any longer?
-	var tileNum {x:0, y:0}; // Math.round((val/tileSize)*tileSize);
+	var tileNum = {x:0, y:0}; // Math.round((val/tileSize)*tileSize);
 		tileNum.x = parseInt(vals.x/tileSize.x);
 		tileNum.y = parseInt(vals.y/tileSize.y);
 	
