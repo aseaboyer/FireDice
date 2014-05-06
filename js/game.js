@@ -184,6 +184,16 @@ function getRoundedToTileSize( val, tileSize ) { // don't really use this any lo
     return Math.round((val/tileSize)*tileSize); // should return the x and y of the tile
 }
 
+function getTileNumber( vals, tileSize ) { // don't really use this any longer?
+	var tileNum {x:0, y:0}; // Math.round((val/tileSize)*tileSize);
+		tileNum.x = Math.round(vals.x/tileSize.x);
+		tileNum.y = Math.round(vals.y/tileSize.y);
+	
+	console.log("Tried to pickup from tile: ");
+	console.log(tileNum);
+    return tileNum; // should return the x and y of the tile
+}
+
 var ONE_FRAME_TIME = 1000 / 60 ;
 var mainloop = function() {
     Update(); // the logic
@@ -223,10 +233,7 @@ function trackMouse(e) {
 }
 function mouseDown(e) {
 	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
-		var tilePos = {x: getRoundedToTileSize(game.cursor.x, game.tileSize.x),
-			y: getRoundedToTileSize(game.cursor.y, game.tileSize.y) }; // check to see if a truck is on this tile
-		console.log("Tried to pickup from: ");
-		console.log(tilePos);
+		var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
 		// if so: pickupTruck(game.cursor.x, game.cursor.y);
 		// mark valid tiles to place truck?
 	}
