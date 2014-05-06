@@ -4,7 +4,7 @@ var game = {
 	"cursor": {
 		"x": 0,
 		"y": 0,
-		"holdingTruck": true,
+		"holdingTruck": false,
 	},
 	"boardSize": {
 		"x": 192,
@@ -221,8 +221,11 @@ function trackMouse(e) {
 //    console.log(e.clientX+" "+e.clientY);
 }
 function mouseDown(e) {
-	if(game.cursor.holdingTruck == false) {
-		// check to see if a truck is on this tile
+	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
+		var tilePos = {x: getRoundedToTileSize(game.cursor.x, game.tileSize.x),
+			y: getRoundedToTileSize(game.cursor.y, game.tileSize.y) }; // check to see if a truck is on this tile
+		console.log("Tried to pickup from: ");
+		console.log(tilePos);
 		// if so: pickupTruck(game.cursor.x, game.cursor.y);
 		// mark valid tiles to place truck?
 	}
