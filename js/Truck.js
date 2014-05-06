@@ -17,7 +17,7 @@ function Truck(trayVals) {
 		},
 		drawTruck: function(board, tileDims) {
 			if(this.inPlay) {
-				board.fillRect( (this.x * tilesDims.x), (this.y *tileDims.y),
+				board.fillRect( (this.x * tileDims.x), (this.y *tileDims.y),
 					(tileDims.x * 0.5), (tileDims.y * 0.5) );
 			}
 		},
