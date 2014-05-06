@@ -156,7 +156,7 @@ function Draw() {
 	
     var truckCount = trucks.length;
     for(var x=0; x < truckCount; x++) {// now draw trucks
-		trucks[x].drawTruck( context, {game.tileSize.x, game.tileSize.y} );
+		trucks[x].drawTruck( context, game.tileSize );
 		trucks[x].drawTruckTray( context );
     }
     
