@@ -234,7 +234,13 @@ function trackMouse(e) {
 function mouseDown(e) {
 	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
 		var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
-		// if so: pickupTruck(game.cursor.x, game.cursor.y);
+		var truckCount = trucks.length;
+		for(var x=0; x < truckCount; x++) {// now draw trucks
+			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
+				console.log("There's a truck there! Pick it up!);
+				// pickupTruck(game.cursor.x, game.cursor.y);
+			}
+		}
 		// mark valid tiles to place truck?
 	}
 }
