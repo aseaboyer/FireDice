@@ -1,6 +1,6 @@
 function Truck(trayVals) {
     return {
-        inPlay: false, // if the truck is on a tile
+        inPlay: true, // if the truck is on a tile
 		x: 0, // tile in where it resides
 		y: 0,
 		trayVal: trayVals,
@@ -8,13 +8,11 @@ function Truck(trayVals) {
 		place: function(newX,newY) {
 			this.x = newX;
 			this.y = newY;
-			this.inPlay = true;
 			this.held = false;
 		},
 		pickup: function() {
 			this.x = newX;
 			this.y = newY;
-			this.inPlay = false;
 			this.held = true;
 		},
 		drawTruck: function(board) {
