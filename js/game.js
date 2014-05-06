@@ -127,7 +127,7 @@ function Start() {
 	for(var x=0; x < trucks.length; x++) {
 		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
-	trucks[0].place((64*1),(64*1));
+	trucks[0].place(1,1);
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
@@ -156,7 +156,8 @@ function Draw() {
 	
     var truckCount = trucks.length;
     for(var x=0; x < truckCount; x++) {// now draw trucks
-		trucks[x].drawTruck(context);
+		trucks[x].drawTruck( context, {game.tileSize.x, game.tileSize.y} );
+		trucks[x].drawTruckTray( context );
     }
     
 	if(game.cursor.x != 0 && game.cursor.y != 0) {
