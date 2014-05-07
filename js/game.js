@@ -237,7 +237,7 @@ function mouseDown(e) {
 		var truckCount = trucks.length;
 		for(var x=0; x < truckCount; x++) {// now draw trucks
 			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
-				console.log("There's a truck there! Pick it up!);
+				console.log("There's a truck there! Pick it up!");
 				// pickupTruck(game.cursor.x, game.cursor.y);
 			}
 		}
