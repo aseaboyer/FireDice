@@ -163,7 +163,7 @@ function Start() {
 	for(var x=0; x < trucks.length; x++) {
 		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
-	trucks[0].place(1,1);
+	trucks[0].place({x: 1,y: 1});
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
