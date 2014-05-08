@@ -5,9 +5,9 @@ function Truck(trayVals) {
 		y: 0,
 		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
-		place: function(newX,newY) {
-			this.x = newX;
-			this.y = newY;
+		place: function(newCo) {
+			this.x = newCo.x;
+			this.y = newCo.y;
 			this.held = false;
 		},
 		pickup: function() {
