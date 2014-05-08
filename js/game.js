@@ -5,6 +5,13 @@ var game = {
 		"x": 0,
 		"y": 0,
 		"holdingTruck": false,
+		draw: function(board) {
+			if(game.cursor.holdingTruck) { // draw a truck on the cursor
+				board.fillStyle = "#900";
+				board.fillRect( (game.cursor.x - (game.tileSize.x * .2)), (game.cursor.y - (game.tileSize.y * .2)),
+					(game.tileSize.x * .4), (game.tileSize.y * .4) );
+			}
+		},
 	},
 	"boardSize": {
 		"x": 192,
@@ -184,23 +191,12 @@ function Draw() {
     }
     
 	if(game.cursor.x != 0 && game.cursor.y != 0) {
-		drawCursor(context);
+		game.cursor.draw(context);
 	}
 }
 
 function clearFrame(board) {
     board.clearRect(0, 0, game.canvasSize.x, game.canvasSize.y);
-}
-
-function drawCursor(board) {
-	if(game.cursor.holdingTruck) { // draw a truck on the cursor
-	//	var xStart = getRoundedToTileSize(game.cursor.x, game.tileSize.x); // Use these vals for snapping cursor!
-	//	var yStart = getRoundedToTileSize(game.cursor.y, game.tileSize.y);
-	
-		board.fillStyle = "#900";
-		board.fillRect( (game.cursor.x - (game.tileSize.x * .2)), (game.cursor.y - (game.tileSize.y * .2)),
-			(game.tileSize.x * .4), (game.tileSize.y * .4) );
-	}
 }
 
 function getRoundedToTileSize( val, tileSize ) { // don't really use this any longer?
