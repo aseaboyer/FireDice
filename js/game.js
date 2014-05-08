@@ -33,6 +33,24 @@ var game = {
 			"offset": 20,
 		},
 	},
+	puckupTruck: function(aTruck) {
+		this.cursor.holdingTruck = aTruck;
+		aTruck.pickup();
+	},
+	dropTruck: function(aTruck) {
+		aTruck.place();
+		this.cursor.holdingTruck = false;
+	},
+/*
+function puckupTruck(truck) {
+	
+}
+
+function dropTruck(truck) {
+	truck.place();
+	game.cursor.holdingTruck = false;
+}
+*/
 };
 var levelData = {
 	"trucks": 1,
@@ -239,7 +257,6 @@ function mouseDown(e) {
 			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
 				console.log("There's a truck there! Pick it up!");
 				puckupTruck(trucks[x]);
-				// pickupTruck(game.cursor.x, game.cursor.y);
 			}
 		}
 		// mark valid tiles to place truck?
@@ -249,16 +266,6 @@ function mouseUp(e) {
 	if(game.cursor.holdingTruck) {
 		dropTruck(game.cursor.holdingTruck);
 	}
-}
-
-function pickupTruck(truck) {
-	game.cursor.holdingTruck = truck;
-	truck.pickup();
-}
-
-function dropTruck(truck) {
-	truck.place();
-	game.cursor.holdingTruck = false;
 }
 
 // Create a hashtable for turns/actions?
