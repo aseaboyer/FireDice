@@ -238,6 +238,7 @@ function mouseDown(e) {
 		for(var x=0; x < truckCount; x++) {// now draw trucks
 			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
 				console.log("There's a truck there! Pick it up!");
+				puckupTruck(trucks[x]);
 				// pickupTruck(game.cursor.x, game.cursor.y);
 			}
 		}
@@ -246,14 +247,18 @@ function mouseDown(e) {
 }
 function mouseUp(e) {
 	if(game.cursor.holdingTruck) {
-	//	dropTruck(game.cursor.x, game.cursor.y);
+		dropTruck(game.cursor.holdingTruck);
 	}
 }
 
-function pickupTruck() {
-	// check to see if a truck is on this tile. If so:
-		// add it to game.cursor.holdingTruck if so
-		// tell the truck
+function pickupTruck(truck) {
+	game.cursor.holdingTruck = truck;
+	truck.pickup();
+}
+
+function dropTruck(truck) {
+	truck.place();
+	game.cursor.holdingTruck = false;
 }
 
 // Create a hashtable for turns/actions?

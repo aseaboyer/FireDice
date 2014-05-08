@@ -11,8 +11,6 @@ function Truck(trayVals) {
 			this.held = false;
 		},
 		pickup: function() {
-			this.x = newX;
-			this.y = newY;
 			this.held = true;
 		},
 		drawTruck: function(board, tileDims) {
