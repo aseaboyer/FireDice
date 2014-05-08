@@ -38,8 +38,13 @@ var game = {
 		aTruck.pickup();
 	},
 	dropTruck: function(aTruck) {
+		// check to see if this is a valid spot to drop the truck
+		
+		// if so, drop it
 		aTruck.place();
 		this.cursor.holdingTruck = false;
+		
+		// or else return it
 	},
 /*
 function puckupTruck(truck) {
