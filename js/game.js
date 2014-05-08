@@ -256,7 +256,7 @@ function mouseDown(e) {
 		for(var x=0; x < truckCount; x++) {// now draw trucks
 			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
 				console.log("There's a truck there! Pick it up!");
-				puckupTruck(trucks[x]);
+				game.puckupTruck(trucks[x]);
 			}
 		}
 		// mark valid tiles to place truck?
@@ -264,7 +264,7 @@ function mouseDown(e) {
 }
 function mouseUp(e) {
 	if(game.cursor.holdingTruck) {
-		dropTruck(game.cursor.holdingTruck);
+		game.dropTruck(game.cursor.holdingTruck);
 	}
 }
 
