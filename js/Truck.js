@@ -5,6 +5,9 @@ function Truck(trayVals) {
 		y: 0,
 		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
+		spawn: function(tileList) {
+			// will spawn a truck on any valid truck starting spot without a truck
+		},
 		place: function(newCo) {
 			this.x = newCo.x;
 			this.y = newCo.y;
