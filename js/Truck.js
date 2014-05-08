@@ -9,8 +9,11 @@ function Truck(trayVals) {
 			// will spawn a truck on any valid truck starting spot without a truck
 		},
 		place: function(newCo) {
-			this.x = newCo.x;
-			this.y = newCo.y;
+			var undef;
+			if(newCo !== undef) {
+				this.x = newCo.x;
+				this.y = newCo.y;
+			}
 			this.held = false;
 		},
 		pickup: function() {
