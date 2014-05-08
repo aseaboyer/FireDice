@@ -16,9 +16,9 @@ function Truck(trayVals) {
 		drawTruck: function(board, tileDims) {
 			if(this.inPlay) {
 				if(!this.held) {
-					board.fillStyle = "#300";
-				} else {
 					board.fillStyle = "#900";
+				} else {
+					board.fillStyle = "#9cc";
 				}
 				board.fillRect( (this.x * tileDims.x) + (tileDims.x * 0.25), (this.y *tileDims.y) + (tileDims.y * 0.25),
 					(tileDims.x * 0.5), (tileDims.y * 0.5) );
