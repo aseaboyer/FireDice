@@ -24,7 +24,7 @@ function Truck(trayVals) {
 					board.fillStyle = "#9cc";
 					
 					context.beginPath();
-					context.moveTo((this.x * tileDims.x) + (tileDims.x * 0.25), (this.y *tileDims.y) + (tileDims.y * 0.25));
+					context.moveTo((this.x + (tileDims.x * 0.5)), (this.y + (tileDims.y * 0.5)));
 					context.lineTo(game.cursor.x, game.cursor.y);
 					context.stroke();
 				}
