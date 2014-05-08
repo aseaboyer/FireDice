@@ -49,6 +49,7 @@ var game = {
 		// check to see if this is a valid spot to drop the truck
 		if(levelData.tiles[tilePos.x][tilePos.y].type == 'r') {
 			console.log("Truck dropped on a road.");
+			// Also need to make sure the landing spot is an one tile away in a compas direction
 			aTruck.place(tilePos);
 		} else {
 			console.log("Truck returned, not dropped on a road.");
