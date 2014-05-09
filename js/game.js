@@ -75,8 +75,11 @@ var game = {
 		}
 		
 		console.log("There are " + validDropPoints.length + " possible starting tiles for a truck.");
+		var spawnPoint = validDropPoints[Math.floor((Math.random() * validDropPoints.length) + 1)];
 		if(validDropPoints.length > 0) { // find valid drop point
-			aTruck.spawn( validDropPoints[Math.floor((Math.random() * validDropPoints.length) + 1)] );
+			aTruck.spawn( spawnPoint );
+			console.log("Spawning a new truck the following points -");
+			console.log(spawnPoint);
 		}
 	},
 /*
