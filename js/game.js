@@ -69,7 +69,7 @@ var game = {
 			var tileRows = levelData.tiles[x].length;
 			for(var y=0; y < tileRows; y++) {
 				if(levelData.tiles[y][x].truckStart) {
-					validDropPoints.push({x: levelData.tiles[y][x].x, y: levelData.tiles[y][x].y });
+					validDropPoints[validDropPoints.length] = { x: levelData.tiles[y][x].x, y: levelData.tiles[y][x].y };
 				}
 			}
 		}
