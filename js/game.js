@@ -61,6 +61,22 @@ var game = {
 		
 		// or else return it
 	},
+	addTruck: function(aTruck, tileSets) {
+		var validDropPoints = new Array();
+		
+		var tileCols = levelData.tiles.length;
+		for(var x=0; x < tileCols; x++) {
+			var tileRows = levelData.tiles[x].length;
+			for(var y=0; y < tileRows; y++) {
+				if(levelData.tiles[y][x].truckStart) {
+					validDropPoints.push({x: levelData.tiles[y][x].x, y: levelData.tiles[y][x].y });
+				}
+			}
+		}
+		
+		console.log("There are " + validDropPoints.length + " possible starting tiles for a truck.");
+		// find valid drop point
+	},
 /*
 function puckupTruck(truck) {
 	
@@ -135,7 +151,13 @@ var levelData = {
 				"truckStart": false,
 			}
 		]
-	]
+	],
+	"turns": {
+		"win": 30,
+		"events": {
+			30: "new truck"
+		}
+	},
 };
 var tileArray = new Array();
 var trucks = new Array(levelData.trucks);
@@ -165,7 +187,8 @@ function Start() {
 	for(var x=0; x < trucks.length; x++) {
 		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
-	trucks[0].place({x: 1,y: 1});
+	//trucks[0].place({x: 1,y: 1});
+	game.addTruck(trucks[0], levelData.tiles);
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
