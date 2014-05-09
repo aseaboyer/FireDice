@@ -75,7 +75,9 @@ var game = {
 		}
 		
 		console.log("There are " + validDropPoints.length + " possible starting tiles for a truck.");
-		// find valid drop point
+		if(validDropPoints.length > 0) { // find valid drop point
+			return validDropPoints[Math.floor((Math.random() * validDropPoints.length) + 1)];
+		}
 	},
 /*
 function puckupTruck(truck) {
