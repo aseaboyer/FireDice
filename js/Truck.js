@@ -1,12 +1,13 @@
 function Truck(trayVals) {
     return {
-        inPlay: true, // if the truck is on a tile
+        inPlay: false, // if the truck is on a tile
 		x: 0, // TILE in where it resides
 		y: 0,
 		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
-		spawn: function(tileList) {
-			// will spawn a truck on any valid truck starting spot without a truck
+		spawn: function(dropSpot) {
+			this.inPlay = true;
+			this.place(dropSpot);
 		},
 		place: function(newCo) {
 			var undef;
