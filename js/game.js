@@ -64,12 +64,12 @@ var game = {
 	addTruck: function(aTruck, tileSets) {
 		var validDropPoints = new Array();
 		
-		var tileCols = levelData.tiles.length;
+		var tileCols = tileSets.length;
 		for(var x=0; x < tileCols; x++) {
-			var tileRows = levelData.tiles[x].length;
+			var tileRows = tileSets[x].length;
 			for(var y=0; y < tileRows; y++) {
-				if(levelData.tiles[y][x].truckStart) {
-					validDropPoints[validDropPoints.length] = { x: levelData.tiles[y][x].x, y: levelData.tiles[y][x].y };
+				if(tileSets[y][x].truckStart) {
+					validDropPoints[validDropPoints.length] = { x: tileSets[y][x].x, y: tileSets[y][x].y };
 				}
 			}
 		}
