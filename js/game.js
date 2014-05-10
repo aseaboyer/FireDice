@@ -63,7 +63,7 @@ var game = {
 	},
 	addTruck: function(aTruck, tileSets) {
 		var validDropPoints = new Array();
-		
+		console.log(tileSets);
 		var tileCols = tileSets.length;
 		for(var x=0; x < tileCols; x++) {
 			var tileRows = tileSets[x].length;
