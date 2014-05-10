@@ -59,6 +59,7 @@ var game = {
 		} else {
 			console.log("Truck returned, not dropped on a road.");
 			aTruck.place();
+			this.cursor.holdingTruck = false;
 		}
 		
 		// if so, drop it
