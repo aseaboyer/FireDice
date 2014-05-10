@@ -48,10 +48,10 @@ var game = {
 		var tilePos = getTileNumber(this.cursor, this.tileSize);
 		// check to see if this is a valid spot to drop the truck
 		var tileType = levelData.tiles[tilePos.x][tilePos.y].type == 'r';
-		var tileDistance = 0;
-		console.log('On the truck drop: '+tilePos.x+', '+tilePos.y+' : '+aTruck.x+', '+aTruck.y);
-		
-		if(tileType && tileDistance == 1) { // equals 1 means it moves one actual spot and does move 0
+		var tileDistance = (tilePos.x - tilePos.y) + (aTruck.x - aTruck.y);
+		//console.log('On the truck drop: '+tilePos.x+', '+tilePos.y+' : '+aTruck.x+', '+aTruck.y+' = '+tileDistance);
+			// equals 1 means it moves one actual spot and does move 0
+		if( tileType && (tileDistance == 1 || tileDistance == -1) ) {
 			console.log("Truck dropped on a road.");
 			// Also need to make sure the landing spot is an one tile away in a compas direction
 			aTruck.place(tilePos);
