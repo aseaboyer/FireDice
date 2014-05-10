@@ -30,6 +30,8 @@ function Truck(trayVals) {
 					context.beginPath();
 					context.moveTo((this.x * tileDims.x) + (tileDims.x * 0.5), (this.y *tileDims.y) + (tileDims.y * 0.5));
 					context.lineTo(game.cursor.x, game.cursor.y);
+					context.lineWidth = 10;
+					context.strokeStyle = '#900';
 					context.stroke();
 				}
 				board.fillRect( (this.x * tileDims.x) + (tileDims.x * 0.25), (this.y *tileDims.y) + (tileDims.y * 0.25),
