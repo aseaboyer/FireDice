@@ -1,5 +1,11 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
+
+// Should these be in the game object instead!?!?! @aseaboyer
+var tileArray = new Array();
+var trucks = new Array();
+var spriteTileImg = new Image();
+
 var game = {
 	"cursor": {
 		"x": 0,
@@ -54,11 +60,13 @@ var game = {
 		var tileDistance = (tilePos.x - tilePos.y) + (aTruck.x - aTruck.y);
 		//console.log('On the truck drop: '+tilePos.x+', '+tilePos.y+' : '+aTruck.x+', '+aTruck.y+' = '+tileDistance);
 			// equals 1 means it moves one actual spot and does move 0
+			
 		if( tileType && (tileDistance == 1 || tileDistance == -1) ) {
-			console.log("Truck dropped on a road.");
-			// Also need to make sure the landing spot is an one tile away in a compas direction
 			aTruck.place(tilePos);
 			this.cursor.holdingTruck = false;
+			
+			//game.finishTurn(); // @aseaboyer - increase the turn as well
+			
 		} else {
 			console.log("Truck returned, not dropped on a road.");
 			aTruck.place();
@@ -90,18 +98,9 @@ var game = {
 			console.log(spawnPoint);
 		}
 	},
-/*
-function puckupTruck(truck) {
-	
-}
-
-function dropTruck(truck) {
-	truck.place();
-	game.cursor.holdingTruck = false;
-}
-*/
 };
 var levelData = {
+	"levelName": "Starting Town",
 	"trucks": 1,
 	"tiles": [
 		[
@@ -172,11 +171,6 @@ var levelData = {
 		}
 	},
 };
-var tileArray = new Array();
-var trucks = new Array(levelData.trucks);
-var spriteTileImg = new Image();
-
-// WOULD BE NICE TO HAVE AN ASSET QUEUE TO MANAGE THE MAIN LOOP INTERVAL
 
 
 /* Core */
@@ -203,7 +197,7 @@ function Start() {
 		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
 	//trucks[0].place({x: 1,y: 1});
-	game.addTruck(trucks[0], levelData.tiles);
+	game.addTruck(trucks[0], levelData.tiles); // This should happen on the 
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
