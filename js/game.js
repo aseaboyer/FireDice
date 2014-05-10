@@ -17,6 +17,9 @@ var game = {
 		"x": 192,
 		"y": 192,
 	},
+	"level": {
+		"remainingMoves": 0,
+	},
 	"canvasSize": {
 		"x": 400,
 		"y": 192,
@@ -192,6 +195,8 @@ function Start() {
 			i++;
 		}
 	}
+	
+	game.level.remainingMoves = levelData.turns.win;
 	
 	trucks = new Array(levelData.trucks);
 	for(var x=0; x < trucks.length; x++) {
