@@ -63,21 +63,17 @@ var game = {
 	},
 	addTruck: function(aTruck, tileSets) {
 		var validDropPoints = new Array();
-		console.log(tileSets);
+		
 		var tileCols = tileSets.length;
 		for(var x=0; x < tileCols; x++) {
 			var tileRows = tileSets[x].length;
 			for(var y=0; y < tileRows; y++) {
 				if(tileSets[y][x].truckStart) {
-					validDropPoints[validDropPoints.length] = { x: tileSets[y][x].x, y: tileSets[y][x].y };
-					
-					// WHY IS THIS UNDEFINED?!?!?!
+					validDropPoints[validDropPoints.length] = { 'x': x, 'y': y };
 				}
 			}
 		}
 		
-		console.log("There are " + validDropPoints.length + " possible starting tiles for a truck.");
-		console.log(validDropPoints);
 		var optionPicked = Math.floor((Math.random() * validDropPoints.length))
 		var spawnPoint = validDropPoints[optionPicked];
 		if(validDropPoints.length > 0) { // find valid drop point
