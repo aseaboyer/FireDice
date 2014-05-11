@@ -1,6 +1,8 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 
+var spriteTileImg = new Image();
+
 var game = {
 	"cursor": {
 		"x": 0,
@@ -101,7 +103,7 @@ var game = {
 		
 	},
 	levelInit: function(startingMoves, tileImage) {
-		this.spriteTileImg.src = tileImage;
+		//this.spriteTileImg.src = tileImage;
 		this.level.remainingMoves = startingMoves;
 	},
 };
@@ -204,7 +206,9 @@ function Start() {
 	}
 	game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
 	
-	game.levelInit(levelData.turns.win, "img/tile_spritesheet.png");
+	spriteTileImg.src = game.tileSpritesheet.url;
+	
+	game.levelInit(levelData.turns.win);
 	
 	console.log('game:');
 	console.log(game);
