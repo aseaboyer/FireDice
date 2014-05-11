@@ -201,7 +201,7 @@ function Start() {
 	for(var x=0; x < game.trucks.length; x++) {
 		game.trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
-	game.addTruck(trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
+	game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
 	
 	game.levelInit(levelData.turns.win);
 	game.spriteTileImg.src = game.tileSpritesheet.url;
