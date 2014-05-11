@@ -229,7 +229,7 @@ function Draw() {
 	
 	var tileCount = game.tileArray.length;
 	for(var x=0; x < tileCount; x++) {
-		game.tileArray[x].drawTile(context, game.spriteTileImage);
+		game.tileArray[x].drawTile(context, spriteTileImg);
 	}
 	
     var truckCount = game.trucks.length;
