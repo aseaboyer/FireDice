@@ -303,9 +303,9 @@ function mouseDown(e) {
 		var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
 		var truckCount = game.trucks.length;
 		for(var x=0; x < truckCount; x++) {// now draw trucks
-			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
+			if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
 				console.log("There's a truck there! Pick it up!");
-				game.puckupTruck(trucks[x]);
+				game.puckupTruck(game.trucks[x]);
 			}
 		}
 		// mark valid tiles to place truck?
