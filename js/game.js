@@ -100,6 +100,9 @@ var game = {
 	startTurn: function() {
 		
 	},
+	levelInit: function(startingMoves) {
+		this.level.remainingMoves = startingMoves;
+	},
 };
 var levelData = {
 	"levelName": "Starting Town",
@@ -193,7 +196,6 @@ function Start() {
 		}
 	}
 	
-	game.level.remainingMoves = levelData.turns.win;
 	
 	trucks = new Array(levelData.trucks);
 	for(var x=0; x < game.trucks.length; x++) {
@@ -201,6 +203,7 @@ function Start() {
 	}
 	game.addTruck(trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
 	
+	game.levelInit(levelData.turns.win);
 	game.spriteTileImg.src = game.tileSpritesheet.url;
 	
 	console.log(game);
