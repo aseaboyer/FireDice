@@ -207,8 +207,6 @@ function Start() {
 	game.spriteTileImg.src = game.tileSpritesheet.url;
 	
 	console.log(game);
-	console.log(trucks);
-	console.log(game.tileArray);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
 }
