@@ -197,9 +197,9 @@ function Start() {
 	}
 	
 	
-	trucks = new Array(levelData.trucks);
+	game.trucks = new Array(levelData.trucks);
 	for(var x=0; x < game.trucks.length; x++) {
-		trucks[x] = new Truck( game.trucksTray.trayPosition );
+		game.trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
 	game.addTruck(trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
 	
