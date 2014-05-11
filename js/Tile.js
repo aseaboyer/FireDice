@@ -12,7 +12,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles s
 		truckCanStart: truckStart, // If a new truck can be placed on this tile
         //tileColor: "#090",
     
-        drawTile: function(board) {
+        drawTile: function(board, spriteTileImg) {
             if(this.type == 'h') {
                 board.fillStyle = "#090";
             } else if(this.type == 'r') {
@@ -26,22 +26,6 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles s
 				this.x, this.y, // top corner on canvas
 				game.tileSize.x,game.tileSize.y); // width of canvas - the size of the sprite on the canvas
 				
-				/*
-				The above works!
-				TOP CORNERS ARE SET by DX/DY VAL
-				Leave the width of the sub and canvas THE SAME
-				TOP CORNER IS THE X/Y
-				Leave the width of the sub and canvas THE SAME
-				*/
-				
-				
-				
-			/*board.drawImage(spriteTileImg,
-				this.x, this.y,
-				game.tileSpritesheet.x, game.tileSpritesheet.y,
-				this.spriteDX, this.spriteDY,
-				this.spriteDW, this.spriteDH);*/
-            // If this is what the mouse is hovering over, add a border too!
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
                 (game.cursor.y > this.y && game.cursor.y < (this.y + game.tileSize.y))) {
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);

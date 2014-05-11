@@ -1,21 +1,16 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 
-// Should these be in the game object instead!?!?! @aseaboyer
-var tileArray = new Array();
-var trucks = new Array();
-var spriteTileImg = new Image();
-
 var game = {
 	"cursor": {
 		"x": 0,
 		"y": 0,
 		"holdingTruck": false,
 		draw: function(board) {
-			if(game.cursor.holdingTruck) { // draw a truck on the cursor
+			if(this.cursor.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
-				board.fillRect( (game.cursor.x - (game.tileSize.x * .2)), (game.cursor.y - (game.tileSize.y * .2)),
-					(game.tileSize.x * .4), (game.tileSize.y * .4) );
+				board.fillRect( (this.cursor.x - (this.tileSize.x * .2)), (this.cursor.y - (this.tileSize.y * .2)),
+					(this.tileSize.x * .4), (this.tileSize.y * .4) );
 			}
 		},
 	},
@@ -39,6 +34,9 @@ var game = {
 		"x": 576,
 		"y": 576,
 	},
+	"tileArray": new Array(),
+	"spriteTileImg": new Image(),
+	"trucks": new Array(),
 	"trucksAvailable": 0,
 	"trucksTray": {
 		"trayPosition": {
@@ -65,17 +63,13 @@ var game = {
 			aTruck.place(tilePos);
 			this.cursor.holdingTruck = false;
 			
-			//game.finishTurn(); // @aseaboyer - increase the turn as well
+			this.finishTurn();
 			
 		} else {
 			console.log("Truck returned, not dropped on a road.");
 			aTruck.place();
 			this.cursor.holdingTruck = false;
 		}
-		
-		// if so, drop it
-		
-		// or else return it
 	},
 	addTruck: function(aTruck, tileSets) {
 		var validDropPoints = new Array();
@@ -97,6 +91,14 @@ var game = {
 			console.log("Spawning a new truck the following points - option:"+(optionPicked));
 			console.log(spawnPoint);
 		}
+	},
+	finishTurn: function() {
+		console.log("Turn complete...take the actions!"); // @aseaboyer - increase the turn as well
+		this.current--;
+		this.startTurn();
+	},
+	startTurn: function() {
+		
 	},
 };
 var levelData = {
@@ -166,6 +168,7 @@ var levelData = {
 	],
 	"turns": {
 		"win": 30,
+		"current": 0,
 		"events": {
 			30: "new truck"
 		}
@@ -185,7 +188,7 @@ function Start() {
 				levelData.tiles[y][x].type,
 				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY,
 				levelData.tiles[y][x].truckStart);
-			tileArray[i] = newTile;
+			game.tileArray[i] = newTile;
 			i++;
 		}
 	}
@@ -193,17 +196,16 @@ function Start() {
 	game.level.remainingMoves = levelData.turns.win;
 	
 	trucks = new Array(levelData.trucks);
-	for(var x=0; x < trucks.length; x++) {
+	for(var x=0; x < game.trucks.length; x++) {
 		trucks[x] = new Truck( game.trucksTray.trayPosition );
 	}
-	//trucks[0].place({x: 1,y: 1});
-	game.addTruck(trucks[0], levelData.tiles); // This should happen on the 
+	game.addTruck(trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
 	
-	spriteTileImg.src = game.tileSpritesheet.url;
+	game.spriteTileImg.src = game.tileSpritesheet.url;
 	
 	console.log(game);
 	console.log(trucks);
-	console.log(tileArray);
+	console.log(game.tileArray);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
 }
@@ -219,12 +221,12 @@ function Update() {
 function Draw() {
     clearFrame(context);
 	
-	var tileCount = tileArray.length;
+	var tileCount = game.tileArray.length;
 	for(var x=0; x < tileCount; x++) {
-		tileArray[x].drawTile(context);
+		game.tileArray[x].drawTile(context, game.spriteTileImage);
 	}
 	
-    var truckCount = trucks.length;
+    var truckCount = game.trucks.length;
     for(var x=0; x < truckCount; x++) {// now draw trucks
 		trucks[x].drawTruck( context, game.tileSize );
 		trucks[x].drawTruckTray( context );
@@ -293,7 +295,7 @@ function trackMouse(e) {
 function mouseDown(e) {
 	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
 		var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
-		var truckCount = trucks.length;
+		var truckCount = game.trucks.length;
 		for(var x=0; x < truckCount; x++) {// now draw trucks
 			if( trucks[x].x == tilePos.x && trucks[x].y == tilePos.y ) {
 				console.log("There's a truck there! Pick it up!");
