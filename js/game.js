@@ -11,8 +11,8 @@ var game = {
 		draw: function(board) {
 			if(this.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
-				board.fillRect( (this.x - (this.tileSize.x * .2)), (this.y - (this.tileSize.y * .2)),
-					(this.tileSize.x * .4), (this.tileSize.y * .4) );
+				board.fillRect( (this.x - (game.tileSize.x * .2)), (this.y - (game.tileSize.y * .2)),
+					(game.tileSize.x * .4), (game.tileSize.y * .4) );
 			}
 		},
 	},
