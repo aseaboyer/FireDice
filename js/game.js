@@ -206,6 +206,7 @@ function Start() {
 	game.levelInit(levelData.turns.win);
 	game.spriteTileImg.src = game.tileSpritesheet.url;
 	
+	console.log('game:');
 	console.log(game);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
