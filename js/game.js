@@ -9,11 +9,11 @@ var game = {
 		"y": 0,
 		"holdingTruck": false,
 		draw: function(board) {
-		//	if(holdingTruck) { // draw a truck on the cursor
+			if(this.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
-				board.fillRect( (this.cursor.x - (this.tileSize.x * .2)), (this.cursor.y - (this.tileSize.y * .2)),
+				board.fillRect( (this.x - (this.tileSize.x * .2)), (this.y - (this.tileSize.y * .2)),
 					(this.tileSize.x * .4), (this.tileSize.y * .4) );
-		//	}
+			}
 		},
 	},
 	"boardSize": {
@@ -238,7 +238,7 @@ function Draw() {
 		game.trucks[x].drawTruckTray( context );
     }
     
-	if(game.cursor.x != 0 && game.cursor.y != 0 && game.cursor.holdingTruck) {
+	if(game.cursor.x != 0 && game.cursor.y != 0) {
 		game.cursor.draw(context);
 	}
 }
