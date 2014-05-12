@@ -25,7 +25,7 @@ var game = {
 			b.font = "bold 16px Arial";
 			b.fillText("Remaning Turns: "+t, 100, 100);
 		},
-		drawHousesLeftUI: function(b, h) { // move this up if it's the only ui element
+		drawHousesLeftUI: function(b, t) { // move this up if it's the only ui element
 			b.font = "bold 16px Arial";
 			b.fillText("Remaning Houses till Lose: "+t, 100, 100);
 		},
