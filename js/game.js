@@ -18,7 +18,7 @@ var game = {
 	},
 	"ui": {
 		draw: function(board, turns) {
-			drawTurnUI(t)
+			this.drawTurnUI(t)
 		},
 		drawTurnUI: function(board, t) { // move this up if it's the only ui element
 			context.font = "bold 16px Arial";
