@@ -14,6 +14,15 @@ var game = {
 				board.fillRect( (this.x - (game.tileSize.x * .2)), (this.y - (game.tileSize.y * .2)),
 					(game.tileSize.x * .4), (game.tileSize.y * .4) );
 			}
+		}
+	},
+	"ui": {
+		draw: function(board, turns) {
+			drawTurnUI(t)
+		},
+		drawTurnUI: function(board, t) { // move this up if it's the only ui element
+			context.font = "bold 16px Arial";
+			context.fillText("Remaning Turns: "+t, 100, 100);
 		},
 	},
 	"boardSize": {
@@ -110,6 +119,7 @@ var game = {
 var levelData = {
 	"levelName": "Starting Town",
 	"trucks": 1,
+	"fireChance": 0.25,
 	"tiles": [
 		[
 			{
@@ -241,6 +251,8 @@ function Draw() {
 	if(game.cursor.x != 0 && game.cursor.y != 0) {
 		game.cursor.draw(context);
 	}
+	
+	game.ui.draw(game.level.remainingMoves);
 }
 
 function clearFrame(board) {
