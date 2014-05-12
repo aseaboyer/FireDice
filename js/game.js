@@ -17,12 +17,17 @@ var game = {
 		}
 	},
 	"ui": {
-		draw: function(board, turns) {
-			this.drawTurnUI(t)
+		draw: function(board, turns, houses) {
+			this.drawTurnUI(board, turns);
+			this.drawHousesLeftUI(board, houses);
 		},
-		drawTurnUI: function(board, t) { // move this up if it's the only ui element
-			context.font = "bold 16px Arial";
-			context.fillText("Remaning Turns: "+t, 100, 100);
+		drawTurnUI: function(b, t) { // move this up if it's the only ui element
+			b.font = "bold 16px Arial";
+			b.fillText("Remaning Turns: "+t, 100, 100);
+		},
+		drawHousesLeftUI: function(b, h) { // move this up if it's the only ui element
+			b.font = "bold 16px Arial";
+			b.fillText("Remaning Houses till Lose: "+t, 100, 100);
 		},
 	},
 	"boardSize": {
@@ -120,6 +125,7 @@ var levelData = {
 	"levelName": "Starting Town",
 	"trucks": 1,
 	"fireChance": 0.25,
+	"housesLeftWins": 2,
 	"tiles": [
 		[
 			{
