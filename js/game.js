@@ -258,7 +258,7 @@ function Draw() {
 		game.cursor.draw(context);
 	}
 	
-	game.ui.draw(game.level.remainingMoves);
+	game.ui.draw(context, game.level.remainingMoves, 4); // @aseaboyer - hardcoded the houses left - needs to be (housesToWin - housesOnBoard)
 }
 
 function clearFrame(board) {
