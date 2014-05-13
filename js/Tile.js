@@ -1,4 +1,4 @@
-function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart = false, houseStart = false) { // Tiles should own their x/y location
+function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) { // Tiles should own their x/y location
     return {
         x: tileX,
         y: tileY,
@@ -9,8 +9,8 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart = false, hous
         spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
-		hasHouse: houseStart, // set to false if the house hits 4 alarms!
-		truckCanStart: truckStart, // If a new truck can be placed on this tile
+		hasHouse: houseStart || false, // set to false if the house hits 4 alarms!
+		truckCanStart: truckStart || false, // If a new truck can be placed on this tile
         //tileColor: "#090",
     
         drawTile: function(board, spriteTileImg) {
