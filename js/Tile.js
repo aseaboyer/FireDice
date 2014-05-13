@@ -5,7 +5,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
         type: tileType,
         spriteDX: spriteX,
         spriteDY: spriteY,
-        spriteDW: (spriteX + game.tileSize.x),
+        spriteDW: (spriteX + game.tileSize.x), // pass the tile sizes through to this?
         spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
@@ -33,6 +33,8 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				board.fillStyle = "rgba(0, 0, 0, "+0.3+")";
 				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
             }
+			//this.drawHouse(board); // hold for now
+			this.drawFire(board);
         },
 		drawHouse: function(board) { // draw the note in the UI tray
 			board.fillStyle = "#a0522d"; // different if the truck is on stage
@@ -43,18 +45,22 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				this.trayVal.width, this.trayVal.height);*/
 		},
 		drawFire: function(board) { // draw the note in the UI tray
-			board.fillStyle = "#900"; // different if the truck is on stage
-		/*	board.fillRect( this.trayVal.x, this.trayVal.y,
-				this.trayVal.width, this.trayVal.height);*/
+			if(hasHouse) {
+				board.fillStyle = "#900"; // different if the truck is on stage
+				board.fillText(alarmVal, (this.x + game.tileSize.x), (this.y + game.tileSize.y));
+			} else {
+				board.fillStyle = "#999"; // different if the truck is on stage
+				board.fillText("-", (this.x + game.tileSize.x), (this.y + game.tileSize.y));
+			}
 		},
-        bounds: function() {
+        /*bounds: function() {
             return {
               x: this.x,
               y: this.y,
               xMax: (this.x + this.game.tileSize.x),
               xMax: (this.y + this.game.tileSize.y)
             };
-        }
+        }*/
         
         
     };
