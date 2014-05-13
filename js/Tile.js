@@ -50,7 +50,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				board.fillText(alarmVal, (this.x + game.tileSize.x), (this.y + game.tileSize.y));
 			} else {
 				board.fillStyle = "#999"; // different if the truck is on stage
-				board.fillText("-", (this.x + game.tileSize.x), (this.y + game.tileSize.y));
+				board.fillText("-", (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
 			}
 		},
         /*bounds: function() {
