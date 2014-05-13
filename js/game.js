@@ -24,12 +24,12 @@ var game = {
 		drawTurnUI: function(b, t) { // move this up if it's the only ui element
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
-			b.fillText("Remaning Turns: "+t, 400, 20);
+			b.fillText("Remaning Turns: "+t, 390, 20);
 		},
 		drawHousesLeftUI: function(b, t) { // move this up if it's the only ui element
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
-			b.fillText("Remaning Houses till Lose: "+t, 400, 40);
+			b.fillText("Remaning Houses: "+t, 390, 40);
 		},
 	},
 	"boardSize": {
