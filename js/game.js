@@ -44,7 +44,13 @@ var game = {
 			this.remainingMoves--;
 			if(this.remainingMoves <= 0) {
 				console.log("Level finished!");
+			} else {
+				this.startTurn();
 			}
+		},
+		startTurn: function() {
+			var flameUpChance = Math.random();
+			console.log("Rolled a " + flameUpChance + " with a level chance of " + levelData.fireChance);
 		},
 	},
 	"canvasSize": {
@@ -115,14 +121,6 @@ var game = {
 			console.log("Spawning a new truck the following points - option:"+(optionPicked));
 			console.log(spawnPoint);
 		}
-	},
-	finishTurn: function() {
-		console.log("Turn complete...take the actions!"); // @aseaboyer - increase the turn as well
-		this.current--;
-		this.startTurn();
-	},
-	startTurn: function() {
-		
 	},
 	levelInit: function(startingMoves, tileImage) {
 		//this.spriteTileImg.src = tileImage;
