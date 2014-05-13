@@ -21,16 +21,16 @@ var game = {
 			this.drawTurnUI(board, turns);
 			this.drawHousesLeftUI(board, houses);
 		},
-		drawTurnUI: function(b, t) { // move this up if it's the only ui element
+		drawTurnUI: function(b, t) {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
-			b.fillStyle = "#fff";
+			b.fillStyle = "#ccc";
 			b.fillText("Remaning Turns: "+t, 395, 20);
 		},
-		drawHousesLeftUI: function(b, t) { // move this up if it's the only ui element
+		drawHousesLeftUI: function(b, t) {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
-			b.fillStyle = "#fff";
+			b.fillStyle = "#ccc";
 			b.fillText("Remaning Houses: "+t, 395, 40);
 		},
 	},
@@ -40,6 +40,12 @@ var game = {
 	},
 	"level": {
 		"remainingMoves": 0,
+		finishTurn: function() {
+			this.remainingMoves--;
+			if(this.remainingMoves <= 0) {
+				console.log("Level finished!");
+			}
+		},
 	},
 	"canvasSize": {
 		"x": 400,
@@ -81,15 +87,13 @@ var game = {
 			
 		if( tileType && (tileDistance == 1 || tileDistance == -1) ) {
 			aTruck.place(tilePos);
-			this.cursor.holdingTruck = false;
-			
-			this.finishTurn();
+			game.level.finishTurn();
 			
 		} else {
 			console.log("Truck returned, not dropped on a road.");
 			aTruck.place();
-			this.cursor.holdingTruck = false;
 		}
+		this.cursor.holdingTruck = false;
 	},
 	addTruck: function(aTruck, tileSets) {
 		var validDropPoints = new Array();
