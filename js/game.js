@@ -24,11 +24,13 @@ var game = {
 		drawTurnUI: function(b, t) { // move this up if it's the only ui element
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
+			b.fillStyle = "#fff";
 			b.fillText("Remaning Turns: "+t, 395, 20);
 		},
 		drawHousesLeftUI: function(b, t) { // move this up if it's the only ui element
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
+			b.fillStyle = "#fff";
 			b.fillText("Remaning Houses: "+t, 395, 40);
 		},
 	},
@@ -253,7 +255,7 @@ function Draw() {
     var truckCount = game.trucks.length;
     for(var x=0; x < truckCount; x++) {// now draw trucks
 		game.trucks[x].drawTruck( context, game.tileSize );
-		game.trucks[x].drawTruckTray( context );
+	//	game.trucks[x].drawTruckTray( context );
     }
     
 	if(game.cursor.x != 0 && game.cursor.y != 0) {
