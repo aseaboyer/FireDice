@@ -1,4 +1,4 @@
-function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) { // Tiles should own their x/y location
+function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart = false, houseStart = false) { // Tiles should own their x/y location
     return {
         x: tileX,
         y: tileY,
