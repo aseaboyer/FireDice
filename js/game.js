@@ -50,7 +50,7 @@ var game = {
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
-			if(flameUpChance >= levelData.fireChance) {
+			if(flameUpChance <= levelData.fireChance) {
 				console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
 			}
 		},
