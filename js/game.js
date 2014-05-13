@@ -222,7 +222,8 @@ function Start() {
 			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
 				levelData.tiles[y][x].type,
 				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY,
-				levelData.tiles[y][x].truckStart);
+				levelData.tiles[y][x].truckStart,
+				levelData.tiles[y][x].houseStart);
 			game.tileArray[i] = newTile;
 			i++;
 		}
