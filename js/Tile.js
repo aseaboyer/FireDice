@@ -45,7 +45,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				this.trayVal.width, this.trayVal.height);*/
 		},
 		drawFire: function(board) { // draw the note in the UI tray
-			if(hasHouse) {
+			if(this.hasHouse) {
 				board.fillStyle = "#900"; // different if the truck is on stage
 				board.fillText(alarmVal, (this.x + game.tileSize.x), (this.y + game.tileSize.y));
 			} else {
