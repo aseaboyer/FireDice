@@ -140,18 +140,21 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"houseStart": true,
 				"truckStart": false,
 			},
 			{
 				"type": "r",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"houseStart": true,
 				"truckStart": false,
 			},
 			{
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"houseStart": true,
 				"truckStart": false,
 			}
 		],
@@ -180,6 +183,7 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"houseStart": true,
 				"truckStart": false,
 			},
 			{
@@ -192,6 +196,7 @@ var levelData = {
 				"type": "h",
 				"spriteX": (64 * 6),
 				"spriteY": (64 * 3),
+				"houseStart": true,
 				"truckStart": false,
 			}
 		]

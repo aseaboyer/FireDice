@@ -1,4 +1,4 @@
-function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles should own their x/y location
+function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) { // Tiles should own their x/y location
     return {
         x: tileX,
         y: tileY,
@@ -9,6 +9,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles s
         spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
+		hasHouse: houseStart, // set to false if the house hits 4 alarms!
 		truckCanStart: truckStart, // If a new truck can be placed on this tile
         //tileColor: "#090",
     
@@ -33,6 +34,19 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart) { // Tiles s
 				board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
             }
         },
+		drawHouse: function(board) { // draw the note in the UI tray
+			board.fillStyle = "#a0522d"; // different if the truck is on stage
+		/*	board.fillRect( this.trayVal.x, this.trayVal.y,
+				this.trayVal.width, this.trayVal.height);*/
+			board.fillStyle = "#8b4513"; // different if the truck is on stage
+		/*	board.fillRect( this.trayVal.x, this.trayVal.y,
+				this.trayVal.width, this.trayVal.height);*/
+		},
+		drawFire: function(board) { // draw the note in the UI tray
+			board.fillStyle = "#900"; // different if the truck is on stage
+		/*	board.fillRect( this.trayVal.x, this.trayVal.y,
+				this.trayVal.width, this.trayVal.height);*/
+		},
         bounds: function() {
             return {
               x: this.x,
