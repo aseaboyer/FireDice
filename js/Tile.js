@@ -54,7 +54,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			}
 		},
 		startFire: function() { // if it's on fire, increase it, return info on if it's on fire or not
-			alarmVal = 1;
+			this.alarmVal = 1;
 			console.log("Fire request recieved for " + this.x + ", " + this.y)
 		},
 		updateFlame: function(failAlarmVal) { // if it's on fire, increase it, return info on if it's on fire or not
