@@ -67,37 +67,18 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			
 			return this.alarmVal;
 		},
-        /*bounds: function() {
+        /* bounds: function() {
             return {
               x: this.x,
               y: this.y,
               xMax: (this.x + this.game.tileSize.x),
               xMax: (this.y + this.game.tileSize.y)
             };
-        }*/
+        }, */
+		/* spreadFire: function () { // up another nearby fire's alarm val (if that one's isn't already 3)
+		
+		}, */
         
         
     };
-/*
-    update: function () {
-        if(this.alarmVal > 0) {
-            if(this.hasTruck) {
-                this.alarmVal--;
-            } else {
-                if(this.alarmVal == 3) {
-                    this.spreadFire();
-                } else {
-                    this.alarmVal++;
-                }
-            }
-            if(this.alarmVal < 0) {
-                this.alarmVal = 0;
-            }
-        }
-    }
-    
-    spreadFire: function () {
-        // up another nearby fire's alarm val (if that one's isn't already 3)
-    }
-*/
 }
