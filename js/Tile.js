@@ -53,6 +53,20 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				board.fillText("-", (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
 			}
 		},
+		startFire: function() { // if it's on fire, increase it, return info on if it's on fire or not
+			alarmVal = 1;
+		},
+		updateFlame: function(failAlarmVal) { // if it's on fire, increase it, return info on if it's on fire or not
+			if(this.alarmVal > 0) {
+				this.alarmVal++;
+			}
+			if(this.alarmVal >= failAlarmVal) {
+				this.alarmVal = 0;
+				this.hasHouse = false;
+			}
+			
+			return this.alarmVal;
+		},
         /*bounds: function() {
             return {
               x: this.x,

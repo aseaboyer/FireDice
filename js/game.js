@@ -50,8 +50,23 @@ var game = {
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
+			var flamableHouses = new Array();
+			
+			var i = 0;
+			var tileCount = game.tileArray.length;
+			for(var x=0; x < tileCount; x++) {
+				// Should increase the fire rating! and see what returns
+				var tileRating = game.tileArray[i].updateFlame(levelData.fireDestroysOn);
+				if(tileRating == 0) {
+					flamableHouses[flamableHouses.length] = game.tileArray[i];
+				}
+			}
+			
+			
 			if(flameUpChance <= levelData.fireChance) {
 				console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
+				
+				startFire(flamableHouses);
 			}
 		},
 	},
@@ -128,12 +143,16 @@ var game = {
 		//this.spriteTileImg.src = tileImage;
 		this.level.remainingMoves = startingMoves;
 	},
+	startFire: function(tiles) {
+		
+	},
 };
 var levelData = {
 	"levelName": "Starting Town",
 	"trucks": 1,
 	"fireChance": 0.25,
 	"housesLeftWins": 2,
+	"fireDestroysOn": 2,
 	"tiles": [
 		[
 			{
