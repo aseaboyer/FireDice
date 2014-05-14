@@ -52,13 +52,12 @@ var game = {
 			var flameUpChance = Math.random();
 			var flamableHouses = new Array();
 			
-			var i = 0;
 			var tileCount = game.tileArray.length;
 			for(var x=0; x < tileCount; x++) {
 				// Should increase the fire rating! and see what returns
-				var tileRating = game.tileArray[i].updateFlame(levelData.fireDestroysOn);
+				var tileRating = game.tileArray[x].updateFlame(levelData.fireDestroysOn);
 				if(tileRating == 0) {
-					flamableHouses.push(game.tileArray[i]);
+					flamableHouses.push(game.tileArray[x]);
 				}
 			}
 			

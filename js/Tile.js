@@ -61,10 +61,10 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			if(this.alarmVal > 0) {
 				this.alarmVal++;
 			}
-		/*	if(this.alarmVal >= failAlarmVal) {
+			if(this.alarmVal >= failAlarmVal) {
 				this.alarmVal = 0;
 				this.hasHouse = false;
-			}*/
+			}
 			
 			if(!this.hasHouse) { return "-"; }
 			return this.alarmVal;
