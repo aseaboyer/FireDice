@@ -145,8 +145,9 @@ var game = {
 	},
 	startFire: function(tiles) {
 		var numberOfTiles = tiles.length;
-		var randomTile = Math.floor(Math.random() * numberOfTiles);
-		tiles[randomTile].startFire();
+		var randomTileNum = Math.floor(Math.random() * numberOfTiles);
+		tiles[randomTileNum].startFire();
+		console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y);
 	},
 };
 var levelData = {
