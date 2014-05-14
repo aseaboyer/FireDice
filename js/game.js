@@ -66,7 +66,7 @@ var game = {
 			if(flameUpChance <= levelData.fireChance) {
 				console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
 				
-				startFire(flamableHouses);
+				game.startFire(flamableHouses);
 			}
 		},
 	},
@@ -144,7 +144,9 @@ var game = {
 		this.level.remainingMoves = startingMoves;
 	},
 	startFire: function(tiles) {
-		
+		var numberOfTiles = tiles.length;
+		var randomTile = Math.floor(Math.random() * numberOfTiles);
+		tiles[randomTile].startFire();
 	},
 };
 var levelData = {
