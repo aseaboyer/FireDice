@@ -58,7 +58,7 @@ var game = {
 				// Should increase the fire rating! and see what returns
 				var tileRating = game.tileArray[i].updateFlame(levelData.fireDestroysOn);
 				if(tileRating == 0) {
-					flamableHouses[flamableHouses.length] = game.tileArray[i];
+					flamableHouses.push(game.tileArray[i]);
 				}
 			}
 			
@@ -148,6 +148,9 @@ var game = {
 		var randomTileNum = Math.floor(Math.random() * numberOfTiles);
 		tiles[randomTileNum].startFire();
 		console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
+		
+		// OKAY, the issue here might be that it's being set to a reference, not the actual item?
+		
 	},
 };
 var levelData = {
