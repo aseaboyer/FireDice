@@ -157,7 +157,7 @@ var levelData = {
 	"trucks": 1,
 	"fireChance": 0.25,
 	"housesLeftWins": 2,
-	"fireDestroysOn": 2,
+	"fireDestroysOn": 5,
 	"tiles": [
 		[
 			{
