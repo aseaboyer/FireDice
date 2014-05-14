@@ -65,7 +65,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				this.hasHouse = false;
 			}
 			
-			if(!hasHouse) { return "-"; }
+			if(!this.hasHouse) { return "-"; }
 			return this.alarmVal;
 		},
         /* bounds: function() {
