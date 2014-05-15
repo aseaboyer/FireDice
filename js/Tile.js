@@ -57,16 +57,32 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			this.alarmVal = 1;
 			console.log("Fire request recieved for " + this.x + ", " + this.y)
 		},
-		updateFlame: function(failAlarmVal) { // if it's on fire, increase it, return info on if it's on fire or not
-			if(this.alarmVal > 0) {
-				this.alarmVal++;
+		updateFlame: function(failAlarmVal, truckList) {
+			var extinguishingTile = false;
+			
+			if(this.alarmVal > 0) { // if it's on fire, increase it
+				var truckCount = truckList.length;
+				for(var x=0; x < truckCount; x++) { //check to see if there's a truck nearby
+					var tileCount = truckList[x].truckHosing.length;
+					for(var y=0; y < tileCount; y++) { //check to see if there's a truck nearby
+						if(truckList[x].x == this.x && truckList[x].y == this.y) {
+							extinguishingTile = true;
+						}
+					}
+				}
+				if(extinguishingTile) {
+					this.alarmVal--;
+				} else {
+					this.alarmVal++;
+				}
 			}
 			if(this.alarmVal >= failAlarmVal) {
 				this.alarmVal = 0;
 				this.hasHouse = false;
 			}
 			
-			if(!this.hasHouse) { return "-"; }
+			// return info on if it's on fire or not
+			if(!this.hasHouse) { return "-"; } 
 			return this.alarmVal;
 		},
         /* bounds: function() {

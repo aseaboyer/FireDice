@@ -3,6 +3,8 @@ function Truck(trayVals) {
         inPlay: false, // if the truck is on a tile
 		x: 0, // TILE in where it resides
 		y: 0,
+		dir: 'N', // used to control which facing direction the truck is using
+		truckHosing: new Array(), // controls where the truck can hose right now
 		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
 		spawn: function(dropSpot) {
@@ -16,6 +18,14 @@ function Truck(trayVals) {
 				this.y = newCo.y;
 			}
 			this.held = false;
+			
+			// update the hosing vals (4 compass points)
+			truckHosing = [
+				{x: this.x+1, y: this.y},
+				{x: this.x-1, y: this.y},
+				{x: this.x, y: this.y+1},
+				{x: this.x, y: this.y-1},
+			];
 		},
 		pickup: function() {
 			this.held = true;

@@ -55,7 +55,7 @@ var game = {
 			var tileCount = game.tileArray.length;
 			for(var x=0; x < tileCount; x++) {
 				// Should increase the fire rating! and see what returns
-				var tileRating = game.tileArray[x].updateFlame(levelData.fireDestroysOn);
+				var tileRating = game.tileArray[x].updateFlame(levelData.fireDestroysOn, game.trucks);
 				if(tileRating == 0) {
 					flamableHouses.push(game.tileArray[x]);
 				}
