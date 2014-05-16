@@ -178,6 +178,7 @@ var game = {
 	levelInit: function(startingMoves, tileImage) {
 		//this.spriteTileImg.src = tileImage;
 		this.level.remainingMoves = startingMoves;
+		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray)
 	},
 	startFire: function(tiles) {
 		var numberOfTiles = tiles.length;
