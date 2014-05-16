@@ -35,8 +35,8 @@ var game = {
 			b.fillText("Remaning Houses: "+h, 395, 40);
 		},
 		skipButton: {
-			x: 150,
-			y: 150,
+			x: 250,
+			y: 165,
 			width: 100,
 			height: 20,
 			text: "Skip Turn",
