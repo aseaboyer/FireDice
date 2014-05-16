@@ -41,12 +41,12 @@ var game = {
 			height: 20,
 			text: "Skip Turn",
 			draw: function(b) {
-				board.fillStyle = "#900";
-				board.fillRect( this.x, this.y, this.width, this.height );
-				board.fillStyle = "#fff";
-				board.textAlign = "center";
-				board.textBaseline = "middle";
-				board.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
+				b.fillStyle = "#900";
+				b.fillRect( this.x, this.y, this.width, this.height );
+				b.fillStyle = "#fff";
+				b.textAlign = "center";
+				b.textBaseline = "middle";
+				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
 			},
 		},
 	},
