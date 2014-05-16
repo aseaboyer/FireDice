@@ -21,6 +21,7 @@ var game = {
 			this.drawTurnUI(board, turns);
 			this.drawHousesLeftUI(board, houses);
 			this.skipButton.draw(board);
+			console.log("draw UI");
 		},
 		drawTurnUI: function(b, t) {
 			b.font = "bold 16px Arial";
@@ -47,6 +48,7 @@ var game = {
 				b.textAlign = "center";
 				b.textBaseline = "middle";
 				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
+				console.log("draw Skip BTN");
 			},
 		},
 	},
