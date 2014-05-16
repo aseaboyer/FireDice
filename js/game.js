@@ -14,6 +14,12 @@ var game = {
 				board.fillRect( (this.x - (game.tileSize.x * .2)), (this.y - (game.tileSize.y * .2)),
 					(game.tileSize.x * .4), (game.tileSize.y * .4) );
 			}
+		},
+		withinBounds: function(x,y,w,h) { // rect is the { x,y,w,h }
+			if( this.x >= x && this.x <= (x + w) && this.y >= y && this.y <= (y + h) ) {
+				return true;
+			}
+			return false;
 		}
 	},
 	ui: {
@@ -386,13 +392,18 @@ function trackMouse(e) {
 }
 function mouseDown(e) {
 	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
-		var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
-		var truckCount = game.trucks.length;
-		for(var x=0; x < truckCount; x++) {// now draw trucks
-			if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
-				console.log("There's a truck there! Pick it up!");
-				game.puckupTruck(game.trucks[x]);
+		if(game.cursor.withinBounds(0,0,game.boardSize.x,game.boardSize.y)) {
+			var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
+			var truckCount = game.trucks.length;
+			for(var x=0; x < truckCount; x++) { // now draw trucks
+				if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
+					console.log("There's a truck there! Pick it up!");
+					game.puckupTruck(game.trucks[x]);
+				}
 			}
+		} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
+			game.ui.skipButton.width, game.ui.skipButton.height)) {
+				
 		}
 		// mark valid tiles to place truck?
 	}
