@@ -87,6 +87,7 @@ var game = {
 				}
 			}
 			
+			// @aseaboyer - reduce the fire rating if a truck is fighting the fire!
 			
 			if(flameUpChance <= levelData.fireChance) {
 				console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
@@ -332,7 +333,7 @@ function Draw() {
 		game.cursor.draw(context);
 	}
 	
-	game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses); // @aseaboyer - hardcoded the houses left - needs to be (housesToWin - housesOnBoard)
+	game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses);
 }
 
 function clearFrame(board) {
