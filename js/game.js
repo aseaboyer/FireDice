@@ -21,7 +21,6 @@ var game = {
 			this.drawTurnUI(board, turns);
 			this.drawHousesLeftUI(board, houses);
 			this.skipButton.draw(board);
-			console.log("draw UI");
 		},
 		drawTurnUI: function(b, t) {
 			b.font = "bold 16px Arial";
@@ -29,26 +28,28 @@ var game = {
 			b.fillStyle = "#ccc";
 			b.fillText("Remaning Turns: "+t, 395, 20);
 		},
-		drawHousesLeftUI: function(b, t) {
+		drawHousesLeftUI: function(b, h) {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("Remaning Houses: "+t, 395, 40);
+			b.fillText("Remaning Houses: "+h, 395, 40);
 		},
 		skipButton: {
-			x: 192,
-			y: 192,
+			x: 150,
+			y: 150,
 			width: 100,
 			height: 20,
 			text: "Skip Turn",
 			draw: function(b) {
+				// Draw the bg box
 				b.fillStyle = "#900";
 				b.fillRect( this.x, this.y, this.width, this.height );
+				
+				// Draw the text
 				b.fillStyle = "#fff";
 				b.textAlign = "center";
 				b.textBaseline = "middle";
 				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
-				console.log("draw Skip BTN");
 			},
 		},
 	},
@@ -56,8 +57,9 @@ var game = {
 		"x": 192,
 		"y": 192,
 	},
-	"level": {
-		"remainingMoves": 0,
+	level: {
+		remainingMoves: 0,
+		remainingHouses: 0,
 		finishTurn: function() {
 			this.remainingMoves--;
 			if(this.remainingMoves <= 0) {
@@ -85,6 +87,16 @@ var game = {
 				
 				game.startFire(flamableHouses);
 			}
+			
+			this.remainingHouses = this.countRemainingHouses(game.tileArray);
+		},
+		countRemainingHouses: function(tileArray) {
+			var totalHouses = 0;
+			var tileCount = tileArray.length;
+			for(var x=0; x < tileCount; x++) {
+				if(tileArray[x].hasHouse) { totalHouses++; }
+			}
+			return totalHouses;
 		},
 	},
 	"canvasSize": {
@@ -314,7 +326,7 @@ function Draw() {
 		game.cursor.draw(context);
 	}
 	
-	game.ui.draw(context, game.level.remainingMoves, 4); // @aseaboyer - hardcoded the houses left - needs to be (housesToWin - housesOnBoard)
+	game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses); // @aseaboyer - hardcoded the houses left - needs to be (housesToWin - housesOnBoard)
 }
 
 function clearFrame(board) {
