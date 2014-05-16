@@ -403,7 +403,7 @@ function mouseDown(e) {
 			}
 		} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
 			game.ui.skipButton.width, game.ui.skipButton.height)) {
-				
+			console.log("Hit the skip button");
 		}
 		// mark valid tiles to place truck?
 	}
