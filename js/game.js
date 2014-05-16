@@ -4,7 +4,7 @@ var context = canvas.getContext("2d");
 var spriteTileImg = new Image();
 
 var game = {
-	"cursor": {
+	cursor: {
 		"x": 0,
 		"y": 0,
 		"holdingTruck": false,
@@ -16,10 +16,11 @@ var game = {
 			}
 		}
 	},
-	"ui": {
+	ui: {
 		draw: function(board, turns, houses) {
 			this.drawTurnUI(board, turns);
 			this.drawHousesLeftUI(board, houses);
+			this.skipButton.draw(board);
 		},
 		drawTurnUI: function(b, t) {
 			b.font = "bold 16px Arial";
@@ -32,6 +33,21 @@ var game = {
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
 			b.fillText("Remaning Houses: "+t, 395, 40);
+		},
+		skipButton: {
+			x: 192,
+			y: 192,
+			width: 100,
+			height: 20,
+			text: "Skip Turn",
+			draw: function(b) {
+				board.fillStyle = "#900";
+				board.fillRect( this.x, this.y, this.width, this.height );
+				board.fillStyle = "#fff";
+				board.textAlign = "center";
+				board.textBaseline = "middle";
+				board.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
+			},
 		},
 	},
 	"boardSize": {
