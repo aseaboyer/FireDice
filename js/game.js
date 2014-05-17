@@ -5,9 +5,9 @@ var spriteTileImg = new Image();
 
 var game = {
 	cursor: {
-		"x": 0,
-		"y": 0,
-		"holdingTruck": false,
+		x: 0,
+		y: 0,
+		holdingTruck: false,
 		draw: function(board) {
 			if(this.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
@@ -20,7 +20,7 @@ var game = {
 				return true;
 			}
 			return false;
-		}
+		},
 	},
 	ui: {
 		draw: function(board, turns, houses) {
@@ -59,9 +59,9 @@ var game = {
 			},
 		},
 	},
-	"boardSize": {
-		"x": 192,
-		"y": 192,
+	boardSize: {
+		x: 192,
+		y: 192,
 	},
 	level: {
 		remainingMoves: 0,
