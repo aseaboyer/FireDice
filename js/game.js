@@ -5,15 +5,14 @@ var spriteTileImg = new Image();
 
 var game = {
 	cursor: {
-		gameMaster: this,
 		x: 0,
 		y: 0,
 		holdingTruck: false,
 		draw: function(board) {
 			if(this.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
-				board.fillRect( (this.x - (gameMaster.tileSize.x * .2)), (this.y - (gameMaster.tileSize.y * .2)),
-					(gameMaster.tileSize.x * .4), (gameMaster.tileSize.y * .4) );
+				board.fillRect( (this.x - (game.tileSize.x * .2)), (this.y - (game.tileSize.y * .2)),
+					(game.tileSize.x * .4), (game.tileSize.y * .4) );
 			}
 		},
 		withinBounds: function(x,y,w,h) { // rect is the { x,y,w,h }
