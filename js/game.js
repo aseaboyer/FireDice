@@ -4,6 +4,7 @@ var context = canvas.getContext("2d");
 var spriteTileImg = new Image();
 
 var game = {
+	gameMaster: this,
 	cursor: {
 		x: 0,
 		y: 0,
@@ -11,8 +12,8 @@ var game = {
 		draw: function(board) {
 			if(this.holdingTruck) { // draw a truck on the cursor
 				board.fillStyle = "#900";
-				board.fillRect( (this.x - (game.tileSize.x * .2)), (this.y - (game.tileSize.y * .2)),
-					(game.tileSize.x * .4), (game.tileSize.y * .4) );
+				board.fillRect( (this.x - (gameMaster.tileSize.x * .2)), (this.y - (gameMaster.tileSize.y * .2)),
+					(gameMaster.tileSize.x * .4), (gameMaster.tileSize.y * .4) );
 			}
 		},
 		withinBounds: function(x,y,w,h) { // rect is the { x,y,w,h }
@@ -21,7 +22,6 @@ var game = {
 			}
 			return false;
 		},
-		master: this,
 	},
 	ui: {
 		draw: function(board, turns, houses) {
