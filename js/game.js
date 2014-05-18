@@ -4,8 +4,8 @@ var context = canvas.getContext("2d");
 var spriteTileImg = new Image();
 
 var game = {
-	gameMaster: this,
 	cursor: {
+		gameMaster: this,
 		x: 0,
 		y: 0,
 		holdingTruck: false,
