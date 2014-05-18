@@ -21,6 +21,7 @@ var game = {
 			}
 			return false;
 		},
+		master: this,
 	},
 	ui: {
 		draw: function(board, turns, houses) {
