@@ -395,6 +395,8 @@ function trackMouse(e) {
 }
 function mouseDown(e) {
 	if(game.phase == 'menu') {
+	
+	
 	} else if(game.phase == 'play') {
 		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
 			if(game.cursor.withinBounds(0,0,game.boardSize.x,game.boardSize.y)) {
@@ -416,8 +418,10 @@ function mouseDown(e) {
 	}
 }
 function mouseUp(e) {
-	if(game.cursor.holdingTruck) {
-		game.dropTruck(game.cursor.holdingTruck);
+	if(game.phase == 'play') {
+		if(game.cursor.holdingTruck) {
+			game.dropTruck(game.cursor.holdingTruck);
+		}
 	}
 }
 
