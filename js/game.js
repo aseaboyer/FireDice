@@ -4,6 +4,7 @@ var context = canvas.getContext("2d");
 var spriteTileImg = new Image();
 
 var game = {
+	phase: "play",
 	cursor: {
 		x: 0,
 		y: 0,
@@ -393,22 +394,25 @@ function trackMouse(e) {
 //    console.log(e.clientX+" "+e.clientY);
 }
 function mouseDown(e) {
-	if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
-		if(game.cursor.withinBounds(0,0,game.boardSize.x,game.boardSize.y)) {
-			var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
-			var truckCount = game.trucks.length;
-			for(var x=0; x < truckCount; x++) { // now draw trucks
-				if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
-					console.log("There's a truck there! Pick it up!");
-					game.puckupTruck(game.trucks[x]);
+	if(game.phase == 'menu') {
+	} else if(game.phase == 'play') {
+		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
+			if(game.cursor.withinBounds(0,0,game.boardSize.x,game.boardSize.y)) {
+				var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
+				var truckCount = game.trucks.length;
+				for(var x=0; x < truckCount; x++) { // now draw trucks
+					if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
+						console.log("There's a truck there! Pick it up!");
+						game.puckupTruck(game.trucks[x]);
+					}
 				}
+			} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
+				game.ui.skipButton.width, game.ui.skipButton.height)) {
+				console.log("Player hit the skip button");
+				game.level.finishTurn();
 			}
-		} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
-			game.ui.skipButton.width, game.ui.skipButton.height)) {
-			console.log("Player hit the skip button");
-			game.level.finishTurn();
+			// mark valid tiles to place truck?
 		}
-		// mark valid tiles to place truck?
 	}
 }
 function mouseUp(e) {
