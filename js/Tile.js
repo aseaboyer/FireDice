@@ -65,7 +65,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				for(var x=0; x < truckCount; x++) { //check to see if there's a truck nearby
 					var tileCount = truckList[x].truckHosing.length;
 					for(var y=0; y < tileCount; y++) { //check to see if there's a truck nearby
-						if(truckList[x].x == this.x && truckList[x].y == this.y) {
+						if(truckList[x].truckHosing[tileCount].x == this.x && truckList[x].truckHosing[tileCount].y == this.y) {
 							extinguishingTile = true;
 						}
 					}

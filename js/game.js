@@ -185,10 +185,7 @@ var game = {
 		var numberOfTiles = tiles.length;
 		var randomTileNum = Math.floor(Math.random() * numberOfTiles);
 		tiles[randomTileNum].startFire();
-		console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
-		
-		// OKAY, the issue here might be that it's being set to a reference, not the actual item?
-		
+		//console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
 	},
 };
 var levelData = {
