@@ -57,7 +57,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			this.alarmVal = 1;
 			console.log("Fire request recieved for " + this.x + ", " + this.y)
 		},
-		updateFlame: function(failAlarmVal, truckList) {
+		updateFlame: function(failAlarmVal, truckList, tileSize) {
 			var extinguishingTile = false;
 			
 			if(this.alarmVal > 0) { // if it's on fire, increase it
@@ -65,8 +65,8 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				for(var i=0; i < truckCount; i++) { //check to see if there's a truck nearby
 					var tileCount = truckList[i].truckHosing.length;
 					for(var j=0; j < tileCount; j++) { //check to see if there's a truck nearby
-						var testX = getRoundedToTileSize( this.x, game.tileSize );
-						var testY = getRoundedToTileSize( this.y, game.tileSize );
+						var testX = getRoundedToTileSize( this.x, tileSize );
+						var testY = getRoundedToTileSize( this.y, tileSize );
 						console.log("Checking to see if the following obj matches "+
 							this.x+", "+this.y);
 						console.log(truckList[i].truckHosing[j]);
