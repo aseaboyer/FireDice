@@ -68,7 +68,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 						var testX = getRoundedToTileSize( this.x, tileSize );
 						var testY = getRoundedToTileSize( this.y, tileSize );
 						console.log("Checking to see if the following obj matches "+
-							(this.x / tileSize)+", "+(this.y / tileSize));
+							(this.x / tileSize) +", "+(this.y / tileSize)+" TILESIZE " + tileSize);
 						console.log(truckList[i].truckHosing[j]);
 						if(truckList[i].truckHosing[j].x == (this.x / tileSize) && truckList[i].truckHosing[j].y == (this.y / tileSize)) {
 							extinguishingTile = true;
