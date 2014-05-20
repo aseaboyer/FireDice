@@ -348,8 +348,8 @@ function getTileNumber( vals, tileSize ) { // don't really use this any longer?
 		tileNum.x = parseInt(vals.x/tileSize.x);
 		tileNum.y = parseInt(vals.y/tileSize.y);
 	
-	console.log("Tried to pickup from tile: ");
-	console.log(tileNum);
+	//console.log("Tried to pickup from tile: ");
+	//console.log(tileNum);
     return tileNum; // should return the x and y of the tile
 }
 
