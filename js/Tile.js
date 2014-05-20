@@ -70,7 +70,8 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 						console.log("Checking to see if the following obj matches "+
 							(this.x / tileSize) +", "+(this.y / tileSize)+" TILESIZE " + tileSize);
 						console.log(truckList[i].truckHosing[j]);
-						if(truckList[i].truckHosing[j].x == (this.x / tileSize) && truckList[i].truckHosing[j].y == (this.y / tileSize)) {
+						if(truckList[i].truckHosing[j].x == (this.x / tileSize.x) 
+							&& truckList[i].truckHosing[j].y == (this.y / tileSize.y)) {
 							extinguishingTile = true;
 						}
 					}
