@@ -62,10 +62,10 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			
 			if(this.alarmVal > 0) { // if it's on fire, increase it
 				var truckCount = truckList.length;
-				for(var x=0; x < truckCount; x++) { //check to see if there's a truck nearby
-					var tileCount = truckList[x].truckHosing.length;
-					for(var y=0; y < tileCount; y++) { //check to see if there's a truck nearby
-						if(truckList[x].truckHosing[tileCount].x == this.x && truckList[x].truckHosing[tileCount].y == this.y) {
+				for(var i=0; i < truckCount; i++) { //check to see if there's a truck nearby
+					var tileCount = truckList[i].truckHosing.length;
+					for(var j=0; j < tileCount; j++) { //check to see if there's a truck nearby
+						if(truckList[i].truckHosing[j].x == this.x && truckList[i].truckHosing[j].y == this.y) {
 							extinguishingTile = true;
 						}
 					}
