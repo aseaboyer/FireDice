@@ -20,11 +20,12 @@ function Truck(trayVals) {
 			this.held = false;
 			
 			// update the hosing vals (4 compass points)
-			this.truckHosing = 
-				[{x: this.x+1, y: this.y}],
-				[{x: this.x-1, y: this.y}],
-				[{x: this.x, y: this.y+1}],
-				[{x: this.x, y: this.y-1}];
+			this.truckHosing = new Array(
+				{x: this.x+1, y: this.y},
+				{x: this.x-1, y: this.y},
+				{x: this.x, y: this.y+1},
+				{x: this.x, y: this.y-1},
+				);
 		},
 		pickup: function() {
 			this.held = true;
