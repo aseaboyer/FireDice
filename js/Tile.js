@@ -65,10 +65,12 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 				for(var i=0; i < truckCount; i++) { //check to see if there's a truck nearby
 					var tileCount = truckList[i].truckHosing.length;
 					for(var j=0; j < tileCount; j++) { //check to see if there's a truck nearby
+						var testX = getRoundedToTileSize( this.x, game.tileSize );
+						var testY = getRoundedToTileSize( this.y, game.tileSize );
 						console.log("Checking to see if the following obj matches "+
 							this.x+", "+this.y);
 						console.log(truckList[i].truckHosing[j]);
-						if(truckList[i].truckHosing[j].x == this.x && truckList[i].truckHosing[j].y == this.y) {
+						if(truckList[i].truckHosing[j].x == testX && truckList[i].truckHosing[j].y == testY) {
 							extinguishingTile = true;
 						}
 					}
@@ -88,18 +90,5 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart) 
 			if(!this.hasHouse) { return "-"; } 
 			return this.alarmVal;
 		},
-        /* bounds: function() {
-            return {
-              x: this.x,
-              y: this.y,
-              xMax: (this.x + this.game.tileSize.x),
-              xMax: (this.y + this.game.tileSize.y)
-            };
-        }, */
-		/* spreadFire: function () { // up another nearby fire's alarm val (if that one's isn't already 3)
-		
-		}, */
-        
-        
     };
 }
