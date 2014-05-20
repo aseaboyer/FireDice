@@ -91,8 +91,7 @@ var game = {
 			// @aseaboyer - reduce the fire rating if a truck is fighting the fire!
 			
 			if(flameUpChance <= levelData.fireChance) {
-				console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
-				
+			//	console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
 				game.startFire(flamableHouses);
 			}
 			
