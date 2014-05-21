@@ -11,9 +11,13 @@ var game = {
 		update: function() {
 			this.lastFrame = this.thisFrame;
 			this.thisFrame = new Date().getTime();
+			console.log(this.getFrameDiff());
 		},
 		getCurrentTime: function() {
 			return new Date().getTime();
+		},
+		getFrameDiff: function() {
+			return this.thisFrame - this.lastFrame;
 		},
 	},
 	cursor: {
