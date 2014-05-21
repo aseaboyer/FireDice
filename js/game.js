@@ -54,7 +54,8 @@ var game = {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("Houses: " + h + " of " + game.level.housesLeftWins + " remaning" , 395, 40);
+			b.fillText("Remaning Houses: " + h , 395, 40);
+			b.fillText("Houses needed to win: " + game.level.housesLeftWins , 395, 60);
 		},
 		skipButton: {
 			x: 250,
