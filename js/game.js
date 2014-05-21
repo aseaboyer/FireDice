@@ -5,6 +5,17 @@ var spriteTileImg = new Image();
 
 var game = {
 	phase: "play",
+	frameRate: {
+		thisFrame: getCurrentTime,
+		lastFrame: this.thisFrame,
+		update: function() {
+			this.lastFrame = this.thisFrame;
+			this.thisFrame = getCurrentTime;
+		},
+		getCurrentTime: function() {
+			return new Date().getTime();
+		},
+	},
 	cursor: {
 		x: 0,
 		y: 0,
