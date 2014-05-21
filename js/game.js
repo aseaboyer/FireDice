@@ -3,6 +3,8 @@ var context = canvas.getContext("2d");
 
 var spriteTileImg = new Image();
 
+var playerData = new PlayerData();
+
 var game = {
 	phase: "play",
 	phases: [ "menu", "load", "play", "win", "lost" ], // for ref. @aseaboyer
@@ -95,6 +97,9 @@ var game = {
 			this.remainingMoves--;
 			if(this.remainingMoves <= 0) {
 				console.log("Level finished!");
+				// @aseaboyer
+				// save to playerData and go to level load screen
+				
 			} else {
 				this.startTurn();
 			}
@@ -315,7 +320,6 @@ function Start() {
 			i++;
 		}
 	}
-	
 	
 	game.trucks = new Array(levelData.trucks);
 	for(var x=0; x < game.trucks.length; x++) {

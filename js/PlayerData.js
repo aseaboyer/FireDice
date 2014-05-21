@@ -1,5 +1,6 @@
 function PlayerData() {
     return {
+		name: "",
 		currentLevel: 1,
 		highScore: 0,
 		setHighScore: function(newScore) {
