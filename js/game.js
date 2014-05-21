@@ -310,6 +310,8 @@ function Start() {
 	
 	game.levelInit(levelData.turns.win);
 	
+	game.frameRate.update();
+	
 	console.log('game:');
 	console.log(game);
 	
@@ -317,6 +319,7 @@ function Start() {
 }
 
 function Update() {
+	game.frameRate.update();
 /*
     if(game.currentEvent == "Place Truck") {
 	//	console.log("Placing Truck");
