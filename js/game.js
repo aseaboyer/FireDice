@@ -54,7 +54,7 @@ var game = {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("Remaning Houses: "+h, 395, 40);
+			b.fillText("Houses: " + h + " of " + game.level.housesLeftWins + " remaning" , 395, 40);
 		},
 		skipButton: {
 			x: 250,
@@ -82,6 +82,7 @@ var game = {
 	level: {
 		remainingMoves: 0,
 		remainingHouses: 0,
+		housesLeftWins: 0,
 		finishTurn: function() {
 			this.remainingMoves--;
 			if(this.remainingMoves <= 0) {
@@ -190,10 +191,10 @@ var game = {
 			console.log(spawnPoint);
 		}
 	},
-	levelInit: function(startingMoves, tileImage) {
-		//this.spriteTileImg.src = tileImage;
+	levelInit: function(startingMoves, housesLeftWins) {
 		this.level.remainingMoves = startingMoves;
-		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray)
+		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray);
+		this.level.housesLeftWins = housesLeftWins;
 	},
 	startFire: function(tiles) {
 		var numberOfTiles = tiles.length;
@@ -312,7 +313,7 @@ function Start() {
 	
 	spriteTileImg.src = game.tileSpritesheet.url;
 	
-	game.levelInit(levelData.turns.win);
+	game.levelInit(levelData.turns.win, levelData.housesLeftWins);
 	
 	game.frameRate.update();
 	
