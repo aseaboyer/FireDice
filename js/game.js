@@ -5,6 +5,12 @@ var spriteTileImg = new Image();
 
 var game = {
 	phase: "play",
+	phases: [ "menu", "load", "play", "win", "lost" ], // for ref. @aseaboyer
+	changePhase: function(phaseName) {
+		if(phaseName == "load") {
+			this.level.loadLevel();
+		}
+	},
 	frameRate: {
 		thisFrame: new Date().getTime(),
 		lastFrame: this.thisFrame,
@@ -81,6 +87,7 @@ var game = {
 		y: 192,
 	},
 	level: {
+		name: '',
 		remainingMoves: 0,
 		remainingHouses: 0,
 		housesLeftWins: 0,
@@ -91,6 +98,10 @@ var game = {
 			} else {
 				this.startTurn();
 			}
+		},
+		loadLevel: function(fileName) { // @aseaboyer
+			// fire the ajax call
+				// the finished callfires it's own changePhase to play
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
