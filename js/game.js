@@ -177,7 +177,7 @@ var game = {
 			game.level.finishTurn();
 			
 		} else {
-			console.log("Truck returned, not dropped on a road.");
+			//console.log("Truck returned, not dropped on a road.");
 			aTruck.place();
 		}
 		this.cursor.holdingTruck = false;
