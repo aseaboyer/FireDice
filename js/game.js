@@ -6,11 +6,11 @@ var spriteTileImg = new Image();
 var game = {
 	phase: "play",
 	frameRate: {
-		thisFrame: this.getCurrentTime,
+		thisFrame: tnew Date().getTime(),
 		lastFrame: this.thisFrame,
 		update: function() {
 			this.lastFrame = this.thisFrame;
-			this.thisFrame = this.getCurrentTime;
+			this.thisFrame = new Date().getTime();
 		},
 		getCurrentTime: function() {
 			return new Date().getTime();
