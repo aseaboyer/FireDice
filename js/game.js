@@ -399,9 +399,9 @@ function ajax_get_json(fileURL) {
 canvas.addEventListener('mousemove', trackMouse, false);
 canvas.addEventListener('mousedown', mouseDown, false);
 canvas.addEventListener('mouseup', mouseUp, false);
-canvas.addEventListener('touchmove', trackMouse, false);
-canvas.addEventListener('touchstart', mouseDown, false);
-canvas.addEventListener('touchend', mouseUp, false);
+canvas.addEventListener('touchmove', trackTouch, false);
+canvas.addEventListener('touchstart', touchDown, false);
+canvas.addEventListener('touchend', touchUp, false);
 
 function trackMouse(e) {
     game.cursor.x = e.clientX;
@@ -419,13 +419,13 @@ function mouseDown(e) {
 				var truckCount = game.trucks.length;
 				for(var x=0; x < truckCount; x++) { // now draw trucks
 					if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
-						console.log("There's a truck there! Pick it up!");
+						//console.log("There's a truck there! Pick it up!");
 						game.puckupTruck(game.trucks[x]);
 					}
 				}
 			} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
 				game.ui.skipButton.width, game.ui.skipButton.height)) {
-				console.log("Player hit the skip button");
+				//console.log("Player hit the skip button");
 				game.level.finishTurn();
 			}
 			// mark valid tiles to place truck?
@@ -433,6 +433,40 @@ function mouseDown(e) {
 	}
 }
 function mouseUp(e) {
+	if(game.phase == 'play') {
+		if(game.cursor.holdingTruck) {
+			game.dropTruck(game.cursor.holdingTruck);
+		}
+	}
+}
+function trackTouch(e) {
+    game.cursor.x = e.clientX;
+    game.cursor.y = e.clientY;
+//    console.log(e.clientX+" "+e.clientY);
+}
+function touchDown(e) {
+	if(game.phase == 'menu') {
+	
+	
+	} else if(game.phase == 'play') {
+		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
+			if(game.cursor.withinBounds(0,0,game.boardSize.x,game.boardSize.y)) {
+				var tilePos = getTileNumber(game.cursor, game.tileSize); // Get the tile position
+				var truckCount = game.trucks.length;
+				for(var x=0; x < truckCount; x++) { // now draw trucks
+					if( game.trucks[x].x == tilePos.x && game.trucks[x].y == tilePos.y ) {
+						game.puckupTruck(game.trucks[x]);
+					}
+				}
+			} else if(game.cursor.withinBounds(game.ui.skipButton.x, game.ui.skipButton.y,
+				game.ui.skipButton.width, game.ui.skipButton.height)) {
+				game.level.finishTurn();
+			}
+			// mark valid tiles to place truck?
+		}
+	}
+}
+function touchUp(e) {
 	if(game.phase == 'play') {
 		if(game.cursor.holdingTruck) {
 			game.dropTruck(game.cursor.holdingTruck);
