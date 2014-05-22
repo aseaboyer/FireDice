@@ -56,13 +56,13 @@ var game = {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("Remaning Turns: "+t, 395, 20);
+			b.fillText("Remaining Turns: "+t, 395, 20);
 		},
 		drawHousesLeftUI: function(b, h) {
 			b.font = "bold 16px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("Remaning Houses: " + h , 395, 40);
+			b.fillText("Remaining Houses: " + h , 395, 40);
 			b.fillText("Houses needed to win: " + game.level.housesLeftWins , 395, 60);
 		},
 		skipButton: {
