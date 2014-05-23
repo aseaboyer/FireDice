@@ -392,6 +392,7 @@ function Start() {
 	console.log('game:');
 	console.log(game);
 	console.log(levelList);
+	console.log(levelList.count);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
 }
