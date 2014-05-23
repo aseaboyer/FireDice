@@ -109,7 +109,7 @@ var game = {
 			b.fillText("by Andy Seaboyer" , 395, 50);
 		},
 		drawLevelArray: function(b, list) {
-			var listCount = list.count;
+			var listCount = list.length;
 			for(var i=0; i < listCount; i++) {
 				console.log(listCount[i].number + "} " + listCount[i].name);
 			}
@@ -391,8 +391,6 @@ function Start() {
 	
 	console.log('game:');
 	console.log(game);
-	console.log(levelList);
-	console.log(levelList.count);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
 }
