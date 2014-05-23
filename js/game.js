@@ -234,20 +234,20 @@ var game = {
 		tiles[randomTileNum].startFire();
 		//console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
 	},
-	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc, cursor) { // manage hover state w/ abc (active bg color)
-		// Draw the bg box
-		if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + w) ) {
-			b.fillStyle = abc;
-		} else {
-			b.fillStyle = bc;
-		}
-		b.fillRect( x, y, w, h );
+	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc = '', cursor) { // abc = active bg color
 		
-		// Draw the text
+		b.fillStyle = bc;
+		if(abc != '') {
+			if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + w) ) {
+				b.fillStyle = abc;
+			}
+		}
+		b.fillRect( x, y, w, h ); // Draw the bg box
+		
 		b.fillStyle = c;
 		b.textAlign = "center";
 		b.textBaseline = "middle";
-		b.fillText(str, (x + (w * .5)), y + (h * .5));
+		b.fillText(str, (x + (w * .5)), y + (h * .5));// Draw the text
 	}
 };
 var levelData = {
