@@ -83,7 +83,7 @@ var game = {
 			height: 20,
 			text: "Skip Turn",
 			draw: function(b) {
-				game.drawTextWithBackground(this.text, 
+				game.drawTextWithBackground(b, this.text, 
 					this.x, this.y, this.width, this.height, 
 					"#fff", "#900", "#0ff",
 					game.cursor);
@@ -234,7 +234,7 @@ var game = {
 		tiles[randomTileNum].startFire();
 		//console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
 	},
-	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc, cursor) { // abc = active bg color
+	drawTextWithBackground: function(b, str, x, y, w, h, c, bc, abc, cursor) { // abc = active bg color
 		var n;
 		
 		b.fillStyle = bc;
