@@ -111,7 +111,7 @@ var game = {
 			for(var i=0; i < listCount; i++) {
 				console.log(listCount[i].number + "} " + listCount[i].name);
 			}
-			console.log("Ran drawLevelArray");
+			console.log("Ran drawLevelArray "+listCount);
 				/*
 				b.font = "bold 24px Arial";
 				b.textAlign = 'right';
