@@ -236,7 +236,11 @@ var game = {
 	},
 	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc, cursor) { // manage hover state w/ abc (active bg color)
 		// Draw the bg box
-		b.fillStyle = bc;
+		if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + w) ) {
+			b.fillStyle = abc;
+		} else {
+			b.fillStyle = bc;
+		}
 		b.fillRect( x, y, w, h );
 		
 		// Draw the text
