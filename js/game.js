@@ -5,16 +5,18 @@ var spriteTileImg = new Image();
 
 var playerData = new PlayerData();
 
-var levelList = 
-	{	number: 1,
-		name: "Starting Town",
-		file: "js/level1.js",
-	},
-	{	number: 2,
-		name: "Secondville",
-		file: "js/level2.js",
-	},
-;
+var levelList = [
+	new Level(1, "Starting Town", "js/level1.js"),
+	new Level(2, "Secondville", "js/level2.js"),
+];
+
+function Level(num, name, file) {
+    return {
+		num: num,
+		name: name,
+		file: file,
+    };
+}
 
 var game = {
 	phase: "menu",
