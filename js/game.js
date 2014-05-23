@@ -85,7 +85,7 @@ var game = {
 			draw: function(b) {
 				game.drawTextWithBackground(b, this.text, 
 					this.x, this.y, this.width, this.height, 
-					"#fff", "#900", "#0ff",
+					"#fff", "#900", "#25383c",
 					game.cursor);
 			/*	// Draw the bg box
 				b.fillStyle = "#900";
@@ -219,8 +219,8 @@ var game = {
 		var spawnPoint = validDropPoints[optionPicked];
 		if(validDropPoints.length > 0) { // find valid drop point
 			aTruck.spawn( spawnPoint );
-			console.log("Spawning a new truck the following points - option:"+(optionPicked));
-			console.log(spawnPoint);
+			//console.log("Spawning a new truck the following points - option:"+(optionPicked));
+			//console.log(spawnPoint);
 		}
 	},
 	levelInit: function(startingMoves, housesLeftWins) {
