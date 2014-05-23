@@ -17,7 +17,7 @@ var levelList = [
 ];
 
 var game = {
-	phase: "play",
+	phase: "menu",
 	phases: [ "load menu", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
 	changePhase: function(phaseName) {
 		if(phaseName == "load") {
