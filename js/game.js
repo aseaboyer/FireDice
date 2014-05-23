@@ -98,6 +98,14 @@ var game = {
 				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));*/
 			},
 		},
+		drawLogo: function(b) {
+			b.font = "bold 24px Arial";
+			b.textAlign = 'right';
+			b.fillStyle = "#ccc";
+			b.fillText("FireDice!" , 395, 40);
+			b.font = "bold 14px Arial";
+			b.fillText("by Andy Seaboyer" , 395, 60);
+		},
 	},
 	boardSize: {
 		x: 192,
@@ -382,22 +390,28 @@ function Update() {
 function Draw() {
     clearFrame(context);
 	
-	var tileCount = game.tileArray.length;
-	for(var x=0; x < tileCount; x++) {
-		game.tileArray[x].drawTile(context, spriteTileImg);
-	}
+	if(game.phase == 'menu') {
+		drawLogo(context);
+		
 	
-    var truckCount = game.trucks.length;
-    for(var x=0; x < truckCount; x++) {// now draw trucks
-		game.trucks[x].drawTruck( context, game.tileSize );
-	//	game.trucks[x].drawTruckTray( context );
-    }
-    
-	if(game.cursor.x != 0 && game.cursor.y != 0) {
-		game.cursor.draw(context);
+	} else if(game.phase == 'play') {
+		var tileCount = game.tileArray.length;
+		for(var x=0; x < tileCount; x++) {
+			game.tileArray[x].drawTile(context, spriteTileImg);
+		}
+		
+		var truckCount = game.trucks.length;
+		for(var x=0; x < truckCount; x++) {// now draw trucks
+			game.trucks[x].drawTruck( context, game.tileSize );
+		//	game.trucks[x].drawTruckTray( context );
+		}
+		
+		if(game.cursor.x != 0 && game.cursor.y != 0) {
+			game.cursor.draw(context);
+		}
+		
+		game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses);
 	}
-	
-	game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses);
 }
 
 function clearFrame(board) {
@@ -493,7 +507,7 @@ function trackTouch(e) {
 }
 function touchDown(e) {
 	if(game.phase == 'menu') {
-	
+		
 	
 	} else if(game.phase == 'play') {
 		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
