@@ -5,9 +5,20 @@ var spriteTileImg = new Image();
 
 var playerData = new PlayerData();
 
+var levelList = [
+	{	number: 1,
+		name: "Starting Town",
+		file: "js/level1.js",
+	},
+	{	number: 2,
+		name: "Starting Town",
+		file: "js/level1.js",
+	},
+];
+
 var game = {
 	phase: "play",
-	phases: [ "menu", "load", "play", "win", "lost" ], // for ref. @aseaboyer
+	phases: [ "load menu", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
 	changePhase: function(phaseName) {
 		if(phaseName == "load") {
 			this.level.loadLevel();
@@ -72,7 +83,11 @@ var game = {
 			height: 20,
 			text: "Skip Turn",
 			draw: function(b) {
-				// Draw the bg box
+				game.drawTextWithBackground(this.text, 
+					this.x, this.y, this.width, this.height, 
+					"#fff", "#900", "#0ff",
+					game.cursor);
+			/*	// Draw the bg box
 				b.fillStyle = "#900";
 				b.fillRect( this.x, this.y, this.width, this.height );
 				
@@ -80,7 +95,7 @@ var game = {
 				b.fillStyle = "#fff";
 				b.textAlign = "center";
 				b.textBaseline = "middle";
-				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));
+				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));*/
 			},
 		},
 	},
@@ -219,6 +234,17 @@ var game = {
 		tiles[randomTileNum].startFire();
 		//console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
 	},
+	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc, cursor) { // manage hover state w/ abc (active bg color)
+		// Draw the bg box
+		b.fillStyle = bc;
+		b.fillRect( x, y, w, h );
+		
+		// Draw the text
+		b.fillStyle = c;
+		b.textAlign = "center";
+		b.textBaseline = "middle";
+		b.fillText(str, (x + (w * .5)), y + (h * .5));
+	}
 };
 var levelData = {
 	"levelName": "Starting Town",
