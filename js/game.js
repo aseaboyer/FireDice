@@ -391,7 +391,7 @@ function Draw() {
     clearFrame(context);
 	
 	if(game.phase == 'menu') {
-		drawLogo(context);
+		game.drawLogo(context);
 		
 	
 	} else if(game.phase == 'play') {
