@@ -113,7 +113,7 @@ var game = {
 			for(var i=0; i < listCount; i++) {
 				console.log(listCount[i].number + "} " + listCount[i].name);
 			}
-			console.log("Ran drawLevelArray "+listCount);
+		//	console.log("Ran drawLevelArray "+listCount);
 				/*
 				b.font = "bold 24px Arial";
 				b.textAlign = 'right';
@@ -391,6 +391,7 @@ function Start() {
 	
 	console.log('game:');
 	console.log(game);
+	console.log(levelList);
 	
 	setInterval( mainloop, ONE_FRAME_TIME );
 }
