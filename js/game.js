@@ -234,10 +234,11 @@ var game = {
 		tiles[randomTileNum].startFire();
 		//console.log("Set a fire at: " + tiles[randomTileNum].x + ", " + tiles[randomTileNum].y + " number " + randomTileNum + " of " + numberOfTiles);
 	},
-	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc = '', cursor) { // abc = active bg color
+	drawTextWithBackground: function(str, x, y, w, h, c, bc, abc, cursor) { // abc = active bg color
+		var n;
 		
 		b.fillStyle = bc;
-		if(abc != '') {
+		if(abc != n) {
 			if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + w) ) {
 				b.fillStyle = abc;
 			}
