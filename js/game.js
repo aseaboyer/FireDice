@@ -102,9 +102,9 @@ var game = {
 			b.font = "bold 24px Arial";
 			b.textAlign = 'right';
 			b.fillStyle = "#ccc";
-			b.fillText("FireDice!" , 395, 40);
+			b.fillText("FireDice!" , 395, 30);
 			b.font = "bold 14px Arial";
-			b.fillText("by Andy Seaboyer" , 395, 60);
+			b.fillText("by Andy Seaboyer" , 395, 50);
 		},
 	},
 	boardSize: {
