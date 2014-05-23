@@ -11,8 +11,8 @@ var levelList = [
 		file: "js/level1.js",
 	},
 	{	number: 2,
-		name: "Starting Town",
-		file: "js/level1.js",
+		name: "Secondville",
+		file: "js/level2.js",
 	},
 ];
 
