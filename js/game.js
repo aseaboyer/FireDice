@@ -106,6 +106,16 @@ var game = {
 			b.font = "bold 14px Arial";
 			b.fillText("by Andy Seaboyer" , 395, 50);
 		},
+		drawLevelArray: function(b, list) {
+			/*
+			b.font = "bold 24px Arial";
+			b.textAlign = 'right';
+			b.fillStyle = "#ccc";
+			b.fillText("FireDice!" , 395, 30);
+			b.font = "bold 14px Arial";
+			b.fillText("by Andy Seaboyer" , 395, 50);
+			*/
+		},
 	},
 	boardSize: {
 		x: 192,
@@ -392,6 +402,7 @@ function Draw() {
 	
 	if(game.phase == 'menu') {
 		game.ui.drawLogo(context);
+		game.ui.drawLevelArray(context, levelList);
 		
 	
 	} else if(game.phase == 'play') {
