@@ -110,8 +110,27 @@ var game = {
 		},
 		drawLevelArray: function(b, list) {
 			var listCount = list.length;
+			var listRows = Math.floor(Math.sqrt(listCount));
+			var listCols = listCount/listRows;
+			var rowCounter = 0;
+			var colCounter = 0;
+			//
+			//game.boardSize.y
+			var tileDims = {
+				x: game.boardSize.x / listCols,
+				y: game.boardSize.y / listRows,
+			};
 			for(var i=0; i < listCount; i++) {
-				//console.log(list[i].num + "} " + list[i].name);
+				game.drawTextWithBackground(b, list[i].num,// + ") " + list[i].name, 
+					(tileDims.x * rowCounter), (tileDims.x * colCounter),
+					tileDims.x, tileDims.y, 
+					"#fff", "#900", "#25383c",
+					game.cursor);
+				rowCounter++;
+				if(rowCounter >= listCols) {
+					rowCounter = 0;
+					colCounter++;
+				}
 			}
 		//	console.log("Ran drawLevelArray "+listCount);
 				/*
