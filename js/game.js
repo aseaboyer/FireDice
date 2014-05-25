@@ -283,7 +283,7 @@ var game = {
 		
 		b.fillStyle = bc;
 		if(abc != n) {
-			if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + w) ) {
+			if( cursor.x > x && cursor.x < (x + w) && cursor.y > y && cursor.y < (y + h) ) {
 				b.fillStyle = abc;
 			}
 		}
