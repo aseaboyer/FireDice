@@ -117,8 +117,8 @@ var game = {
 			//
 			//game.boardSize.y
 			var tileDims = {
-				x: game.boardSize.x / listCols,
-				y: game.boardSize.y / listRows,
+				x: game.boardSize.x / listRows,
+				y: game.boardSize.y / listCols,
 			};
 			for(var i=0; i < listCount; i++) {
 				game.drawTextWithBackground(b, list[i].num,// + ") " + list[i].name, 
