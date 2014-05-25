@@ -110,8 +110,8 @@ var game = {
 		},
 		drawLevelArray: function(b, list) {
 			var listCount = list.length;
-			var listCols = Math.floor(Math.sqrt(listCount));
-			var listRows = listCount/listRows;
+			var listRows = Math.floor(Math.sqrt(listCount));
+			var listCols = listCount/listRows;
 			var rowCounter = 0;
 			var colCounter = 0;
 			//
