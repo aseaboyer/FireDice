@@ -276,7 +276,7 @@ var game = {
 		var housesLeft = this.level.remainingHouses
 		var housesLeftWins = this.level.housesLeftWins;
 		var endTime = new Date().getTime();
-		if(housesLeft < houses)
+		if(housesLeft < houses) {
 			this.changePhase("win");
 			var nextLevel = (levelData.levelNum + 1);
 			playerData.setCurrentLevel(nextLevel);
