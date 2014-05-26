@@ -131,16 +131,13 @@ var game = {
 					rowCounter = 0;
 					colCounter++;
 				}
+				
 			}
-		//	console.log("Ran drawLevelArray "+listCount);
-				/*
-				b.font = "bold 24px Arial";
-				b.textAlign = 'right';
-				b.fillStyle = "#ccc";
-				b.fillText("FireDice!" , 395, 30);
-				b.font = "bold 14px Arial";
-				b.fillText("by Andy Seaboyer" , 395, 50);
-				*/
+			
+			// @aseaboyer -> Stop doing this, 
+				// calculate these vals in start(), 
+				// store them in an object,
+				// and use them for later use (clicks)
 		},
 	},
 	boardSize: {
@@ -149,6 +146,8 @@ var game = {
 	},
 	level: {
 		name: '',
+		startTime: '',
+		endTime: '',
 		remainingMoves: 0,
 		remainingHouses: 0,
 		housesLeftWins: 0,
@@ -271,6 +270,19 @@ var game = {
 		this.level.remainingMoves = startingMoves;
 		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray);
 		this.level.housesLeftWins = housesLeftWins;
+		this.level.startTime = new Date().getTime();
+	},
+	finishLevel: function() {
+		var housesLeft = this.level.remainingHouses
+		var housesLeftWins = this.level.housesLeftWins;
+		var endTime = new Date().getTime();
+		if(housesLeft < houses)
+			this.changePhase("win");
+			var nextLevel = (levelData.levelNum + 1);
+			playerData.setCurrentLevel(nextLevel);
+		} else {
+			this.changePhase("lost");
+		}
 	},
 	startFire: function(tiles) {
 		var numberOfTiles = tiles.length;
@@ -296,12 +308,13 @@ var game = {
 	}
 };
 var levelData = {
-	"levelName": "Starting Town",
-	"trucks": 1,
-	"fireChance": 0.25,
-	"housesLeftWins": 2,
-	"fireDestroysOn": 5,
-	"tiles": [
+	levelName: "Starting Town",
+	levelNum: 1,
+	trucks: 1,
+	fireChance: 0.25,
+	housesLeftWins: 2,
+	fireDestroysOn: 5,
+	tiles: [
 		[
 			{
 				"type": "h",
