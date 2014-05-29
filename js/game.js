@@ -14,7 +14,7 @@ function Level(num, name, file, x, y, w, h) {
 		num: num,
 		name: name,
 		url: file,
-		tile {
+		tile: {
 			x: 0,
 			y: 0,
 			w: 0,
