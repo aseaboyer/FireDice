@@ -453,7 +453,7 @@ function Draw() {
 	
 	if(game.phase == 'menu') {
 		game.ui.drawLogo(context);
-		game.ui.drawLevelArray(context, levelList);
+		game.ui.drawLevelArray(context, levelInfo);
 		
 	
 	} else if(game.phase == 'play') {
