@@ -3,7 +3,7 @@ var context = canvas.getContext("2d");
 var spriteTileImg = new Image();
 
 var playerData = new PlayerData();
-var levelMenuItems = newArray();
+var levelMenuItems = new Array();
 var levelListStored = [ // store the levels, later brought in with JSON
 	{ num:1, name:"Starting Town", url:"js/level1.js"},
 	{ num:2, name:"Secondville", url:"js/level2.js"},
