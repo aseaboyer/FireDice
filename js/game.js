@@ -392,7 +392,7 @@ function Start() {
 	};
 	for(var x=0; x < levelListStored.length; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
-			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
+			tileDims.x, tileDims.y, (tileDims.x * rowCounter), (tileDims.x * colCounter)
 		);
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
