@@ -1,20 +1,25 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
-
 var spriteTileImg = new Image();
 
 var playerData = new PlayerData();
-
-var levelList = [
-	new Level(1, "Starting Town", "js/level1.js"),
-	new Level(2, "Secondville", "js/level2.js"),
+var levelMenuItems = newArray();
+var levelListStored = [ // store the levels, later brought in with JSON
+	{ num:1, name:"Starting Town", url:"js/level1.js"},
+	{ num:2, name:"Secondville", url:"js/level2.js"},
 ];
 
-function Level(num, name, file) {
+function Level(num, name, file, x, y, w, h) {
     return {
 		num: num,
 		name: name,
-		file: file,
+		url: file,
+		tile {
+			x: 0,
+			y: 0,
+			w: 0,
+			h: 0,
+		},
     };
 }
 
@@ -108,29 +113,14 @@ var game = {
 			b.font = "bold 14px Arial";
 			b.fillText("by Andy Seaboyer" , 395, 50);
 		},
-		drawLevelArray: function(b, list) {
-			var listCount = list.length;
-			var listRows = Math.floor(Math.sqrt(listCount));
-			var listCols = listCount/listRows;
-			var rowCounter = 0;
-			var colCounter = 0;
-			//
-			//game.boardSize.y
-			var tileDims = {
-				x: game.boardSize.x / listCols,
-				y: game.boardSize.y / listRows,
-			};
+		drawLevelArray: function(b, arr) {
+			var listCount = arr.length;
 			for(var i=0; i < listCount; i++) {
-				game.drawTextWithBackground(b, list[i].num,// + ") " + list[i].name, 
-					(tileDims.x * rowCounter), (tileDims.x * colCounter),
-					tileDims.x, tileDims.y, 
+				game.drawTextWithBackground(b, arr[i].num,// + ") " + list[i].name, 
+					arr[i].x, arr[i].y,
+					arr[i].w, arr[i].h, 
 					"#fff", "#900", "#25383c",
 					game.cursor);
-				rowCounter++;
-				if(rowCounter >= listCols) {
-					rowCounter = 0;
-					colCounter++;
-				}
 				
 			}
 			
@@ -393,8 +383,29 @@ var levelData = {
 
 /* Core */
 function Start() {
-	var i = 0;
+	// create the level select menu
+	var listRows = Math.floor(Math.sqrt(listCount));
+	var listCols = listCount/listRows;
+	var rowCounter = 0;
+	var colCounter = 0;
+	var tileDims = {
+		x: game.boardSize.x / listCols,
+		y: game.boardSize.y / listRows,
+	};
+	for(var x=0; x < levelListStored.length; x++) {
+		var levelInfo = new Level(levelListStored[x].num.num, levelListStored[x].num.name, levelListStored[x].num.file,
+			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
+		);
+		levelMenuItems[x] = levelInfo;
+		rowCounter++;
+		if(rowCounter >= listCols) {
+			rowCounter = 0;
+			colCounter++;
+		}
+	}
 	
+	// Store this level's data
+	var i = 0;
 	var tileCols = levelData.tiles.length;
 	for(var x=0; x < tileCols; x++) {
 		var tileRows = levelData.tiles[x].length;
@@ -409,6 +420,7 @@ function Start() {
 		}
 	}
 	
+	// store this level's truck data
 	game.trucks = new Array(levelData.trucks);
 	for(var x=0; x < game.trucks.length; x++) {
 		game.trucks[x] = new Truck( game.trucksTray.trayPosition );
