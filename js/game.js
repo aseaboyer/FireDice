@@ -384,8 +384,8 @@ var levelData = {
 /* Core */
 function Start() {
 	// create the level select menu
-	var listRows = Math.floor(Math.sqrt(listCount));
-	var listCols = listCount/listRows;
+	var listRows = Math.floor(Math.sqrt(levelListStored));
+	var listCols = levelListStored/listRows;
 	var rowCounter = 0;
 	var colCounter = 0;
 	var tileDims = {
