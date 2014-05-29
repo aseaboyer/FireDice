@@ -391,7 +391,7 @@ function Start() {
 		y: game.boardSize.y / listRows,
 	};
 	for(var x=0; x < levelListStored.length; x++) {
-		var levelInfo = new Level(levelListStored[x].num.num, levelListStored[x].num.name, levelListStored[x].num.file,
+		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
 			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
 		);
 		levelMenuItems[x] = levelInfo;
