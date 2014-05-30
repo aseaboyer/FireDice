@@ -393,8 +393,10 @@ function Start() {
 	};
 	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
-			tileDims.x, tileDims.y, (tileDims.x * rowCounter), (tileDims.x * colCounter)
+			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
 		); // @aseaboyer!!!! For some reason these vals are not being set. Fix here
+		Console.log("Adding the following levelinfo:");
+		Console.log(levelInfo);
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
 		if(rowCounter >= listCols) {
