@@ -391,6 +391,8 @@ function Start() {
 		x: game.boardSize.x / listCols,
 		y: game.boardSize.y / listRows,
 	};
+	console.log("TILE DIMS");
+	console.log(tileDims);
 	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
 			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
