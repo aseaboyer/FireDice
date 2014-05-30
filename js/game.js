@@ -389,16 +389,12 @@ function Start() {
 	var colCounter = 0;
 	var tileDims = {
 		x: game.boardSize.x / listCols,
-		y: game.boardSize.y / listRows,
+		y: game.boardSize.x / listCols,
 	};
-	console.log("TILE DIMS");
-	console.log(tileDims);
 	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
 			(tileDims.x * rowCounter), (tileDims.x * colCounter), tileDims.x, tileDims.y
-		); // @aseaboyer!!!! For some reason these vals are not being set. Fix here
-		console.log("Adding the following levelinfo:");
-		console.log(levelInfo);
+		);
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
 		if(rowCounter >= listCols) {
