@@ -383,7 +383,7 @@ var levelData = {
 function Start() {
 	// create the level select menu
 	var levelListCount = levelListStored.length;
-	var listRows = Math.floor(Math.sqrt(levelListCount));
+	var listRows = Math.ceil(Math.sqrt(levelListCount));
 	var listCols = levelListCount/listRows;
 	var rowCounter = 0;
 	var colCounter = 0;
