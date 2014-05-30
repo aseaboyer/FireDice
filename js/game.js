@@ -8,11 +8,6 @@ var levelListStored = [ // store the levels, later brought in with JSON
 	{ num:1, name:"Starting Town", url:"js/level1.js"},
 	{ num:2, name:"Secondville", url:"js/level2.js"},
 	{ num:3, name:"Nextington", url:"js/level3.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
 ];
 
 function Level(num, name, file, x, y, w, h) {
@@ -394,8 +389,8 @@ function Start() {
 	var rowCounter = 0;
 	var colCounter = 0;
 	var tileDims = {
-		x: game.boardSize.x / listRows,
-		y: game.boardSize.x / listRows,
+		x: game.boardSize.x / listCols,
+		y: game.boardSize.x / listCols,
 	};
 	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
@@ -403,7 +398,7 @@ function Start() {
 		);
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
-		if(rowCounter >= listRows) {
+		if(rowCounter >= listCols) {
 			rowCounter = 0;
 			colCounter++;
 		}
