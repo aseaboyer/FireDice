@@ -382,7 +382,8 @@ var levelData = {
 /* Core */
 function Start() {
 	// create the level select menu
-	var listRows = Math.floor(Math.sqrt(levelListStored));
+	var levelListCount = levelListStored.length;
+	var listRows = Math.floor(Math.sqrt(levelListCount));
 	var listCols = levelListStored/listRows;
 	var rowCounter = 0;
 	var colCounter = 0;
@@ -390,10 +391,10 @@ function Start() {
 		x: game.boardSize.x / listCols,
 		y: game.boardSize.y / listRows,
 	};
-	for(var x=0; x < levelListStored.length; x++) {
+	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
 			tileDims.x, tileDims.y, (tileDims.x * rowCounter), (tileDims.x * colCounter)
-		);
+		); // @aseaboyer!!!! For some reason these vals are not being set. Fix here
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
 		if(rowCounter >= listCols) {
