@@ -394,8 +394,8 @@ function Start() {
 	var rowCounter = 0;
 	var colCounter = 0;
 	var tileDims = {
-		x: game.boardSize.x / listCols,
-		y: game.boardSize.x / listCols,
+		x: game.boardSize.x / listRows,
+		y: game.boardSize.x / listRows,
 	};
 	for(var x=0; x < levelListCount; x++) {
 		var levelInfo = new Level(levelListStored[x].num, levelListStored[x].name, levelListStored[x].file,
@@ -403,7 +403,7 @@ function Start() {
 		);
 		levelMenuItems[x] = levelInfo;
 		rowCounter++;
-		if(rowCounter >= listCols) {
+		if(rowCounter >= listRows) {
 			rowCounter = 0;
 			colCounter++;
 		}
