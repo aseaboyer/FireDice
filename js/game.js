@@ -384,7 +384,7 @@ function Start() {
 	// create the level select menu
 	var levelListCount = levelListStored.length;
 	var listRows = Math.floor(Math.sqrt(levelListCount));
-	var listCols = levelListStored/listRows;
+	var listCols = levelListCount/listRows;
 	var rowCounter = 0;
 	var colCounter = 0;
 	var tileDims = {
