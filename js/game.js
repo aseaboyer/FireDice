@@ -7,6 +7,7 @@ var levelMenuItems = new Array();
 var levelListStored = [ // store the levels, later brought in with JSON
 	{ num:1, name:"Starting Town", url:"js/level1.js"},
 	{ num:2, name:"Secondville", url:"js/level2.js"},
+	{ num:3, name:"Nextington", url:"js/level3.js"},
 ];
 
 function Level(num, name, file, x, y, w, h) {
