@@ -534,7 +534,14 @@ function trackMouse(e) {
 }
 function mouseDown(e) {
 	if(game.phase == 'menu') {
-		console.log("Player tried to click at: "+ game.cursor.x +", "+ game.cursor.y);
+		console.log("Player tried to click at: " + game.cursor.x + ", " + game.cursor.y);
+		var menuItemCount = levelMenuItems.length;
+		for(var i=0; i < menuItemCount; i++) {
+			if(game.cursor.withinBounds(levelMenuItems.x, levelMenuItems.y,
+				(levelMenuItems.x + levelMenuItems.w), (levelMenuItems.y + levelMenuItems.h) )) {
+				console.log("Load level named: " + levelMenuItems.num + ") " + levelMenuItems.name);
+			}
+		}
 	
 	} else if(game.phase == 'play') {
 		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
