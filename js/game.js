@@ -537,9 +537,9 @@ function mouseDown(e) {
 		console.log("Player tried to click at: " + game.cursor.x + ", " + game.cursor.y);
 		var menuItemCount = levelMenuItems.length;
 		for(var i=0; i < menuItemCount; i++) {
-			if(game.cursor.withinBounds(levelMenuItems.x, levelMenuItems.y,
-				(levelMenuItems.x + levelMenuItems.w), (levelMenuItems.y + levelMenuItems.h) )) {
-				console.log("Load level named: " + levelMenuItems.num + ") " + levelMenuItems.name);
+			if(game.cursor.withinBounds(levelMenuItems[i].x, levelMenuItems[i].y,
+				(levelMenuItems[i].x + levelMenuItems[i].w), (levelMenuItems[i].y + levelMenuItems[i].h) )) {
+				console.log("Load level named: " + levelMenuItems[i].num + ") " + levelMenuItems[i].name);
 			}
 		}
 	
