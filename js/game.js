@@ -531,11 +531,9 @@ canvas.addEventListener('mouseup', mouseUp, false);
 function trackMouse(e) {
     game.cursor.x = e.clientX;
     game.cursor.y = e.clientY;
-//    console.log(e.clientX+" "+e.clientY);
 }
 function mouseDown(e) {
 	if(game.phase == 'menu') {
-		console.log("Player tried to click at: " + game.cursor.x + ", " + game.cursor.y);
 		var menuItemCount = levelMenuItems.length;
 		for(var i=0; i < menuItemCount; i++) {
 			if(game.cursor.withinBounds(levelMenuItems[i].x, levelMenuItems[i].y,
@@ -576,7 +574,6 @@ function mouseUp(e) {
 function trackTouch(e) {
     game.cursor.x = e.clientX;
     game.cursor.y = e.clientY;
-//    console.log(e.clientX+" "+e.clientY);
 }
 function touchDown(e) {
 	if(game.phase == 'menu') {
