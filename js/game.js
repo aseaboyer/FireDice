@@ -126,7 +126,7 @@ var game = {
 		remainingHouses: 0,
 		housesLeftWins: 0,
 		finishTurn: function() {
-			if(this.remainingHouses < housesLeftWins) {
+			if(this.remainingHouses < this.housesLeftWins) {
 				game.changePhase("lost");
 				return
 			}
