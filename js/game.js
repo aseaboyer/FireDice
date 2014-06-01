@@ -116,6 +116,13 @@ var game = {
 				
 			}
 		},
+		drawLoading: function(b) {
+			b.font = "bold 24px Arial";
+			b.textAlign = 'center';
+			b.fillStyle = "#ccc";
+			b.fillText("Loading level" , game.canvasSize.x, game.canvasSize.y);
+		},
+		loadingMessage: "Loading...",
 	},
 	boardSize: {
 		x: 192,
@@ -143,19 +150,19 @@ var game = {
 				this.startTurn();
 			}
 		},
-		loadLevel: function(fileName) {
-			// @aseaboyer - fire the ajax call to load the level
-				// the finished callfires it's own changePhase to play
+		loadLevel: function(fileName, name) {
+			game.ui.loadingMessage = "Loading "+name;
+				
 			console.log("Going to load: " + fileName);
 			var hr = new XMLHttpRequest();
 			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
-			hr.send(null);
+			hr.send(null);// @aseaboyer - fire the ajax call to load the level
 			hr.onreadystatechange = function() {
 				console.log(hr);
 				if(hr.readyState == 4 && hr.status == 200) {
 					levelData = JSON.parse(hr.responseText);//store the level data
-					game.changePhase("play");
+					game.changePhase("play"); // the finished callfires it's own changePhase to play
 					return
 				}
 			}
@@ -457,7 +464,6 @@ function Draw() {
 	if(game.phase == 'menu') {
 		game.ui.drawLogo(context);
 		game.ui.drawLevelArray(context, levelMenuItems);
-		
 	
 	} else if(game.phase == 'play') {
 		var tileCount = game.tileArray.length;
@@ -478,6 +484,8 @@ function Draw() {
 		game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses);
 	
 	} else if(game.phase == "load level") {
+		game.ui.drawLogo(context);
+		game.ui.drawLoading(context);
 	
 	}
 }
@@ -540,7 +548,7 @@ function mouseDown(e) {
 				(levelMenuItems[i].x + levelMenuItems[i].w), (levelMenuItems[i].y + levelMenuItems[i].h) )) {
 				console.log("Load level named: " + levelMenuItems[i].num + ") " + levelMenuItems[i].name);
 				game.changePhase("load level");
-				game.level.loadLevel(levelMenuItems[i].url);
+				game.level.loadLevel(levelMenuItems[i].url, levelMenuItems[i].name);
 			}
 		}
 	
