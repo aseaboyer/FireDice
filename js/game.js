@@ -148,9 +148,9 @@ var game = {
 		loadLevel: function(fileName) {
 			// @aseaboyer - fire the ajax call to load the level
 				// the finished callfires it's own changePhase to play
-			
+			console.log("Going to load: " + fileName);
 			var hr = new XMLHttpRequest();
-			hr.open("GET", "levels/level"+levelNum+".json", false);
+			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
 			hr.send(null);
 			hr.onreadystatechange = function() {
@@ -478,6 +478,9 @@ function Draw() {
 		}
 		
 		game.ui.draw(context, game.level.remainingMoves, game.level.remainingHouses);
+	
+	} else if(game.phase == "load level") {
+	
 	}
 }
 
@@ -540,6 +543,7 @@ function mouseDown(e) {
 			if(game.cursor.withinBounds(levelMenuItems[i].x, levelMenuItems[i].y,
 				(levelMenuItems[i].x + levelMenuItems[i].w), (levelMenuItems[i].y + levelMenuItems[i].h) )) {
 				console.log("Load level named: " + levelMenuItems[i].num + ") " + levelMenuItems[i].name);
+				game.changePhase("load level", levelMenuItems[i].url);
 			}
 		}
 	
