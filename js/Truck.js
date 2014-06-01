@@ -48,7 +48,8 @@ function Truck(trayVals) {
 				if(this.findValidTile(tileArray, tileSizes, this.x, this.y-1)) {
 					validDropArray.push({x: this.x, y: this.y-1}); }
 			this.validDropPlaces = validDropArray;
-			
+			console.log("Can drop on:");
+			console.log(this.validDropPlaces);
 		},
 		findValidTile: function(tiles, tileSizes, x, y) {
 			var tilesLength = tiles.length;
