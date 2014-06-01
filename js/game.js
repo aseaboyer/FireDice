@@ -22,7 +22,7 @@ function Level(num, name, file, x, y, w, h) {
 }
 
 var game = {
-	phase: "play",
+	phase: "menu",
 	phases: [ "load game", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
 	changePhase: function(phaseName) {
 		if(phaseName == "load") {
@@ -173,30 +173,30 @@ var game = {
 			return totalHouses;
 		},
 	},
-	"canvasSize": {
-		"x": 400,
-		"y": 192,
+	canvasSize: {
+		x: 400,
+		y: 192,
 	},
-	"tileSize": {
-		"x": 64,
-		"y": 64,
+	tileSize: {
+		x: 64,
+		y: 64,
 	},
-	"tileSpritesheet": {
-		"url": "img/tile_spritesheet.png",
-		"x": 576,
-		"y": 576,
+	tileSpritesheet: {
+		url: "img/tile_spritesheet.png",
+		x: 576,
+		y: 576,
 	},
-	"tileArray": new Array(),
-	"spriteTileImg": new Image(),
-	"trucks": new Array(),
-	"trucksAvailable": 0,
-	"trucksTray": {
-		"trayPosition": {
-			"x": 212,
-			"y": 20,
-			"width": 20,
-			"height": 20,
-			"offset": 20,
+	tileArray: new Array(),
+	spriteTileImg: new Image(),
+	trucks: new Array(),
+	trucksAvailable: 0,
+	trucksTray: {
+		trayPosition: {
+			x: 212,
+			y: 20,
+			width: 20,
+			height: 20,
+			offset: 20,
 		},
 	},
 	puckupTruck: function(aTruck) {
