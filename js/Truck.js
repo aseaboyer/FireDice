@@ -40,13 +40,13 @@ function Truck(trayVals) {
 				// check to see if these are roads first
 				// should also check to see if they aren't occupied!
 				if(this.findValidTile(tileArray, tileSizes, this.x+1, this.y)) {
-					validDropArray.push({x: this.x+1, y: this.y}); }
+					validDropArray.push("up"); }
 				if(this.findValidTile(tileArray, tileSizes, this.x-1, this.y)) {
-					validDropArray.push({x: this.x-1, y: this.y}); }
+					validDropArray.push("down"); }
 				if(this.findValidTile(tileArray, tileSizes, this.x, this.y+1)) {
-					validDropArray.push({x: this.x, y: this.y+1}); }
+					validDropArray.push("right"); }
 				if(this.findValidTile(tileArray, tileSizes, this.x, this.y-1)) {
-					validDropArray.push({x: this.x, y: this.y-1}); }
+					validDropArray.push("left"); }
 			this.validDropPlaces = validDropArray;
 			console.log("Can drop on:");
 			console.log(validDropArray);
