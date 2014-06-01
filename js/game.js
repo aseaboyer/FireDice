@@ -24,9 +24,14 @@ function Level(num, name, file, x, y, w, h) {
 var game = {
 	phase: "menu",
 	phases: [ "load game", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
-	changePhase: function(phaseName) {
-		if(phaseName == "load") {
-			this.level.loadLevel();
+	changePhase: function(phaseName, overload) {
+		var inPhases = this.phases.indexOf(phaseName);
+		/*if(inPhases == -1) {
+			console.log("Game phase not found.");
+			return
+		}*/ // probably overkill
+		if(phaseName == "load level") {
+			this.level.loadLevel(overload);
 		}
 	},
 	frameRate: {
@@ -140,9 +145,21 @@ var game = {
 				this.startTurn();
 			}
 		},
-		loadLevel: function(fileName) { // @aseaboyer
+		loadLevel: function(fileName) {
 			// @aseaboyer - fire the ajax call to load the level
 				// the finished callfires it's own changePhase to play
+			
+			var hr = new XMLHttpRequest();
+			hr.open("GET", "levels/level"+levelNum+".json", false);
+			hr.setRequestHeader("Content-type", "application/json", true);
+			hr.send(null);
+			hr.onreadystatechange = function() {
+				console.log(hr);
+				if(hr.readyState == 4 && hr.status == 200) {
+					
+					return
+				}
+			}
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
@@ -487,10 +504,6 @@ var mainloop = function() {
     Draw(); // the output
 };
 Start();
-
-function loadLevel(levelNum) {
-	return ajax_get_json("levels/level"+levelNum+".json");
-}
 
 function ajax_get_json(fileURL) {
 	var hr = new XMLHttpRequest();
