@@ -1,57 +1,82 @@
-{	"Level1": {
-		"trucks": 1,
-		"tiles": [
-			[
-				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
-				}
-			],
-			[
-				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
-				}
-			],
-			[
-				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "r",
-					"spriteX" = 0,
-					"spriteY" = 0
-				},
-				{
-					"type" = "h",
-					"spriteX" = 0,
-					"spriteY" = 0
-				}
-			]
+{
+	"levelName": "Starting Town",
+	"levelNum": 1,
+	"trucks": 1,
+	"fireChance": 0.25,
+	"housesLeftWins": 2,
+	"fireDestroysOn": 5,
+	"tiles": [
+		[
+			{
+				"type": "h",
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
+				"houseStart": true,
+				"truckStart": false,
+			},
+			{
+				"type": "r",
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
+				"houseStart": true,
+				"truckStart": false,
+			},
+			{
+				"type": "h",
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
+				"houseStart": true,
+				"truckStart": false,
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 1),
+				"truckStart": true,
+			},
+			{
+				"type": "r",
+				"spriteX": (64 * 4),
+				"spriteY": (64 * 0),
+				"truckStart": false,
+			},
+			{
+				"type": "r",
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 1),
+				"truckStart": true,
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
+				"houseStart": true,
+				"truckStart": false,
+			},
+			{
+				"type": "r",
+				"spriteX": (64 * 0),
+				"spriteY": (64 * 3),
+				"truckStart": false,
+			},
+			{
+				"type": "h",
+				"spriteX": (64 * 6),
+				"spriteY": (64 * 3),
+				"houseStart": true,
+				"truckStart": false,
+			}
 		]
-    }
+	],
+	"turns": {
+		"win": 30,
+		"current": 0,
+		"events": {
+			30: "new truck"
+		}
+	},
 }

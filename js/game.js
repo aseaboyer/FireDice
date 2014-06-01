@@ -5,8 +5,8 @@ var spriteTileImg = new Image();
 var playerData = new PlayerData();
 var levelMenuItems = new Array();
 var levelListStored = [ // store the levels, later brought in with JSON
-	{ num:1, name:"Starting Town", url:"js/level1.js"},
-	{ num:2, name:"Secondville", url:"js/level2.js"},
+	{ num:1, name:"Starting Town", url:"levels/level1.js"},
+	{ num:2, name:"Secondville", url:"levels/level2.js"},
 ];
 
 function Level(num, name, file, x, y, w, h) {
@@ -24,14 +24,12 @@ function Level(num, name, file, x, y, w, h) {
 var game = {
 	phase: "menu",
 	phases: [ "load game", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
-	changePhase: function(phaseName, overload) {
+	changePhase: function(phaseName) {
 		var inPhases = this.phases.indexOf(phaseName);
-		/*if(inPhases == -1) {
+		if(inPhases == -1) {
 			console.log("Game phase not found.");
-			return
-		}*/ // probably overkill
-		if(phaseName == "load level") {
-			this.level.loadLevel(overload);
+		} else {
+			this.phase = phaseName;
 		}
 	},
 	frameRate: {
@@ -543,7 +541,8 @@ function mouseDown(e) {
 			if(game.cursor.withinBounds(levelMenuItems[i].x, levelMenuItems[i].y,
 				(levelMenuItems[i].x + levelMenuItems[i].w), (levelMenuItems[i].y + levelMenuItems[i].h) )) {
 				console.log("Load level named: " + levelMenuItems[i].num + ") " + levelMenuItems[i].name);
-				game.changePhase("load level", levelMenuItems[i].url);
+				game.changePhase("load level");
+				game.level.loadLevel(levelMenuItems[i].url);
 			}
 		}
 	
