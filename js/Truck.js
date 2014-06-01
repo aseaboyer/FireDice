@@ -7,6 +7,7 @@ function Truck(trayVals) {
 		truckHosing: new Array(), // controls where the truck can hose right now
 		trayVal: trayVals,
 		held: false, // if the player is 'holding' the truck
+		validDropPlaces: new Array(), // calculate once at the start of drag, clear on release
 		spawn: function(dropSpot) {
 			this.inPlay = true;
 			this.place(dropSpot);
@@ -26,9 +27,20 @@ function Truck(trayVals) {
 				newListings.push({x: this.x, y: this.y+1});
 				newListings.push({x: this.x, y: this.y-1});
 			this.truckHosing = newListings;
+			
+			this.validDropPlaces.length = 0;
 		},
 		pickup: function() {
 			this.held = true;
+			
+			// @aseaboyer - mark valid drop spots so we only calculate them once
+			var validDropArray = new Array();
+				validDropArray.push({x: this.x+1, y: this.y}); // check to see if these are roads first
+				validDropArray.push({x: this.x-1, y: this.y}); // should also check to see if they aren't occupied!
+				validDropArray.push({x: this.x, y: this.y+1});
+				validDropArray.push({x: this.x, y: this.y-1});
+			this.validDropPlaces = validDropArray;
+			
 		},
 		drawTruck: function(board, tileDims) {
 			if(this.inPlay) {

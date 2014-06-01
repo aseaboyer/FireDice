@@ -7,7 +7,6 @@ var levelMenuItems = new Array();
 var levelListStored = [ // store the levels, later brought in with JSON
 	{ num:1, name:"Starting Town", url:"js/level1.js"},
 	{ num:2, name:"Secondville", url:"js/level2.js"},
-	{ num:3, name:"Nextington", url:"js/level3.js"},
 ];
 
 function Level(num, name, file, x, y, w, h) {
@@ -23,8 +22,8 @@ function Level(num, name, file, x, y, w, h) {
 }
 
 var game = {
-	phase: "menu",
-	phases: [ "load menu", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
+	phase: "play",
+	phases: [ "load game", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
 	changePhase: function(phaseName) {
 		if(phaseName == "load") {
 			this.level.loadLevel();
@@ -93,15 +92,6 @@ var game = {
 					this.x, this.y, this.width, this.height, 
 					"#fff", "#900", "#25383c",
 					game.cursor);
-			/*	// Draw the bg box
-				b.fillStyle = "#900";
-				b.fillRect( this.x, this.y, this.width, this.height );
-				
-				// Draw the text
-				b.fillStyle = "#fff";
-				b.textAlign = "center";
-				b.textBaseline = "middle";
-				b.fillText(this.text, (this.x + (this.width * .5)), this.y + (this.height * .5));*/
 			},
 		},
 		drawLogo: function(b) {
@@ -122,11 +112,6 @@ var game = {
 					game.cursor);
 				
 			}
-			
-			// @aseaboyer -> Stop doing this, 
-				// calculate these vals in start(), 
-				// store them in an object,
-				// and use them for later use (clicks)
 		},
 	},
 	boardSize: {
@@ -141,18 +126,22 @@ var game = {
 		remainingHouses: 0,
 		housesLeftWins: 0,
 		finishTurn: function() {
+			if(this.remainingHouses < housesLeftWins) {
+				game.changePhase("lost");
+				return
+			}
 			this.remainingMoves--;
 			if(this.remainingMoves <= 0) {
 				console.log("Level finished!");
-				// @aseaboyer
-				// save to playerData and go to level load screen
+				game.changePhase("win");
+				// @aseaboyer - should also save to playerData and go to level load screen
 				
 			} else {
 				this.startTurn();
 			}
 		},
 		loadLevel: function(fileName) { // @aseaboyer
-			// fire the ajax call
+			// @aseaboyer - fire the ajax call
 				// the finished callfires it's own changePhase to play
 		},
 		startTurn: function() {
@@ -167,8 +156,6 @@ var game = {
 					flamableHouses.push(game.tileArray[x]);
 				}
 			}
-			
-			// @aseaboyer - reduce the fire rating if a truck is fighting the fire!
 			
 			if(flameUpChance <= levelData.fireChance) {
 			//	console.log("Fire up a " + flameUpChance + " from a level chance of " + levelData.fireChance);
