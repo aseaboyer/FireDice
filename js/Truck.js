@@ -37,27 +37,27 @@ function Truck(trayVals) {
 			
 			// @aseaboyer - mark valid drop spots so we only calculate them once
 			var validDropArray = new Array();
-				var pos;
+				var pos = {};
 				// check to see if these are roads first
 				// should also check to see if they aren't occupied!
-				if(this.findValidTile(tileArray, tileSizes, this.x+1, this.y)) {
-					pos.x = this.x+1;
+				if(this.findValidTile(tileArray, tileSizes, this.x + 1, this.y)) {
+					pos.x = this.x + 1;
 					pos.y = this.y;
 					validDropArray.push(pos);
 				}
-				if(this.findValidTile(tileArray, tileSizes, this.x-1, this.y)) {
-					pos.x = this.x-1;
+				if(this.findValidTile(tileArray, tileSizes, this.x - 1, this.y)) {
+					pos.x = (this.x - 1);
 					pos.y = this.y;
 					validDropArray.push(pos);
 				}
-				if(this.findValidTile(tileArray, tileSizes, this.x, this.y+1)) {
+				if(this.findValidTile(tileArray, tileSizes, this.x, this.y + 1)) {
 					pos.x = this.x;
-					pos.y = this.y+1;
+					pos.y = this.y + 1;
 					validDropArray.push(pos);
 				}
-				if(this.findValidTile(tileArray, tileSizes, this.x, this.y-1)) {
+				if(this.findValidTile(tileArray, tileSizes, this.x, this.y - 1)) {
 					pos.x = this.x;
-					pos.y = this.y-1;
+					pos.y = this.y - 1;
 					validDropArray.push(pos);
 				}
 			this.validDropPlaces = validDropArray;
