@@ -152,8 +152,8 @@ var game = {
 		},
 		loadLevel: function(fileName, name) {
 			game.ui.loadingMessage = "Loading "+name;
-				
-			console.log("Going to load: " + fileName);
+			
+			console.log("Going to load: " + name);
 			var hr = new XMLHttpRequest();
 			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
