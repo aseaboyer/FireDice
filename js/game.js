@@ -120,7 +120,7 @@ var game = {
 			b.font = "bold 24px Arial";
 			b.textAlign = 'center';
 			b.fillStyle = "#ccc";
-			b.fillText("Loading level" , game.canvasSize.x, game.canvasSize.y);
+			b.fillText("Loading level" , (game.canvasSize.x * 0.5), (game.canvasSize.y * 0.5));
 		},
 		loadingMessage: "Loading...",
 	},
