@@ -201,7 +201,7 @@ var game = {
 	},
 	puckupTruck: function(aTruck) {
 		this.cursor.holdingTruck = aTruck;
-		aTruck.pickup(tileArray, {x: game.tileSize.x, y: game.tileSize.y});
+		aTruck.pickup(this.tileArray, {x: game.tileSize.x, y: game.tileSize.y});
 	},
 	dropTruck: function(aTruck) {
 		var tilePos = getTileNumber(this.cursor, this.tileSize);
