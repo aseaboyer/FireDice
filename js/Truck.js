@@ -51,10 +51,10 @@ function Truck(trayVals) {
 			
 		},
 		findValidTile: function(tiles, tileSizes, x, y) {
-			var tiles.length = tilesLength;
+			var tilesLength = tiles.length;
 			for(var i=0; i < tiles; i++) {
 				// Also check if the tile doesn't hold a truck?
-				if(tiles.x == (tileSize.x * x) && tiles.y == (tileSize.y * y)) {
+				if(tiles.x == (tileSizes.x * x) && tiles.y == (tileSizes.y * y)) {
 					if(tiles.type == 'r') {
 						return true;
 					}
