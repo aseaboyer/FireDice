@@ -33,23 +33,25 @@ function Truck(trayVals) {
 		pickup: function(tileArray, tileSizes) {
 			this.held = true;
 			
+			// @aseaboyer - How to cleanly skim the tiles?
+			
 			// @aseaboyer - mark valid drop spots so we only calculate them once
-		/*	var validDropArray = new Array();
+			var validDropArray = new Array();
 				// check to see if these are roads first
 				// should also check to see if they aren't occupied!
 				if(this.findValidTile(tileArray, tileSizes, this.x+1, this.y)) {
-					validDropArray.push({'x': this.x+1, 'y': this.y}); }
+					validDropArray[validDropArray.length] = { 'x': this.x + 1, 'y': this.y }; }
 				if(this.findValidTile(tileArray, tileSizes, this.x-1, this.y)) {
-					validDropArray.push({'x': this.x-1, 'y': this.y}); }
+					validDropArray[validDropArray.length] = { 'x': this.x - 1, 'y': this.y }; }
 				if(this.findValidTile(tileArray, tileSizes, this.x, this.y+1)) {
-					validDropArray.push({'x': this.x, 'y': this.y+1}); }
+					validDropArray[validDropArray.length] = { 'x': this.x, 'y': this.y + 1 }; }
 				if(this.findValidTile(tileArray, tileSizes, this.x, this.y-1)) {
-					validDropArray.push({'x': this.x, 'y': this.y-1}); }
+					validDropArray[validDropArray.length] = { 'x': this.x, 'y': this.y - 1 }; }
 			this.validDropPlaces = validDropArray;
 			console.log("Can drop on:");
 			console.log(validDropArray);
 			console.log("by:");
-			console.log(tileSizes);*/
+			console.log(tileSizes);
 		},
 		findValidTile: function(tiles, tileSizes, x, y) {
 			var tilesLength = tiles.length;
