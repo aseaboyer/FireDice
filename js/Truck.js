@@ -30,17 +30,38 @@ function Truck(trayVals) {
 			
 			this.validDropPlaces.length = 0;
 		},
-		pickup: function() {
+		pickup: function(tileArray, tileSizes) {
 			this.held = true;
+			
+			// @aseaboyer - How to cleanly skim the tiles?
 			
 			// @aseaboyer - mark valid drop spots so we only calculate them once
 			var validDropArray = new Array();
-				validDropArray.push({x: this.x+1, y: this.y}); // check to see if these are roads first
-				validDropArray.push({x: this.x-1, y: this.y}); // should also check to see if they aren't occupied!
-				validDropArray.push({x: this.x, y: this.y+1});
-				validDropArray.push({x: this.x, y: this.y-1});
+				// check to see if these are roads first
+				// should also check to see if they aren't occupied!
+				if(this.findValidTile(tileArray, tileSizes, this.x+1, this.y)) {
+					validDropArray.push({x: this.x+1, y: this.y}); }
+				if(this.findValidTile(tileArray, tileSizes, this.x-1, this.y)) {
+					validDropArray.push({x: this.x-1, y: this.y}); }
+				if(this.findValidTile(tileArray, tileSizes, this.x, this.y+1)) {
+					validDropArray.push({x: this.x, y: this.y+1}); }
+				if(this.findValidTile(tileArray, tileSizes, this.x, this.y-1)) {
+					validDropArray.push({x: this.x, y: this.y-1}); }
 			this.validDropPlaces = validDropArray;
 			
+		},
+		findValidTile: function(tiles, tileSizes, x, y) {
+			var tiles.length = tilesLength;
+			for(var i=0; i < tiles; i++) {
+				// Also check if the tile doesn't hold a truck?
+				if(tiles.x == (tileSize.x * x) && tiles.y == (tileSize.y * y)) {
+					if(tiles.type == 'r') {
+						return true;
+					}
+					return false;
+				}
+			}
+			return false;
 		},
 		drawTruck: function(board, tileDims) {
 			if(this.inPlay) {

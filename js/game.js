@@ -141,7 +141,7 @@ var game = {
 			}
 		},
 		loadLevel: function(fileName) { // @aseaboyer
-			// @aseaboyer - fire the ajax call
+			// @aseaboyer - fire the ajax call to load the level
 				// the finished callfires it's own changePhase to play
 		},
 		startTurn: function() {
@@ -201,7 +201,7 @@ var game = {
 	},
 	puckupTruck: function(aTruck) {
 		this.cursor.holdingTruck = aTruck;
-		aTruck.pickup();
+		aTruck.pickup(tileArray, {x: game.tileSize.x, y: game.tileSize.y});
 	},
 	dropTruck: function(aTruck) {
 		var tilePos = getTileNumber(this.cursor, this.tileSize);
