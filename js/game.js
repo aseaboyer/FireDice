@@ -523,9 +523,9 @@ function ajax_get_json(fileURL) {
 canvas.addEventListener('mousemove', trackMouse, false);
 canvas.addEventListener('mousedown', mouseDown, false);
 canvas.addEventListener('mouseup', mouseUp, false);
-canvas.addEventListener('touchmove', trackTouch, false);
-canvas.addEventListener('touchstart', touchDown, false);
-canvas.addEventListener('touchend', touchUp, false);
+//canvas.addEventListener('touchmove', trackTouch, false);
+//canvas.addEventListener('touchstart', touchDown, false);
+//canvas.addEventListener('touchend', touchUp, false);
 
 function trackMouse(e) {
     game.cursor.x = e.clientX;
@@ -534,7 +534,7 @@ function trackMouse(e) {
 }
 function mouseDown(e) {
 	if(game.phase == 'menu') {
-	
+		console.log("Player tried to click at: "+ game.cursor.x +", "+ game.cursor.y);
 	
 	} else if(game.phase == 'play') {
 		if(game.cursor.holdingTruck == false) { // this should ALWAYS be false...
