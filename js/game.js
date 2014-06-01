@@ -5,8 +5,8 @@ var spriteTileImg = new Image();
 var playerData = new PlayerData();
 var levelMenuItems = new Array();
 var levelListStored = [ // store the levels, later brought in with JSON
-	{ num:1, name:"Starting Town", url:"levels/level1.js"},
-	{ num:2, name:"Secondville", url:"levels/level2.js"},
+	{ num:1, name:"Starting Town", file:"levels/level1.js"},
+	{ num:2, name:"Secondville", file:"levels/level2.js"},
 ];
 
 function Level(num, name, file, x, y, w, h) {
