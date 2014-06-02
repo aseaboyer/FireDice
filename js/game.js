@@ -157,7 +157,6 @@ var game = {
 			var hr = new XMLHttpRequest();
 			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
-			hr.send(null);// @aseaboyer - fire the ajax call to load the level
 			console.log(hr);
 			hr.onreadystatechange = function() {
 				console.log(hr);
@@ -167,6 +166,7 @@ var game = {
 					
 				}
 			}
+			hr.send(null);// @aseaboyer - fire the ajax call to load the level
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
