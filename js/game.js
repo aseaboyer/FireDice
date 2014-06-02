@@ -157,9 +157,7 @@ var game = {
 			var hr = new XMLHttpRequest();
 			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
-			console.log(hr);
 			hr.onreadystatechange = function() {
-				console.log(hr);
 				if(hr.readyState == 4 && hr.status == 200) {
 					var holdingData = JSON.parse(hr.responseText); //store the level data
 					console.log(holdingData);//levelData
