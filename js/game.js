@@ -161,7 +161,8 @@ var game = {
 			hr.onreadystatechange = function() {
 				console.log(hr);
 				if(hr.readyState == 4 && hr.status == 200) {
-					levelData = JSON.parse(hr.responseText); //store the level data
+					var holdingData = JSON.parse(hr.responseText); //store the level data
+					console.log(holdingData);//levelData
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
 					
 				}
