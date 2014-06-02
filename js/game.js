@@ -158,6 +158,7 @@ var game = {
 			hr.open("GET", fileName, false);
 			hr.setRequestHeader("Content-type", "application/json", true);
 			hr.send(null);// @aseaboyer - fire the ajax call to load the level
+			console.log(hr);
 			hr.onreadystatechange = function() {
 				console.log(hr);
 				if(hr.readyState == 4 && hr.status == 200) {
