@@ -160,12 +160,12 @@ var game = {
 			hr.onreadystatechange = function() {
 				if(hr.readyState == 4 && hr.status == 200) {
 					var holdingData = JSON.parse( hr.response ); //store the level data
-					console.log(holdingData);
-					console.log(holdingData.levelNum+") "+holdingData.levelName+" - "+holdingData.turns.win);
 					levelData = holdingData;
-					console.log(levelData);
-					game.changePhase("play"); // the finished callfires it's own changePhase to play
+					//console.log(levelData);
 					
+					
+					
+					game.changePhase("play"); // the finished callfires it's own changePhase to play
 				}
 			}
 			hr.send(null);// @aseaboyer - fire the ajax call to load the level
@@ -213,6 +213,22 @@ var game = {
 		y: 576,
 	},
 	tileArray: new Array(),
+	storeTiles: function(tileData) {
+		var i = 0;
+		var tileCols = tileData.length;
+		for(var x=0; x < tileCols; x++) {
+			var tileRows = tileData[x].length;
+			for(var y=0; y < tileRows; y++) {
+				var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
+					tileData[y][x].type,
+					tileData[y][x].spriteX, tileData[y][x].spriteY,
+					tileData[y][x].truckStart,
+					tileData[y][x].houseStart);
+				game.tileArray[i] = newTile;
+				i++;
+			}
+		}
+	}
 	spriteTileImg: new Image(),
 	trucks: new Array(),
 	trucksAvailable: 0,
@@ -418,20 +434,8 @@ function Start() {
 	}
 	
 	// Store this level's data
-	var i = 0;
-	var tileCols = levelData.tiles.length;
-	for(var x=0; x < tileCols; x++) {
-		var tileRows = levelData.tiles[x].length;
-		for(var y=0; y < tileRows; y++) {
-			var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
-				levelData.tiles[y][x].type,
-				levelData.tiles[y][x].spriteX, levelData.tiles[y][x].spriteY,
-				levelData.tiles[y][x].truckStart,
-				levelData.tiles[y][x].houseStart);
-			game.tileArray[i] = newTile;
-			i++;
-		}
-	}
+	game.storeTiles(levelData.tiles);
+	
 	
 	// store this level's truck data
 	game.trucks = new Array(levelData.trucks);
