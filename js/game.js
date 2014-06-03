@@ -30,6 +30,7 @@ var game = {
 			console.log("Game phase not found.");
 		} else {
 			this.phase = phaseName;
+			console.log("Changed phase to: "+ this.phase);
 		}
 	},
 	frameRate: {
