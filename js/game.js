@@ -228,7 +228,7 @@ var game = {
 				i++;
 			}
 		}
-	}
+	},
 	spriteTileImg: new Image(),
 	trucks: new Array(),
 	trucksAvailable: 0,
