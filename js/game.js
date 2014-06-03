@@ -228,6 +228,7 @@ var game = {
 				i++;
 			}
 		}
+		console.log("Loaded "+i+" tiles.");
 	},
 	spriteTileImg: new Image(),
 	trucks: new Array(),
