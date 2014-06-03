@@ -161,6 +161,7 @@ var game = {
 				if(hr.readyState == 4 && hr.status == 200) {
 					var holdingData = JSON.parse( hr.response ); //store the level data
 					console.log(holdingData);
+					console.log(holdingData.levelNum+") "+holdingData.levelName+" - "+holdingData.turns.win);
 					levelData = holdingData;
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
 					

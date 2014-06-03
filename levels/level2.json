@@ -72,11 +72,11 @@
 		]
 	],
 	"turns": {
-		"win": 30,
+		"win": 60,
 		"current": 0,
 		"events": [
-			{ "30": "new truck" },
-			{ "28": "new fire" }
+			{ "60": "new truck" },
+			{ "58": "new fire" }
 		]
 	}
 }
