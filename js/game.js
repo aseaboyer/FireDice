@@ -163,6 +163,7 @@ var game = {
 					levelData = holdingData;
 					//console.log(levelData);
 					
+					game.storeTiles(holdingData.tiles); // Store this level's data
 					
 					
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
