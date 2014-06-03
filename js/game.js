@@ -163,6 +163,7 @@ var game = {
 					console.log(holdingData);
 					console.log(holdingData.levelNum+") "+holdingData.levelName+" - "+holdingData.turns.win);
 					levelData = holdingData;
+					console.log(levelData);
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
 					
 				}
