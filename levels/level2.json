@@ -9,44 +9,22 @@
 		[
 			{
 				"type": "h",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
-			},
-			{
-				"type": "r",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
-			},
-			{
-				"type": "h",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
-			}
-		],
-		[
-			{
-				"type": "h",
 				"spriteX": 0,
 				"spriteY": 64,
-				"truckStart": true
+				"houseStart": true,
+				"truckStart": false
 			},
 			{
 				"type": "r",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": false
+				"truckStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
 				"spriteY": 64,
-				"truckStart": true
+				"truckStart": false
 			}
 		],
 		[
@@ -68,6 +46,27 @@
 				"spriteX": 384,
 				"spriteY": 192,
 				"houseStart": true,
+				"truckStart": false
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 64,
+				"houseStart": true,
+				"truckStart": false
+			},
+			{
+				"type": "r",
+				"spriteX": 256,
+				"spriteY": 0,
+				"truckStart": true
+			},
+			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 64,
 				"truckStart": false
 			}
 		]
