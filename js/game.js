@@ -176,7 +176,7 @@ var game = {
 					for(var x=0; x < game.trucks.length; x++) {
 						game.trucks[x] = new Truck( game.trucksTray.trayPosition );
 					}
-					game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
+					game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer!!! - This should happen on the turn start phase
 					
 					game.levelInit(levelData.turns.win, levelData.housesLeftWins);
 					
@@ -184,7 +184,7 @@ var game = {
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
 				}
 			}
-			hr.send(null);// @aseaboyer - fire the ajax call to load the level
+			hr.send(null);
 		},
 		startTurn: function() {
 			var flameUpChance = Math.random();
