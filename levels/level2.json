@@ -18,7 +18,7 @@
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": false,
+				"houseStart": true,
 				"truckStart": false
 			},
 			{
