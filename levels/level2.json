@@ -11,22 +11,18 @@
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"houseStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"truckStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"spriteY": 192
 			}
 		],
 		[
@@ -34,19 +30,18 @@
 				"type": "h",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": true
+				"houseStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
-				"spriteY": 64,
-				"truckStart": false
+				"spriteY": 64
 			},
 			{
 				"type": "h",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": true
+				"houseStart": true
 			}
 		],
 		[
@@ -54,20 +49,18 @@
 				"type": "h",
 				"spriteX": 0,
 				"spriteY": 192,
-				"truckStart": false
+				"houseStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"truckStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
-				"spriteY": 192,
-				"truckStart": false
+				"spriteY": 192
 			}
 		]
 	],
