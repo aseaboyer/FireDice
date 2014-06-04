@@ -15,7 +15,7 @@
 				"truckStart": false
 			},
 			{
-				"type": "r",
+				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
 				"houseStart": false,
