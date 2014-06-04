@@ -5,10 +5,10 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
         xNum: tileX, // Tiles should own their x/y location
         yNum: tileY,
         type: tileType,
-        spriteDX: spriteX,
-        spriteDY: spriteY,
-        spriteDW: (spriteX + game.tileSize.x), // pass the tile sizes through to this?
-        spriteDH: (spriteY + game.tileSize.y),
+        spriteDY: spriteX,
+        spriteDX: spriteY,
+        spriteDH: (spriteX + game.tileSize.x), // pass the tile sizes through to this?
+        spriteDW: (spriteY + game.tileSize.y),
         hasTruck: false,
         alarmVal: 0,
 		hasHouse: houseStart || false, // set to false if the house hits 4 alarms!
