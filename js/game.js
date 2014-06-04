@@ -249,12 +249,12 @@ var game = {
 			var tileRows = tileData[x].length;
 			for(var y=0; y < tileRows; y++) {
 				var isHouseStart = isTruckStart = false;
-				if(tileData[y][x].truckStart) { isTruckStart = true; }
-				if(tileData[y][x].houseStart) { isHouseStart = true; }
+				if(tileData[x][y].truckStart) { isTruckStart = true; }
+				if(tileData[x][y].houseStart) { isHouseStart = true; }
 				
 				var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
-					tileData[y][x].type,
-					tileData[y][x].spriteX, tileData[y][x].spriteY,
+					tileData[x][y].type,
+					tileData[x][y].spriteX, tileData[x][y].spriteY,
 					isTruckStart, isHouseStart);
 				game.tileArray[i] = newTile;
 				console.log("New Tile: ");
