@@ -18,14 +18,14 @@
 				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"houseStart": false,
+				"truckStart": true
 			},
 			{
-				"type": "h",
+				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
+				"houseStart": false,
 				"truckStart": false
 			}
 		],
