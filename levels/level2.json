@@ -18,7 +18,7 @@
 				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
+				"houseStart": false,
 				"truckStart": false
 			},
 			{
@@ -61,6 +61,7 @@
 				"type": "r",
 				"spriteX": 0,
 				"spriteY": 192,
+				"houseStart": false,
 				"truckStart": false
 			},
 			{
