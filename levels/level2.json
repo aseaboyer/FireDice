@@ -8,23 +8,45 @@
 	"tiles": [
 		[
 			{
+				"type": "r",
+				"spriteX": 384,
+				"spriteY": 192,
+				"houseStart": true,
+				"truckStart": false
+			},
+			{
 				"type": "h",
-				"spriteX": 0,
-				"spriteY": 64,
+				"spriteX": 384,
+				"spriteY": 192,
 				"houseStart": true,
 				"truckStart": false
 			},
 			{
 				"type": "r",
+				"spriteX": 384,
+				"spriteY": 192,
+				"houseStart": true,
+				"truckStart": false
+			}
+		],
+		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 64,
+				"truckStart": true
+			},
+			{
+				"type": "r",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": true
+				"truckStart": false
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
 				"spriteY": 64,
-				"truckStart": false
+				"truckStart": true
 			}
 		],
 		[
@@ -46,27 +68,6 @@
 				"spriteX": 384,
 				"spriteY": 192,
 				"houseStart": true,
-				"truckStart": false
-			}
-		],
-		[
-			{
-				"type": "h",
-				"spriteX": 0,
-				"spriteY": 64,
-				"houseStart": true,
-				"truckStart": false
-			},
-			{
-				"type": "r",
-				"spriteX": 256,
-				"spriteY": 0,
-				"truckStart": true
-			},
-			{
-				"type": "r",
-				"spriteX": 0,
-				"spriteY": 64,
 				"truckStart": false
 			}
 		]
@@ -76,7 +77,8 @@
 		"current": 0,
 		"events": [
 			{ "60": "new truck" },
-			{ "58": "new fire" }
+			{ "58": "new fire" },
+			{ "30": "new truck" }
 		]
 	}
 }
