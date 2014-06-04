@@ -18,18 +18,24 @@
 				"type": "r",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": false,
-				"truckStart": true
+				"houseStart": true,
+				"truckStart": false
 			},
 			{
-				"type": "r",
+				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": false,
+				"houseStart": true,
 				"truckStart": false
 			}
 		],
 		[
+			{
+				"type": "h",
+				"spriteX": 0,
+				"spriteY": 64,
+				"truckStart": true
+			},
 			{
 				"type": "r",
 				"spriteX": 256,
@@ -41,21 +47,9 @@
 				"spriteX": 0,
 				"spriteY": 64,
 				"truckStart": true
-			},
-			{
-				"type": "r",
-				"spriteX": 256,
-				"spriteY": 0,
-				"truckStart": false
 			}
 		],
 		[
-			{
-				"type": "r",
-				"spriteX": 0,
-				"spriteY": 192,
-				"truckStart": false
-			},
 			{
 				"type": "h",
 				"spriteX": 384,
@@ -68,15 +62,22 @@
 				"spriteX": 0,
 				"spriteY": 192,
 				"truckStart": false
+			},
+			{
+				"type": "h",
+				"spriteX": 384,
+				"spriteY": 192,
+				"houseStart": true,
+				"truckStart": false
 			}
 		]
 	],
 	"turns": {
-		"win": 60,
+		"win": 30,
 		"current": 0,
 		"events": [
-			{ "60": "new truck" },
-			{ "58": "new fire" }
+			{ "30": "new truck" },
+			{ "28": "new fire" }
 		]
 	}
 }
