@@ -166,6 +166,15 @@ var game = {
 					
 					game.storeTiles(holdingData.tiles); // Store this level's data
 					
+					// store this level's truck data
+					game.trucks = new Array(levelData.trucks);
+					for(var x=0; x < game.trucks.length; x++) {
+						game.trucks[x] = new Truck( game.trucksTray.trayPosition );
+					}
+					game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
+					
+					game.levelInit(levelData.turns.win, levelData.housesLeftWins);
+					
 					
 					game.changePhase("play"); // the finished callfires it's own changePhase to play
 				}
@@ -414,6 +423,8 @@ var levelData = {
 
 /* Core */
 function Start() {
+	spriteTileImg.src = game.tileSpritesheet.url;
+	
 	// create the level select menu
 	var levelListCount = levelListStored.length;
 	var listRows = Math.floor(Math.sqrt(levelListCount));
@@ -438,19 +449,6 @@ function Start() {
 	
 	// Store this level's data
 	//game.storeTiles(levelData.tiles);
-	
-	// @aseaboyer!!! - keep moving these functions up to the levelload json parsing function
-	
-	// store this level's truck data
-	game.trucks = new Array(levelData.trucks);
-	for(var x=0; x < game.trucks.length; x++) {
-		game.trucks[x] = new Truck( game.trucksTray.trayPosition );
-	}
-	game.addTruck(game.trucks[0], levelData.tiles); // @aseaboyer - This should happen on the turn start phase
-	
-	spriteTileImg.src = game.tileSpritesheet.url;
-	
-	game.levelInit(levelData.turns.win, levelData.housesLeftWins);
 	
 	game.frameRate.update();
 	

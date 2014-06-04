@@ -34,19 +34,19 @@
 				"type": "r",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": false
+				"truckStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
 				"spriteY": 64,
-				"truckStart": true
+				"truckStart": false
 			},
 			{
 				"type": "r",
 				"spriteX": 256,
 				"spriteY": 0,
-				"truckStart": false
+				"truckStart": true
 			}
 		],
 		[
