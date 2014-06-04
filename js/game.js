@@ -252,10 +252,12 @@ var game = {
 				if(tileData[x][y].truckStart) { isTruckStart = true; }
 				if(tileData[x][y].houseStart) { isHouseStart = true; }
 				
-				var newTile = Tile((x * game.tileSize.x), (y * game.tileSize.y),
-					tileData[x][y].type,
+				// Should change the way the tile saves now as well
+				
+				var newTile = Tile(x, y, tileData[x][y].type,
 					tileData[x][y].spriteX, tileData[x][y].spriteY,
-					isTruckStart, isHouseStart);
+					isTruckStart, isHouseStart,
+					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
 				console.log("New Tile: ");
 				console.log(newTile);
