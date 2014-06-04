@@ -254,6 +254,8 @@ var game = {
 					tileData[y][x].truckStart,
 					tileData[y][x].houseStart);
 				game.tileArray[i] = newTile;
+				console.log("New Tile: ");
+				console.log(newTile);
 				i++;
 			}
 		}
