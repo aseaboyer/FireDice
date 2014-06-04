@@ -11,27 +11,29 @@
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
-			},
-			{
-				"type": "r",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"houseStart": true
 			},
 			{
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"houseStart": true
+			},
+			{
+				"type": "h",
+				"spriteX": 384,
+				"spriteY": 192,
+				"houseStart": true
 			}
 		],
 		[
 			{
-				"type": "h",
+				"type": "r",
+				"spriteX": 256,
+				"spriteY": 0
+			},
+			{
+				"type": "r",
 				"spriteX": 0,
 				"spriteY": 64,
 				"truckStart": true
@@ -39,36 +41,25 @@
 			{
 				"type": "r",
 				"spriteX": 256,
-				"spriteY": 0,
-				"truckStart": false
-			},
-			{
-				"type": "r",
-				"spriteX": 0,
-				"spriteY": 64,
-				"truckStart": true
+				"spriteY": 0
 			}
 		],
 		[
 			{
+				"type": "r",
+				"spriteX": 0,
+				"spriteY": 192
+			},
+			{
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"houseStart": true
 			},
 			{
 				"type": "r",
 				"spriteX": 0,
-				"spriteY": 192,
-				"truckStart": false
-			},
-			{
-				"type": "h",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
+				"spriteY": 192
 			}
 		]
 	],
