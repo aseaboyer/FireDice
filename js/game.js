@@ -245,6 +245,9 @@ var game = {
 	storeTiles: function(tileData) {
 		var i = 0;
 		var tileCols = tileData.length;
+		
+		console.log("New Tiles:");
+		
 		for(var x=0; x < tileCols; x++) {
 			var tileRows = tileData[x].length;
 			for(var y=0; y < tileRows; y++) {
@@ -254,12 +257,11 @@ var game = {
 				
 				// Should change the way the tile saves now as well
 				
-				var newTile = Tile(y,x, tileData[x][y].type,
+				var newTile = Tile(x, y, tileData[x][y].type,
 					tileData[x][y].spriteX, tileData[x][y].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
-				console.log("New Tile: ");
 				console.log(newTile);
 				i++;
 			}
