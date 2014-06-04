@@ -8,13 +8,6 @@
 	"tiles": [
 		[
 			{
-				"type": "r",
-				"spriteX": 384,
-				"spriteY": 192,
-				"houseStart": true,
-				"truckStart": false
-			},
-			{
 				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
@@ -23,6 +16,13 @@
 			},
 			{
 				"type": "r",
+				"spriteX": 384,
+				"spriteY": 192,
+				"houseStart": true,
+				"truckStart": false
+			},
+			{
+				"type": "h",
 				"spriteX": 384,
 				"spriteY": 192,
 				"houseStart": true,
