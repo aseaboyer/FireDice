@@ -13,15 +13,15 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
         alarmVal: 0,
 		hasHouse: houseStart || false, // set to false if the house hits 4 alarms!
 		truckCanStart: truckStart || false, // If a new truck can be placed on this tile
-        //tileColor: "#090",
     
         drawTile: function(board, spriteTileImg) {
-            if(this.type == 'h') {
+			/*
+			if(this.type == 'h') {
                 board.fillStyle = "#090";
             } else if(this.type == 'r') {
                 board.fillStyle = "#909";
             }
-            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
+            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);*/
 			//draw that image sprite
 			board.drawImage(spriteTileImg,
 				this.spriteDX, this.spriteDY, // top corner loc of sub - this is the sub offset locs
