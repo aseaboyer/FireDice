@@ -24,6 +24,12 @@ function Level(num, name, file, x, y, w, h) {
 var game = {
 	phase: "menu",
 	phases: [ "load game", "menu", "load level", "play", "win", "lost" ], // for ref. @aseaboyer
+	start: function() { // move from Start
+	
+	},
+	update: function() { // move from Update
+	
+	},
 	changePhase: function(phaseName) {
 		var inPhases = this.phases.indexOf(phaseName);
 		if(inPhases == -1) {
@@ -114,7 +120,6 @@ var game = {
 					arr[i].w, arr[i].h, 
 					"#fff", "#900", "#25383c",
 					game.cursor);
-				
 			}
 		},
 		drawLoading: function(b) {
@@ -224,6 +229,19 @@ var game = {
 		y: 576,
 	},
 	tileArray: new Array(),
+	logMap: function() { // debugging tool, dumps the road/house map to the console
+		var thisLine = '';
+		var i = 0;
+		var tileCols = game.tileArray.length;
+		for(var x=0; x < tileCols; x++) {
+			var tileRows = game.tileArray[x].length;
+			for(var y=0; y < tileRows; y++) {
+				thisLine += game.tileArray.type+" ";
+			}
+			console.log(thisLine);
+			thisLine = '';
+		}
+	},
 	storeTiles: function(tileData) {
 		var i = 0;
 		var tileCols = tileData.length;
