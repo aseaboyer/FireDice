@@ -28,7 +28,7 @@
 		],
 		[
 			{
-				"type": "h",
+				"type": "r",
 				"spriteX": 0,
 				"spriteY": 64,
 				"truckStart": true

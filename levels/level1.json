@@ -30,18 +30,19 @@
 			{
 				"type": "r",
 				"spriteX": 256,
-				"spriteY": 0
-			},
-			{
-				"type": "r",
-				"spriteX": 0,
-				"spriteY": 64,
+				"spriteY": 0,
 				"truckStart": true
 			},
 			{
 				"type": "r",
+				"spriteX": 0,
+				"spriteY": 64
+			},
+			{
+				"type": "r",
 				"spriteX": 256,
-				"spriteY": 0
+				"spriteY": 0,
+				"truckStart": true
 			}
 		],
 		[
