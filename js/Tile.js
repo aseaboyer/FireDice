@@ -47,15 +47,13 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
 				this.trayVal.width, this.trayVal.height);*/
 		},
 		drawFire: function(board) { // draw the note in the UI tray
-			/*if(this.hasHouse) {
+			if(this.hasHouse) {
 				board.fillStyle = "#900"; // different if the truck is on stage
 				board.fillText(this.alarmVal, (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
 			} else {
 				board.fillStyle = "#999"; // different if the truck is on stage
 				board.fillText("-", (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
-			}*/
-			board.fillStyle = "#900"; // different if the truck is on stage
-			board.fillText(this.type, (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
+			}
 		},
 		startFire: function() { // if it's on fire, increase it, return info on if it's on fire or not
 			this.alarmVal = 1;
