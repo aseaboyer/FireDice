@@ -289,7 +289,7 @@ var game = {
 		// check to see if this is a valid spot to drop the truck
 		var tileType = levelData.tiles[tilePos.x][tilePos.y].type == 'r';
 		var tileDistance = (tilePos.x - tilePos.y) + (aTruck.x - aTruck.y);
-		//console.log('On the truck drop: '+tilePos.x+', '+tilePos.y+' : '+aTruck.x+', '+aTruck.y+' = '+tileDistance);
+		console.log('On the truck drop: '+tilePos.x+', '+tilePos.y+' : '+aTruck.x+', '+aTruck.y+' = '+tileDistance);
 			// equals 1 means it moves one actual spot and does move 0
 			
 		if( tileType && (tileDistance == 1 || tileDistance == -1) ) {
