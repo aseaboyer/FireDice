@@ -262,7 +262,7 @@ var game = {
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
-				console.log(newTile);
+				console.log("newTile @ "+x+", "+y);
 				i++;
 			}
 		}
