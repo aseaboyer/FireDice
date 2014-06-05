@@ -1,7 +1,7 @@
 function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, tileSizeX, tileSizeY) {
     return {
-        x: (tileX * tileSizeX),
-        y: (tileY * tileSizeY),
+        y: (tileX * tileSizeX),
+        x: (tileY * tileSizeY),
         xNum: tileX, // Tiles should own their x/y location
         yNum: tileY,
         type: tileType,
