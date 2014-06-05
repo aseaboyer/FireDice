@@ -248,9 +248,9 @@ var game = {
 		
 		console.log("New Tiles:");
 		
-		for(var y=0; y < tileCols; y++) {
-			var tileRows = tileData[y].length;
-			for(var x=0; x < tileRows; x++) {
+		for(var x=0; x < tileCols; x++) {
+			var tileRows = tileData[x].length;
+			for(var y=0; y < tileRows; y++) {
 				var isHouseStart = isTruckStart = false;
 				if(tileData[x][y].truckStart) { isTruckStart = true; }
 				if(tileData[x][y].houseStart) { isHouseStart = true; }
