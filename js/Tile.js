@@ -1,7 +1,7 @@
 function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, tileSizeX, tileSizeY) {
     return {
-        y: (tileX * tileSizeX),
-        x: (tileY * tileSizeY),
+        x: (tileX * tileSizeX),
+        y: (tileY * tileSizeY),
         xNum: tileX, // Tiles should own their x/y location
         yNum: tileY,
         type: tileType,
@@ -49,8 +49,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
 		drawFire: function(board) { // draw the note in the UI tray
 			if(this.hasHouse) {
 				board.fillStyle = "#900"; // different if the truck is on stage
-			//	board.fillText(this.alarmVal, (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
-				board.fillText(this.xNum+','+this.yNum, (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
+				board.fillText(this.alarmVal, (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));
 			} else {
 				board.fillStyle = "#999"; // different if the truck is on stage
 				board.fillText("-", (this.x + (game.tileSize.x * 0.5)), (this.y + (game.tileSize.y * 0.5)));

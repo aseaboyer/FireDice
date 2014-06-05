@@ -257,7 +257,7 @@ var game = {
 				
 				// Should change the way the tile saves now as well
 				
-				var newTile = Tile(x, y, tileData[x][y].type,
+				var newTile = Tile(y, x, tileData[x][y].type,
 					tileData[x][y].spriteX, tileData[x][y].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
