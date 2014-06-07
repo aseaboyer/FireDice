@@ -190,12 +190,12 @@ var game = {
 			var flameUpChance = Math.random();
 			var flamableHouses = new Array();
 			
-			var tileCount = levelData.tiles.length;
+			var tileCount = game.tileArray.length;
 			for(var x=0; x < tileCount; x++) {
 				// Should increase the fire rating! and see what returns
-				var tileRating = levelData.tiles[x].updateFlame(levelData.fireDestroysOn, game.trucks, game.tileSize);
+				var tileRating = game.tileArray[x].updateFlame(levelData.fireDestroysOn, game.trucks, game.tileSize);
 				if(tileRating == 0) {
-					flamableHouses.push(levelData.tiles[x]);
+					flamableHouses.push(game.tileArray[x]);
 				}
 			}
 			
@@ -204,7 +204,7 @@ var game = {
 				game.startFire(flamableHouses);
 			}
 			
-			this.remainingHouses = this.countRemainingHouses(levelData.tiles);
+			this.remainingHouses = this.countRemainingHouses(game.tileArray);
 		},
 		countRemainingHouses: function(tileArray) {
 			var totalHouses = 0;
@@ -232,11 +232,11 @@ var game = {
 	logMap: function() { // debugging tool, dumps the road/house map to the console
 		var thisLine = '';
 		var i = 0;
-		var tileCols = this.tileArray.length;
+		var tileCols = game.tileArray.length;
 		for(var x=0; x < tileCols; x++) {
-			var tileRows = this.tileArray[x].length;
+			var tileRows = game.tileArray[x].length;
 			for(var y=0; y < tileRows; y++) {
-				thisLine += this.tileArray.type+" ";
+				thisLine += game.tileArray.type+" ";
 			}
 			console.log(thisLine);
 			thisLine = '';
@@ -261,7 +261,7 @@ var game = {
 					tileData[y][x].spriteX, tileData[y][x].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
-				levelData.tiles[i] = newTile;
+				game.tileArray[i] = newTile;
 				console.log(newTile);
 				i++;
 			}
@@ -325,7 +325,7 @@ var game = {
 	},
 	levelInit: function(startingMoves, housesLeftWins) {
 		this.level.remainingMoves = startingMoves;
-		this.level.remainingHouses = this.level.countRemainingHouses(levelData.tiles);
+		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray);
 		this.level.housesLeftWins = housesLeftWins;
 		this.level.startTime = new Date().getTime();
 	},
@@ -364,7 +364,7 @@ var game = {
 		b.fillText(str, (x + (w * .5)), y + (h * .5));// Draw the text
 	}
 };
-var levelData = {};/*{
+var levelData = {
 	levelName: "Starting Town",
 	levelNum: 1,
 	trucks: 1,
@@ -445,7 +445,7 @@ var levelData = {};/*{
 			30: "new truck"
 		}
 	},
-};*/
+};
 
 
 /* Core */
@@ -502,9 +502,9 @@ function Draw() {
 		game.ui.drawLevelArray(context, levelMenuItems);
 	
 	} else if(game.phase == 'play') {
-		var tileCount = levelData.tiles.length;
+		var tileCount = game.tileArray.length;
 		for(var x=0; x < tileCount; x++) {
-			levelData.tiles[x].drawTile(context, spriteTileImg);
+			game.tileArray[x].drawTile(context, spriteTileImg);
 		}
 		
 		var truckCount = game.trucks.length;
