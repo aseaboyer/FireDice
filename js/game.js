@@ -190,12 +190,12 @@ var game = {
 			var flameUpChance = Math.random();
 			var flamableHouses = new Array();
 			
-			var tileCount = game.tileArray.length;
+			var tileCount = levelData.tiles.length;
 			for(var x=0; x < tileCount; x++) {
 				// Should increase the fire rating! and see what returns
-				var tileRating = game.tileArray[x].updateFlame(levelData.fireDestroysOn, game.trucks, game.tileSize);
+				var tileRating = levelData.tiles[x].updateFlame(levelData.fireDestroysOn, game.trucks, game.tileSize);
 				if(tileRating == 0) {
-					flamableHouses.push(game.tileArray[x]);
+					flamableHouses.push(levelData.tiles[x]);
 				}
 			}
 			
@@ -204,7 +204,7 @@ var game = {
 				game.startFire(flamableHouses);
 			}
 			
-			this.remainingHouses = this.countRemainingHouses(game.tileArray);
+			this.remainingHouses = this.countRemainingHouses(levelData.tiles);
 		},
 		countRemainingHouses: function(tileArray) {
 			var totalHouses = 0;
@@ -261,7 +261,7 @@ var game = {
 					tileData[y][x].spriteX, tileData[y][x].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
-				game.tileArray[i] = newTile;
+				levelData.tiles[i] = newTile;
 				console.log(newTile);
 				i++;
 			}
@@ -325,7 +325,7 @@ var game = {
 	},
 	levelInit: function(startingMoves, housesLeftWins) {
 		this.level.remainingMoves = startingMoves;
-		this.level.remainingHouses = this.level.countRemainingHouses(game.tileArray);
+		this.level.remainingHouses = this.level.countRemainingHouses(levelData.tiles);
 		this.level.housesLeftWins = housesLeftWins;
 		this.level.startTime = new Date().getTime();
 	},
@@ -364,7 +364,7 @@ var game = {
 		b.fillText(str, (x + (w * .5)), y + (h * .5));// Draw the text
 	}
 };
-var levelData = {
+var levelData = {};/*{
 	levelName: "Starting Town",
 	levelNum: 1,
 	trucks: 1,
@@ -445,7 +445,7 @@ var levelData = {
 			30: "new truck"
 		}
 	},
-};
+};*/
 
 
 /* Core */
@@ -502,9 +502,9 @@ function Draw() {
 		game.ui.drawLevelArray(context, levelMenuItems);
 	
 	} else if(game.phase == 'play') {
-		var tileCount = game.tileArray.length;
+		var tileCount = levelData.tiles.length;
 		for(var x=0; x < tileCount; x++) {
-			game.tileArray[x].drawTile(context, spriteTileImg);
+			levelData.tiles[x].drawTile(context, spriteTileImg);
 		}
 		
 		var truckCount = game.trucks.length;
