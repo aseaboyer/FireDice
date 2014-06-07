@@ -232,11 +232,11 @@ var game = {
 	logMap: function() { // debugging tool, dumps the road/house map to the console
 		var thisLine = '';
 		var i = 0;
-		var tileCols = game.tileArray.length;
+		var tileCols = this.tileArray.length;
 		for(var x=0; x < tileCols; x++) {
-			var tileRows = game.tileArray[x].length;
+			var tileRows = this.tileArray[x].length;
 			for(var y=0; y < tileRows; y++) {
-				thisLine += game.tileArray.type+" ";
+				thisLine += this.tileArray.type+" ";
 			}
 			console.log(thisLine);
 			thisLine = '';
