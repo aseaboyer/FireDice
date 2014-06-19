@@ -247,7 +247,7 @@ var game = {
 	storeTiles: function(tileData) {
 		var i = 0;
 		var tileCols = tileData.length;
-		game.tileRef.length = 0;
+		game.tileRef = new Array();
 		
 		console.log("New Tiles:");
 		
