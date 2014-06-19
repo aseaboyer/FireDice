@@ -165,8 +165,8 @@ var game = {
 			hr.setRequestHeader("Content-type", "application/json", true);
 			hr.onreadystatechange = function() {
 				if(hr.readyState == 4 && hr.status == 200) {
-					var holdingData = JSON.parse( hr.response ); //store the level data
-					levelData = holdingData;
+					levelData = {}; // clear leveldata just to make sure nothing persists
+					levelData = JSON.parse( hr.response ); //store the level data
 					//console.log(levelData);
 					
 					game.storeTiles(holdingData.tiles); // Store this level's data
@@ -369,6 +369,8 @@ var game = {
 		b.fillText(str, (x + (w * .5)), y + (h * .5));// Draw the text
 	}
 };
+var levelData = {};
+/*
 var levelData = {
 	levelName: "Starting Town",
 	levelNum: 1,
@@ -450,7 +452,7 @@ var levelData = {
 			30: "new truck"
 		}
 	},
-};
+};*/
 
 
 /* Core */
