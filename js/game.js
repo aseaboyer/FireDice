@@ -229,6 +229,7 @@ var game = {
 		y: 576,
 	},
 	tileArray: new Array(),
+	tileRef: new Array(), // just points
 	logMap: function() { // debugging tool, dumps the road/house map to the console
 		var thisLine = '';
 		var i = 0;
@@ -257,11 +258,15 @@ var game = {
 				
 				// Should change the way the tile saves now as well
 				
-				var newTile = Tile(x, y, tileData[y][x].type,
+				var newTile = Tile(x, y, tileData[y][x].type, // @ASeaboyer!!! - there's still something funky going on here with the x/y vals...start flipping these y/x to x/y and test???
 					tileData[y][x].spriteX, tileData[y][x].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
+				
+				/* ********** Build the reference array ********** */
+				game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
+				
 				console.log(newTile);
 				i++;
 			}
