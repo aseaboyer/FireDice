@@ -165,8 +165,8 @@ var game = {
 			hr.setRequestHeader("Content-type", "application/json", true);
 			hr.onreadystatechange = function() {
 				if(hr.readyState == 4 && hr.status == 200) {
-					levelData = {}; // clear leveldata just to make sure nothing persists
-					levelData = JSON.parse( hr.response ); //store the level data
+					var holdingData = JSON.parse( hr.response ); //store the level data
+					levelData = holdingData;
 					//console.log(levelData);
 					
 					game.storeTiles(holdingData.tiles); // Store this level's data
