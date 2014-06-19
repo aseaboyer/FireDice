@@ -166,6 +166,7 @@ var game = {
 			hr.onreadystatechange = function() {
 				if(hr.readyState == 4 && hr.status == 200) {
 					var holdingData = JSON.parse( hr.response ); //store the level data
+					levelData = {};
 					levelData = holdingData;
 					//console.log(levelData);
 					
