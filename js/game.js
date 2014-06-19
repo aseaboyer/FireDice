@@ -247,6 +247,7 @@ var game = {
 	storeTiles: function(tileData) {
 		var i = 0;
 		var tileCols = tileData.length;
+		game.tileRef.length = 0;
 		
 		console.log("New Tiles:");
 		
@@ -264,11 +265,14 @@ var game = {
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
-				
 				/* ********** Build the reference array ********** */
+				console.log(newTile);
+				console.log(x);
+				console.log(y);
+				console.log(i);
+				
 				game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
 				
-				console.log(newTile);
 				i++;
 			}
 		}
