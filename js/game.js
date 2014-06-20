@@ -271,7 +271,7 @@ var game = {
 				console.log(y);
 				console.log(i);
 				
-				game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
+			//	game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
 				
 				i++;
 			}
