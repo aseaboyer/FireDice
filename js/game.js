@@ -251,10 +251,11 @@ var game = {
 		
 		console.log("New Tiles:");
 		
-		for(var x=0; x < tileCols; x++) {
-			var tileRows = tileData[x].length;
-			game.tileRef[x] = new Array();
-			for(var y=0; y < tileRows; y++) {
+		for(var y=0; y < tileCols; y++) {
+			var tileRows = tileData[y].length;
+			for(var x=0; x < tileRows; x++) {
+				if(y==0) { game.tileRef[x] = new Array(); }
+				
 				var isHouseStart = isTruckStart = false;
 				if(tileData[x][y].truckStart) { isTruckStart = true; }
 				if(tileData[x][y].houseStart) { isHouseStart = true; }
@@ -272,7 +273,7 @@ var game = {
 				console.log(y);
 				console.log(i);
 				
-			//	game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
+				game.tileRef[x][y] = i; // an easy way to find the tiles by x/y
 				
 				i++;
 			}
