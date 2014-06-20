@@ -251,17 +251,18 @@ var game = {
 		
 		console.log("New Tiles:");
 		
-		for(var y=0; y < tileCols; y++) {
-			var tileRows = tileData[y].length;
-			for(var x=0; x < tileRows; x++) {
+		for(var x=0; x < tileCols; x++) {
+			var tileRows = tileData[x].length;
+			game.tileRef[x] = new Array();
+			for(var y=0; y < tileRows; y++) {
 				var isHouseStart = isTruckStart = false;
-				if(tileData[y][x].truckStart) { isTruckStart = true; }
-				if(tileData[y][x].houseStart) { isHouseStart = true; }
+				if(tileData[x][y].truckStart) { isTruckStart = true; }
+				if(tileData[x][y].houseStart) { isHouseStart = true; }
 				
 				// Should change the way the tile saves now as well
 				
-				var newTile = Tile(x, y, tileData[y][x].type, // @ASeaboyer!!! - there's still something funky going on here with the x/y vals...start flipping these y/x to x/y and test???
-					tileData[y][x].spriteX, tileData[y][x].spriteY,
+				var newTile = Tile(x, y, tileData[x][y].type, // @ASeaboyer!!! - there's still something funky going on here with the x/y vals...start flipping these y/x to x/y and test???
+					tileData[x][y].spriteX, tileData[x][y].spriteY,
 					isTruckStart, isHouseStart,
 					game.tileSize.x, game.tileSize.y);
 				game.tileArray[i] = newTile;
