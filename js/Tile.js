@@ -21,7 +21,7 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
             } else if(this.type == 'r') {
                 board.fillStyle = "#909";
             }
-            board.fillRect(this.y, this.x, game.tileSize.x, game.tileSize.y);
+            board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 			//draw that image sprite
 		/*	board.drawImage(spriteTileImg,
 				this.spriteDX, this.spriteDY, // top corner loc of sub - this is the sub offset locs
