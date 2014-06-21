@@ -23,12 +23,12 @@ function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, 
             }
             board.fillRect(this.x, this.y, game.tileSize.x, game.tileSize.y);
 			//draw that image sprite
-		/*	board.drawImage(spriteTileImg,
+			board.drawImage(spriteTileImg,
 				this.spriteDX, this.spriteDY, // top corner loc of sub - this is the sub offset locs
 				game.tileSize.x, game.tileSize.y, // w/ of sub - needs to be full image size
 				this.x, this.y, // top corner on canvas
 				game.tileSize.x,game.tileSize.y); // width of canvas - the size of the sprite on the canvas
-				*/
+				
             if((game.cursor.x > this.x && game.cursor.x < (this.x + game.tileSize.x)) &&
                 (game.cursor.y > this.y && game.cursor.y < (this.y + game.tileSize.y))) {
                 //console.log("Rolled over a tile at: "+this.x+", "+this.y);
