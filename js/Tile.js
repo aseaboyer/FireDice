@@ -1,12 +1,12 @@
 function Tile(tileX, tileY, tileType, spriteX, spriteY, truckStart, houseStart, tileSizeX, tileSizeY) {
     return {
-        x: (tileX * tileSizeX),
-        y: (tileY * tileSizeY),
-        xNum: tileX, // Tiles should own their x/y location
-        yNum: tileY,
+        y: (tileX * tileSizeX),
+        x: (tileY * tileSizeY),
+        yNum: tileX, // Tiles should own their x/y location
+        xNum: tileY,
         type: tileType,
-        spriteDX: spriteX,
-        spriteDY: spriteY,
+        spriteDY: spriteX,
+        spriteDX: spriteY,
         spriteDW: (spriteX + game.tileSize.x), // pass the tile sizes through to this?
         spriteDH: (spriteY + game.tileSize.y),
         hasTruck: false,
