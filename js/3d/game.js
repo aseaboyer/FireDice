@@ -43,22 +43,10 @@ var game = {
 	},
 	mats: {
 		tileMats: {
-			inactive: new THREE.MeshLambertMaterial( { 
-				color: 0x669933, 
-				shading: THREE.FlatShading, 
-				overdraw: 0.5
-			} ),
-			active: new THREE.MeshLambertMaterial( { 
-				color: 0x336600, 
-				shading: THREE.FlatShading, 
-				overdraw: 0.5
-			} ),
+			inactive: new THREE.MeshBasicMaterial( { color: 0x669933, vertexColors: THREE.FaceColors, shading: THREE.FlatShading, overdraw: 0.5 } ),
+			active: new THREE.MeshBasicMaterial( { color: 0x336600, vertexColors: THREE.FaceColors, shading: THREE.FlatShading, overdraw: 0.5 } ),
 		},
-		road: new THREE.MeshLambertMaterial( { 
-			color: 0x666666, 
-			shading: THREE.FlatShading, 
-			overdraw: 0.5
-		} ),
+		road: new THREE.MeshBasicMaterial( { color: 0x666666, vertexColors: THREE.FaceColors } ),
 	},
 };
 var tiles = new Array();
@@ -113,7 +101,8 @@ function init() {
 		tiles.push(newTile); // Add the object to the tile Array
 	}
 
-	renderer = new THREE.CanvasRenderer();
+	//renderer = new THREE.CanvasRenderer();
+	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	renderer.setClearColor( 0xffffff, 1);
 	
